@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Super Greens Gummies — Limitless X</title>
+<script src="./version-switch.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@font-face{font-family:"Boldonse";src:url("./assets/Boldonse-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Poppins";src:url("./assets/fonts/Poppins-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Poppins";src:url("./assets/fonts/Poppins-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Poppins";src:url("./assets/fonts/Poppins-SemiBold.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Poppins";src:url("./assets/fonts/Poppins-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+body{margin:0;background:#fff;color:#0C1A11;font-family:Poppins,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#0B4A2A}
+a:hover{color:#C8281F}
+button{font-family:inherit}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){.lx-flav:hover .lx-tile{transform:translateY(-10px) scale(1.035);box-shadow:0 26px 40px -18px rgba(12,26,17,.45);background-position:50% 100%!important}.lx-flav:hover .lx-pimg{transform:scale(1.16) rotate(-3deg) translateY(-2%);filter:drop-shadow(0 30px 28px rgba(12,26,17,.4))!important}}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){.lx-lift{transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .55s cubic-bezier(.2,.7,.2,1),opacity .8s cubic-bezier(.2,.7,.2,1)!important}.lx-lift:hover{transform:translateY(-6px)!important;filter:drop-shadow(0 18px 20px rgba(12,26,17,.2))}.lx-zoom img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}.lx-lift:hover .lx-zoom img{transform:scale(1.07)}}
+#lx2-row::-webkit-scrollbar,#lx2-rev::-webkit-scrollbar{display:none}
+@keyframes lxborder{to{background-position:200% 0}}
+@keyframes lxsweep{0%{transform:translateX(-160%) skewX(-18deg)}55%,100%{transform:translateX(430%) skewX(-18deg)}}
+@keyframes lxtw{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:.95;transform:scale(1.05)}}
+@keyframes lxspin{0%{opacity:0;transform:scale(0) rotate(0deg)}30%{opacity:.95;transform:scale(1) rotate(70deg)}70%{opacity:.75;transform:scale(.85) rotate(160deg)}100%{opacity:0;transform:scale(0) rotate(240deg)}}
+@keyframes lxring{from{stroke-dashoffset:69.115}to{stroke-dashoffset:0}}
+@keyframes lxtwk{0%{opacity:0;transform:scale(0) rotate(0deg)}25%{opacity:.95;transform:scale(1) rotate(50deg)}100%{opacity:0;transform:scale(.3) rotate(150deg)}}
+@keyframes lxmq{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media (prefers-reduced-motion: reduce){[style*='animation']{animation:none !important}}
+</style>
+</helmet>
+
+<div data-screen-label="Super Greens Landing — V2 Clean" style="min-height:100vh;background:#fff;color:var(--ink,#0C1A11);padding-bottom:0">
+
+  <!-- 01 ANNOUNCEMENT BAR -->
+  <div data-section="announcement-bar" style="background:var(--for,#0B4A2A);color:#fff;padding:11px 16px;display:flex;justify-content:center;flex-wrap:wrap;gap:6px 26px;font-family:Poppins,sans-serif;font-weight:600;font-size:12px;line-height:1.3;letter-spacing:.1em;text-transform:uppercase;text-align:center">
+    <span>Free shipping on orders $70+</span><span style="color:var(--yel,#F4DC2A)">Subscribe &amp; save 15%</span><span>60-day satisfaction guarantee</span>
+  </div>
+
+  <header style="background:#FBF3D6;position:sticky;top:0;z-index:40">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(18px,2.2vw,28px) 20px clamp(18px,2.2vw,28px);display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <img src="assets/logo-limitlessx.svg" alt="Limitless X" style="height:31px;width:auto;display:block">
+      <span style="display:flex;align-items:center;background:rgba(11,74,42,.10);border-radius:999px;padding:5px"><button onClick="{{ openQuiz }}" data-track="QuizStart" style="border:0;background:var(--yel,#F4DC2A);color:var(--ink,#0C1A11);border-radius:999px;padding:0 20px;min-height:44px;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;cursor:pointer" style-hover="background:var(--ink,#0C1A11);color:#fff">Unlock my offer</button></span>
+    </div>
+  </header>
+
+  <!-- 02 HERO / PRODUCT / OFFER -->
+  <section id="offer" data-section="hero" style="background:#FBF3D6;padding:4px 20px clamp(40px,5vw,64px)">
+    <div style="max-width:1240px;margin:0 auto"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:clamp(24px,3vw,40px);align-items:stretch">
+      <div id="lx-slider" onPointerDown="{{ swDown }}" onPointerUp="{{ swUp }}" onMouseEnter="{{ swEnter }}" onMouseLeave="{{ swLeave }}" style="position:sticky;top:84px;align-self:start;height:min(750px,120vw);border-radius:32px;overflow:hidden;background:var(--yel,#F4DC2A);touch-action:pan-y;user-select:none">
+        <div style="{{ trackStyle }}"><sc-for list="{{ gallery }}" as="g" hint-placeholder-count="7"><div role="img" aria-label="{{ g.alt }}" style="{{ g.slideStyle }}"><sc-if value="{{ g.isFacts }}"><div style="--u:min(1cqw,.75cqh);width:min(94cqw,640px);margin:auto;background:#fff;border-radius:calc(var(--u)*4);padding:calc(var(--u)*5) calc(var(--u)*5) calc(var(--u)*4.4);box-shadow:0 24px 50px -20px rgba(12,26,17,.45);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#000;"><h3 style="margin:0;font-size:clamp(30px,calc(var(--u)*8.6),54px);line-height:1;font-weight:900;letter-spacing:-.015em;text-transform:uppercase">Supplement Facts</h3><p style="margin:calc(var(--u)*1.8) 0 calc(var(--u)*1.8);font-size:clamp(13.5px,calc(var(--u)*3),18px);line-height:1.35;font-weight:700">2 gummies per serving – 30 servings per pouch<br>60 gummies per pouch</p><div style="height:calc(var(--u)*1.3);background:#000"></div><div style="display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr) minmax(0,.85fr);align-items:baseline;padding:calc(var(--u)*1) 0 calc(var(--u)*.8);font-weight:800;font-size:clamp(12px,calc(var(--u)*2.7),16px)"><span></span><span style="text-align:right">Amount Per Serving</span><span style="text-align:right">% Daily Value**</span></div><div style="display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr) minmax(0,.85fr);align-items:baseline;border-top:calc(var(--u)*.7) solid #000;padding:calc(var(--u)*.9) 0"><span style="font-weight:800;font-size:clamp(15px,calc(var(--u)*3.7),21px)">Calories</span><span style="text-align:right;font-weight:500;font-size:clamp(15px,calc(var(--u)*3.7),21px)">16kcal</span><span style="text-align:right;font-weight:500;font-size:clamp(15px,calc(var(--u)*3.7),21px)">0%</span></div><div style="display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr) minmax(0,.85fr);align-items:baseline;border-top:1px solid #000;padding:calc(var(--u)*.9) 0"><span style="font-weight:800;font-size:clamp(15px,calc(var(--u)*3.7),21px)">Total Carbohydrate</span><span style="text-align:right;font-weight:500;font-size:clamp(15px,calc(var(--u)*3.7),21px)">4g</span><span style="text-align:right;font-weight:500;font-size:clamp(15px,calc(var(--u)*3.7),21px)">2%</span></div><div style="display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr) minmax(0,.85fr);align-items:baseline;border-top:1px solid #000;padding:calc(var(--u)*.9) 0"><span style="font-weight:800;font-size:clamp(15px,calc(var(--u)*3.7),21px)">Total Sugars</span><span style="text-align:right;font-weight:500;font-size:clamp(15px,calc(var(--u)*3.7),21px)">0g</span><span style="text-align:right;font-weight:500;font-size:clamp(15px,calc(var(--u)*3.7),21px)">0%</span></div><div style="border-top:1px solid #000;padding:calc(var(--u)*1) 0 calc(var(--u)*1.4)"><div style="display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr) minmax(0,.85fr);align-items:baseline"><span style="font-weight:800;font-size:clamp(15px,calc(var(--u)*3.7),21px)">Super Greens Blend</span><span style="text-align:right;font-weight:500;font-size:clamp(15px,calc(var(--u)*3.7),21px)">2g</span><span style="text-align:right;font-weight:500;font-size:clamp(15px,calc(var(--u)*3.7),21px)">0%</span></div><p style="margin:calc(var(--u)*1) 0 0;font-weight:500;line-height:1.5;font-size:clamp(11.5px,calc(var(--u)*2.35),14px)">(Organic Alfalfa, Organic Kale, Organic Parsley, Organic Spinach, Organic Broccoli, Organic Carrot, Organic Spirulina, Organic Wheatgrass, Organic Chlorella, Organic Astragalus, Organic Barley Grass)</p></div><div style="border-top:1px solid #000;padding:calc(var(--u)*1) 0 calc(var(--u)*1.4)"><div style="display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr) minmax(0,.85fr);align-items:baseline"><span style="font-weight:800;font-size:clamp(15px,calc(var(--u)*3.7),21px)">Super Reds Blend</span><span style="text-align:right;font-weight:500;font-size:clamp(15px,calc(var(--u)*3.7),21px)">1g</span><span style="text-align:right;font-weight:500;font-size:clamp(15px,calc(var(--u)*3.7),21px)">0%</span></div><p style="margin:calc(var(--u)*1) 0 0;font-weight:500;line-height:1.5;font-size:clamp(11.5px,calc(var(--u)*2.35),14px)">(Organic Beet, Organic Carrot, Organic Tomato, Organic Strawberry, Organic Cranberry, Organic Goji Berry, Organic Pomegranate, Organic Raspberry, Organic Apple, Organic Tart Cherry)</p></div><div style="border-top:1px solid #000;padding:calc(var(--u)*1) 0 calc(var(--u)*1.4)"><div style="display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr) minmax(0,.85fr);align-items:baseline"><span style="font-weight:800;font-size:clamp(15px,calc(var(--u)*3.7),21px)">Super Gut Blend</span><span style="text-align:right;font-weight:500;font-size:clamp(15px,calc(var(--u)*3.7),21px)">500mg</span><span style="text-align:right;font-weight:500;font-size:clamp(15px,calc(var(--u)*3.7),21px)">0%</span></div><p style="margin:calc(var(--u)*1) 0 0;font-weight:500;line-height:1.5;font-size:clamp(11.5px,calc(var(--u)*2.35),14px)">Organic Pineapple, Organic Ginger, Organic Amla, Organic Aloe Vera, Organic Prune, Organic Peppermint, Natural Digestive Enzymes (Papain, Bromelain, Amylase, Lactase, Lipase)</p></div><div style="height:calc(var(--u)*1.3);background:#000"></div><p style="margin:calc(var(--u)*1.6) 0 0;font-size:clamp(12px,calc(var(--u)*2.6),15px);line-height:1.45;font-weight:500">**The % Daily Value (DV) based on the reference caloric intake of 2,000 calories for adults.</p><p style="margin:calc(var(--u)*.6) 0 0;font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:clamp(12.5px,calc(var(--u)*2.8),16px)">†Daily Value not established.</p></div></sc-if></div></sc-for></div>
+        <sc-if value="{{ notFacts }}"><div style="position:absolute;top:16px;left:16px;display:flex;flex-direction:column;gap:6px;z-index:2">
+          <span style="background:var(--for,#0B4A2A);color:#fff;border-radius:999px;padding:8px 13px;font-family:Poppins,sans-serif;font-weight:700;font-size:11px;line-height:1;letter-spacing:.08em">0G SUGAR</span>
+          <span style="background:#fff;color:var(--ink,#0C1A11);border-radius:999px;padding:8px 13px;font-family:Poppins,sans-serif;font-weight:700;font-size:11px;line-height:1;letter-spacing:.08em">16 CALORIES</span>
+        </div></sc-if>
+        <div style="position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;z-index:2"><div style="display:flex;align-items:center;gap:2px;background:rgba(12,26,17,.4);border-radius:999px;padding:5px 8px"><sc-for list="{{ gallery }}" as="d" hint-placeholder-count="7"><button onClick="{{ d.pick }}" aria-label="Show image" style="{{ d.dotBtn }}"><span style="{{ d.dotCore }}"></span><sc-if value="{{ d.active }}"><svg viewBox="0 0 28 28" width="28" height="28" aria-hidden="true" style="position:absolute;left:0;top:0;transform:rotate(-90deg)"><circle cx="14" cy="14" r="11" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2.5"></circle><circle cx="14" cy="14" r="11" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="69.115" style="{{ ringStyle }}" onAnimationEnd="{{ ringEnd }}"></circle></svg></sc-if></button></sc-for></div></div>
+      </div>
+
+      <div id="lx-panel" style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <a href="#reviews" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink,#0C1A11);font-family:Poppins,sans-serif;font-weight:500;font-size:14px;line-height:1">
+            <span style="color:#E0A800;font-size:18px;letter-spacing:1px">★★★★★</span><span><strong>5.0</strong> · 210 reviews</span>
+          </a>
+          <sc-if value="{{ isHeroProduct }}" hint-placeholder-val="{{ true }}"><h1 style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.20vw,44px);line-height:1.38;margin:0;color:var(--ink,#0C1A11)">Your daily greens.<br><span style="color:var(--for,#0B4A2A)">Made ridiculously easy.</span></h1></sc-if>
+          <sc-if value="{{ isHeroBenefit }}"><h1 style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.20vw,44px);line-height:1.38;margin:0;color:var(--ink,#0C1A11)">Greens, reds &amp; gut support<br><span style="color:var(--for,#0B4A2A)">in 2 gummies a day.</span></h1></sc-if>
+          <sc-if value="{{ isHeroOffer }}"><h1 style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.20vw,44px);line-height:1.38;margin:0;color:var(--ink,#0C1A11)">Save up to {{ maxSavePct }}%<br><span style="color:var(--for,#0B4A2A)">on your daily greens.</span></h1></sc-if>
+          <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1.3;letter-spacing:.14em;color:var(--for,#0B4A2A);text-transform:uppercase">Limitless X · SuperFoods Super Greens Gummies</div>
+          <p style="margin:0;font-family:Poppins,sans-serif;font-size:15.5px;line-height:1.6;color:#2B3A31;text-wrap:pretty">Support your everyday nutrition with a convenient, great-tasting gummy designed to make getting your greens easier. No powders, no mixing, no shaker bottle.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="border:1.5px solid rgba(12,26,17,.2);border-radius:999px;padding:8px 13px;font-family:Poppins,sans-serif;font-weight:600;font-size:12.5px;line-height:1;background:#fff">Organic greens + reds + gut enzymes</span><span style="border:1.5px solid rgba(12,26,17,.2);border-radius:999px;padding:8px 13px;font-family:Poppins,sans-serif;font-weight:600;font-size:12.5px;line-height:1;background:#fff">2 gummies a day</span><span style="border:1.5px solid rgba(12,26,17,.2);border-radius:999px;padding:8px 13px;font-family:Poppins,sans-serif;font-weight:600;font-size:12.5px;line-height:1;background:#fff">30 servings per pouch</span>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:13px;line-height:1">Flavor: <span style="font-weight:500">Apple Cinnamon</span></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <span style="border:2px solid var(--for,#0B4A2A);background:#E9F4CC;border-radius:14px;padding:10px 14px;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;min-height:44px;display:flex;align-items:center">Apple Cinnamon</span>
+            <span style="border:2px dashed #CFCBBB;color:#6B746D;border-radius:14px;padding:10px 14px;font-family:Poppins,sans-serif;font-weight:500;font-size:13px;min-height:44px;display:flex;align-items:center">Watermelon · soon</span>
+            <span style="border:2px dashed #CFCBBB;color:#6B746D;border-radius:14px;padding:10px 14px;font-family:Poppins,sans-serif;font-weight:500;font-size:13px;min-height:44px;display:flex;align-items:center">Mixed Berry · soon</span>
+            <span style="border:2px dashed #CFCBBB;color:#6B746D;border-radius:14px;padding:10px 14px;font-family:Poppins,sans-serif;font-weight:500;font-size:13px;min-height:44px;display:flex;align-items:center">+2 more soon</span>
+          </div>
+        </div>
+
+        <div data-module="offer-selector" style="display:flex;flex-direction:column;gap:12px">
+          <div onClick="{{ pickSub }}" data-track="SelectSubscription" style="{{ subCardStyle }}">
+            <div style="display:flex;align-items:center;gap:10px;justify-content:space-between;flex-wrap:wrap">
+              <div style="display:flex;align-items:center;gap:10px"><span style="{{ subDotStyle }}"></span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:15px;line-height:1.2">Subscribe &amp; Save 15%</span></div>
+              <span style="background:var(--red,#C8281F);color:#fff;border-radius:6px;padding:6px 9px;font-family:Poppins,sans-serif;font-weight:700;font-size:11px;line-height:1;letter-spacing:.06em">BEST VALUE</span>
+            </div>
+            <div style="display:flex;gap:8px">
+              <sc-for list="{{ subOpts }}" as="o" hint-placeholder-count="3">
+                <button onClick="{{ o.pick }}" data-track="SelectBundle" style="{{ o.chipStyle }}"><span>{{ o.label }}</span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:11px;line-height:1;color:var(--for,#0B4A2A)">{{ o.saveLabel }}</span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:10px;line-height:1;color:var(--red,#C8281F)">{{ o.tag }}</span></button>
+              </sc-for>
+            </div>
+            <div style="font-family:Poppins,sans-serif;font-size:12px;line-height:1.45;color:#3F4A42">Delivered every {{ cadence }}. Skip, pause or cancel anytime from your account.</div>
+          </div>
+          <div onClick="{{ pickOnce }}" style="{{ onceCardStyle }}">
+            <div style="display:flex;align-items:center;gap:10px"><span style="{{ onceDotStyle }}"></span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:15px;line-height:1.2">One-time purchase</span></div>
+            <sc-if value="{{ isOnce }}">
+              <div style="display:flex;gap:8px">
+                <sc-for list="{{ onceOpts }}" as="o" hint-placeholder-count="4">
+                  <button onClick="{{ o.pick }}" data-track="SelectBundle" style="{{ o.chipStyle }}"><span>{{ o.label }}</span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:11px;line-height:1;color:var(--for,#0B4A2A)">{{ o.saveLabel }}</span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:10px;line-height:1;color:var(--red,#C8281F)">{{ o.tag }}</span></button>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:4px 2px 0">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap">
+              <span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(24px,3vw,34px);line-height:1.2">{{ price.total }}</span>
+              <sc-if value="{{ price.hasSavings }}"><s style="font-family:Poppins,sans-serif;font-weight:500;font-size:17px;line-height:1;color:#7A847D">{{ price.retail }}</s></sc-if>
+              <sc-if value="{{ price.hasSavings }}"><span style="background:#FBE4DF;color:#A82019;border-radius:6px;padding:7px 9px;font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1">SAVE {{ price.save }} ({{ price.savePct }}%)</span></sc-if>
+            </div>
+            <span style="font-family:Poppins,sans-serif;font-weight:500;font-size:13px;line-height:1;color:#3F4A42">{{ price.perDay }} per day</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:8px;background:#fff;border-radius:16px;padding:14px 16px">
+            <sc-for list="{{ price.perks }}" as="k" hint-placeholder-count="2"><div style="{{ k.style }}"><span style="width:18px;text-align:center">{{ k.icon }}</span><span>{{ k.text }}</span></div></sc-for>
+          </div>
+
+          <a href="{{ cartHref }}" onClick="{{ onAddToCart }}" data-track="AddToCart" style="display:flex;align-items:center;justify-content:center;min-height:60px;padding:12px 28px;border-radius:999px;background:var(--for,#0B4A2A);color:#fff;text-decoration:none;border:0;cursor:pointer;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(12px,1.2vw,15px);line-height:1.4;text-align:center" style-hover="background:var(--ink,#0C1A11)">{{ cta }} →</a>
+
+          <sc-if value="{{ isSub }}">
+            <p data-compliance="subscription-disclosure" style="margin:0;font-family:Poppins,sans-serif;font-size:11.5px;line-height:1.5;color:#3F4A42">By subscribing you agree to be charged {{ price.total }} (plus applicable tax/shipping) every {{ cadence }} until you cancel. You can skip, pause or cancel anytime from your account. Subscription price reflects 15% off the regular price.</p>
+          </sc-if>
+          <div style="display:flex;justify-content:center;gap:6px 18px;flex-wrap:wrap;font-family:Poppins,sans-serif;font-weight:600;font-size:12px;line-height:1.3;color:#3F4A42"><span>✓ Shop Pay · Apple Pay · Google Pay</span><span>✓ 60-day guarantee</span></div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- 03 SOCIAL PROOF STRIP -->
+  <section data-section="social-proof" style="background:var(--for,#0B4A2A);padding:28px 20px">
+    <div style="max-width:1100px;margin:0 auto"><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px 0"><div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center;padding:6px 12px"><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(18px,2.2vw,26px);line-height:1.3;color:var(--yel,#F4DC2A)">5.0 ★</span><span style="font-family:Poppins,sans-serif;font-weight:500;font-size:13px;line-height:1.35;color:#E9F0EA">Average from 210 reviews</span></div><div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center;padding:6px 12px"><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(18px,2.2vw,26px);line-height:1.3;color:var(--yel,#F4DC2A)">60 days</span><span style="font-family:Poppins,sans-serif;font-weight:500;font-size:13px;line-height:1.35;color:#E9F0EA">Satisfaction guarantee</span></div><div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center;padding:6px 12px"><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(18px,2.2vw,26px);line-height:1.3;color:var(--yel,#F4DC2A)">GMP</span><span style="font-family:Poppins,sans-serif;font-weight:500;font-size:13px;line-height:1.35;color:#E9F0EA">Certified, third-party tested facility</span></div><div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center;padding:6px 12px"><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(18px,2.2vw,26px);line-height:1.3;color:var(--yel,#F4DC2A)">Made in USA</span><span style="font-family:Poppins,sans-serif;font-weight:500;font-size:13px;line-height:1.35;color:#E9F0EA">Non-GMO · Sugar free · Gluten free</span></div></div></div>
+  </section>
+
+  <!-- QUIZ ENTRY BANNER -->
+  <section data-section="quiz-banner" style="position:relative;z-index:3;background:#FBF3D6;padding:0">
+    <div style="background:linear-gradient(100deg,#F28A2E 0%,#F5A03A 10%,#2B6FE0 30%,#1E4FB8 40%,#2FA86A 58%,#7CC63A 70%,#F2D22E 84%,#F5A03A 94%,#F28A2E 100%);background-size:200% 100%;animation:lxborder 22s linear infinite;padding:clamp(20px,2.8vw,36px)">
+      <div style="position:relative">
+        <div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden;background:linear-gradient(105deg,#020F08 0%,#04210F 30%,#0B4A2A 62%,#3F8F4C 100%)">
+          <div style="position:absolute;right:8%;top:-30%;width:60%;height:170%;background:radial-gradient(ellipse at center, rgba(255,214,110,.32) 0%, rgba(166,214,46,.16) 38%, transparent 68%)"></div>
+          <div style="position:absolute;left:38%;right:-6%;bottom:0;height:34%;background:linear-gradient(180deg,rgba(2,15,8,0) 0%,rgba(2,15,8,.55) 100%);clip-path:polygon(14% 0,100% 0,100% 100%,0 100%)"></div>
+          <div style="position:absolute;left:0;right:0;bottom:-3%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 50%);mask-image:linear-gradient(90deg,transparent 0%,#000 50%)"><div style="display:flex;width:max-content;white-space:nowrap;animation:lxmq 46s linear infinite"><span style="font-family:Boldonse,Poppins,sans-serif;text-transform:uppercase;font-size:clamp(70px,13vw,210px);line-height:1.6;color:transparent;-webkit-text-stroke:1.5px rgba(242,201,76,.2);padding:.12em .5em .05em 0">Super Greens Blend</span><span style="font-family:Boldonse,Poppins,sans-serif;text-transform:uppercase;font-size:clamp(70px,13vw,210px);line-height:1.6;color:transparent;-webkit-text-stroke:1.5px rgba(242,201,76,.2);padding:.12em .5em .05em 0">Super Greens Blend</span></div></div>
+        </div>
+        <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));align-items:center;max-width:1440px;margin:0 auto;padding:clamp(32px,5vw,72px) clamp(20px,5vw,80px)">
+          <div style="position:relative;z-index:5;display:flex;flex-direction:column;gap:18px;align-items:flex-start;max-width:560px">
+            <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#F2C94C">30-second wellness quiz</span>
+            <h2 style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(28px,4.22vw,59px);line-height:1.34;margin:0;color:#fff;text-wrap:balance">Unlock your<br><span style="background:linear-gradient(180deg,#FFF0B8 0%,#F2C94C 55%,#D9A01E 100%);-webkit-background-clip:text;background-clip:text;color:transparent">Limitless offer</span></h2>
+            <p style="margin:0;font-family:Poppins,sans-serif;font-weight:500;font-size:clamp(15px,1.3vw,18px);line-height:1.6;color:#E6F0E8">Up to {{ maxSavePct }}% off + free shipping + free gifts on qualifying orders.</p>
+            <span style="display:inline-block;padding:3px;border-radius:999px;background:linear-gradient(90deg,#F7E3A0,#E6B72E,#C2461F,#FFE27A,#E6B72E,#F7E3A0);background-size:200% 100%;animation:lxborder 3.6s linear infinite;box-shadow:0 8px 26px rgba(242,201,76,.3)"><button onClick="{{ openQuiz }}" data-track="QuizStart" style="position:relative;overflow:hidden;border:0;cursor:pointer;min-height:54px;padding:0 30px;border-radius:999px;background:linear-gradient(180deg,#FFF0B8 0%,#F2C94C 55%,#D9A01E 100%);color:#1A1405;font-family:Poppins,sans-serif;font-weight:700;font-size:15px" style-hover="filter:brightness(1.08)" style-active="transform:translateY(2px)"><span style="position:relative;z-index:1">Unlock my offer</span><span aria-hidden="true" style="position:absolute;top:0;bottom:0;left:0;width:38%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.85),rgba(255,255,255,0));transform:translateX(-160%) skewX(-18deg);animation:lxsweep 2.8s ease-in-out infinite"></span></button></span>
+            <div style="display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:600;font-size:12px;letter-spacing:.2em;color:#9ED08F">TOP RATED <span style="color:#F2C94C;font-size:18px;letter-spacing:3px">★★★★★</span></div>
+          </div>
+          <div style="position:relative;height:clamp(320px,38vw,540px)">
+            <img src="assets/x-use-this.png" alt="Super Greens Gummies pouch" loading="lazy" style="position:absolute;left:4%;top:-16%;height:118%;width:auto;transform:rotate(-7deg);filter:drop-shadow(0 0 34px rgba(255,205,80,.4)) drop-shadow(0 34px 34px rgba(0,0,0,.55));z-index:2">
+            <img src="assets/x-use-this.png" alt="" loading="lazy" style="position:absolute;right:6%;bottom:-16%;height:80%;width:auto;transform:rotate(9deg);filter:drop-shadow(0 0 30px rgba(255,205,80,.35)) drop-shadow(0 30px 30px rgba(0,0,0,.55));z-index:3">
+            <img src="assets/g03.png" alt="" style="position:absolute;left:-4%;bottom:6%;width:clamp(56px,7vw,110px);height:auto;transform:rotate(-16deg);filter:drop-shadow(0 0 16px rgba(255,205,80,.55)) drop-shadow(0 12px 14px rgba(0,0,0,.45));z-index:3"><img src="assets/g06.png" alt="" style="position:absolute;left:44%;top:-4%;width:clamp(44px,5.5vw,86px);height:auto;transform:rotate(20deg);filter:drop-shadow(0 0 16px rgba(255,205,80,.55)) drop-shadow(0 12px 14px rgba(0,0,0,.45));z-index:3"><img src="assets/g08.png" alt="" style="position:absolute;right:26%;bottom:-2%;width:clamp(40px,5vw,78px);height:auto;transform:rotate(-8deg);filter:drop-shadow(0 0 16px rgba(255,205,80,.55)) drop-shadow(0 12px 14px rgba(0,0,0,.45));z-index:3">
+            <div id="lx-sparks" aria-hidden="true" style="position:absolute;inset:-6% -4% -6% -4%;pointer-events:none;z-index:6"></div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 WHY SUPER GREENS -->
+  <section data-section="why-super-greens" style="background:var(--for,#0B4A2A);color:#fff;padding:clamp(56px,8vw,104px) 20px;">
+    <div style="max-width:1240px;margin:0 auto"><div style="display:flex;flex-direction:column;gap:22px;align-items:center">
+      <span data-rv style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1;letter-spacing:.18em;text-transform:uppercase;color:var(--lim,#A6D62E)">Why Super Greens?</span>
+      <h2 data-rv style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.84vw,51px);line-height:1.38;margin:0;color:var(--yel,#F4DC2A);text-align:center;max-width:900px;text-wrap:balance">Your daily greens. Without the daily hassle.</h2>
+      <p data-rv style="font-family:Poppins,sans-serif;margin:0;font-size:16px;line-height:1.65;color:#E9F0EA;text-align:center;max-width:600px;text-wrap:pretty">Most of us know we should eat more greens. Actually doing it every day is the hard part. Super Greens Gummies pack organic greens, antioxidant-rich reds and gut-supporting enzymes into two gummies you'll look forward to.*</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px;width:100%;margin-top:14px">
+        <div class="lx-lift" data-rv style="background:#fff;border-radius:28px;overflow:hidden;color:var(--ink,#0C1A11);display:flex;flex-direction:column"><div class="lx-zoom" style="aspect-ratio:4/3;overflow:hidden"><img src="assets/x-10.png" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div><div style="padding:22px 22px 26px;display:flex;flex-direction:column;gap:8px"><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(20px,2.4vw,30px);line-height:1.3;color:var(--for,#0B4A2A)">3</span><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:15px;line-height:1.4">Superfood blends per serving</span></div></div><div class="lx-lift" data-rv style="background:#fff;border-radius:28px;overflow:hidden;color:var(--ink,#0C1A11);display:flex;flex-direction:column"><div class="lx-zoom" style="aspect-ratio:4/3;overflow:hidden"><img src="assets/x-08.png" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div><div style="padding:22px 22px 26px;display:flex;flex-direction:column;gap:8px"><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(20px,2.4vw,30px);line-height:1.3;color:var(--for,#0B4A2A)">3.5g</span><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:15px;line-height:1.4">Combined blend per serving</span></div></div><div class="lx-lift" data-rv style="background:#fff;border-radius:28px;overflow:hidden;color:var(--ink,#0C1A11);display:flex;flex-direction:column"><div class="lx-zoom" style="aspect-ratio:4/3;overflow:hidden"><img src="assets/x-12.png" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div><div style="padding:22px 22px 26px;display:flex;flex-direction:column;gap:8px"><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(20px,2.4vw,30px);line-height:1.3;color:var(--for,#0B4A2A)">0g</span><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:15px;line-height:1.4">Sugar, 16 calories</span></div></div>
+      </div></div></div>
+  </section>
+
+  <!-- FIND YOUR FLAVOR -->
+  <section data-section="flavors" style="background:#FBF3D6;padding:clamp(16px,3vw,40px) 20px clamp(56px,7vw,96px)">
+    <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:clamp(24px,3vw,40px)">
+      <h2 data-rv style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(28px,4.35vw,59px);line-height:1.34;margin:0;color:var(--for,#0B4A2A);text-align:center">Find your flavor</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:clamp(14px,2vw,28px);width:100%">
+      <div class="lx-flav" data-rv style="display:flex;flex-direction:column;gap:12px;">
+        <div class="lx-tile" style="position:relative;aspect-ratio:1/1;border-radius:28px;background:linear-gradient(180deg,#F6DC2E 0%,#B9CF2E 48%,#0E5A32 100%);background-size:100% 150%;background-position:50% 0%;transition:transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .7s cubic-bezier(.2,.7,.2,1),background-position .9s cubic-bezier(.2,.7,.2,1);will-change:transform;display:flex;align-items:center;justify-content:center;overflow:hidden">
+          <img class="lx-pimg" src="assets/pouch-apple-cinnamon.png" alt="Apple Cinnamon pouch" loading="lazy" style="height:78%;width:auto;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .8s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 18px 20px rgba(12,26,17,.3))">
+        </div>
+        <div style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(13px,1.3vw,16px);line-height:1.4;color:var(--ink,#0C1A11)">Apple Cinnamon</div>
+        <div style="font-family:Poppins,sans-serif;font-weight:500;font-size:15px;line-height:1.3;color:var(--ink,#0C1A11)">Starts at <strong>{{ startPrice }}</strong> <s style="opacity:.55">{{ unitPrice }}</s></div>
+        <a href="{{ cartHref }}" onClick="{{ onAddToCart }}" data-track="AddToCart" style="display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:999px;background:var(--for,#0B4A2A);color:#fff;text-decoration:none;font-family:Poppins,sans-serif;font-weight:700;font-size:15px" style-hover="background:var(--ink,#0C1A11)">Add to Cart</a>
+        <a href="#offer" style="text-align:center;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;color:var(--ink,#0C1A11);text-decoration:underline">Learn More</a>
+      </div>
+      <div class="lx-flav" data-rv style="display:flex;flex-direction:column;gap:12px;opacity:.92">
+        <div class="lx-tile" style="position:relative;aspect-ratio:1/1;border-radius:28px;background:linear-gradient(180deg,#F7838C 0%,#F4A3A0 55%,#FBD9A8 100%);background-size:100% 150%;background-position:50% 0%;transition:transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .7s cubic-bezier(.2,.7,.2,1),background-position .9s cubic-bezier(.2,.7,.2,1);will-change:transform;display:flex;align-items:center;justify-content:center;overflow:hidden">
+          <img class="lx-pimg" src="assets/pouch-watermelon.png" alt="Watermelon pouch" loading="lazy" style="height:78%;width:auto;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .8s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 18px 20px rgba(12,26,17,.3)) saturate(.95)">
+        </div>
+        <div style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(13px,1.3vw,16px);line-height:1.4;color:var(--ink,#0C1A11)">Watermelon</div>
+        <div style="font-family:Poppins,sans-serif;font-weight:500;font-size:15px;line-height:1.3;color:#5A665E">Price announced at launch</div>
+        <span aria-disabled="true" style="display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:999px;border:1.5px solid rgba(12,26,17,.12);color:#8A948D;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;letter-spacing:.02em">Coming soon</span>
+      </div>
+      <div class="lx-flav" data-rv style="display:flex;flex-direction:column;gap:12px;opacity:.92">
+        <div class="lx-tile" style="position:relative;aspect-ratio:1/1;border-radius:28px;background:linear-gradient(180deg,#F5A32B 0%,#F7C948 55%,#F9E79A 100%);background-size:100% 150%;background-position:50% 0%;transition:transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .7s cubic-bezier(.2,.7,.2,1),background-position .9s cubic-bezier(.2,.7,.2,1);will-change:transform;display:flex;align-items:center;justify-content:center;overflow:hidden">
+          <img class="lx-pimg" src="assets/pouch-citrus.png" alt="Citrus Blaze pouch" loading="lazy" style="height:78%;width:auto;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .8s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 18px 20px rgba(12,26,17,.3)) saturate(.95)">
+        </div>
+        <div style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(13px,1.3vw,16px);line-height:1.4;color:var(--ink,#0C1A11)">Citrus Blaze</div>
+        <div style="font-family:Poppins,sans-serif;font-weight:500;font-size:15px;line-height:1.3;color:#5A665E">Price announced at launch</div>
+        <span aria-disabled="true" style="display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:999px;border:1.5px solid rgba(12,26,17,.12);color:#8A948D;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;letter-spacing:.02em">Coming soon</span>
+      </div>
+      <div class="lx-flav" data-rv style="display:flex;flex-direction:column;gap:12px;opacity:.92">
+        <div class="lx-tile" style="position:relative;aspect-ratio:1/1;border-radius:28px;background:linear-gradient(180deg,#A0176A 0%,#7A2A7E 45%,#C7D63A 100%);background-size:100% 150%;background-position:50% 0%;transition:transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .7s cubic-bezier(.2,.7,.2,1),background-position .9s cubic-bezier(.2,.7,.2,1);will-change:transform;display:flex;align-items:center;justify-content:center;overflow:hidden">
+          <img class="lx-pimg" src="assets/pouch-mixed-berry.png" alt="Mixed Berry pouch" loading="lazy" style="height:78%;width:auto;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .8s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 18px 20px rgba(12,26,17,.3)) saturate(.95)">
+        </div>
+        <div style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(13px,1.3vw,16px);line-height:1.4;color:var(--ink,#0C1A11)">Mixed Berry</div>
+        <div style="font-family:Poppins,sans-serif;font-weight:500;font-size:15px;line-height:1.3;color:#5A665E">Price announced at launch</div>
+        <span aria-disabled="true" style="display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:999px;border:1.5px solid rgba(12,26,17,.12);color:#8A948D;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;letter-spacing:.02em">Coming soon</span>
+      </div>
+      <div class="lx-flav" data-rv style="display:flex;flex-direction:column;gap:12px;opacity:.92">
+        <div class="lx-tile" style="position:relative;aspect-ratio:1/1;border-radius:28px;background:linear-gradient(180deg,#F2A516 0%,#F6C43A 50%,#E3E97E 100%);background-size:100% 150%;background-position:50% 0%;transition:transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .7s cubic-bezier(.2,.7,.2,1),background-position .9s cubic-bezier(.2,.7,.2,1);will-change:transform;display:flex;align-items:center;justify-content:center;overflow:hidden">
+          <img class="lx-pimg" src="assets/pouch-mango.png" alt="Tropical Mango pouch" loading="lazy" style="height:78%;width:auto;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .8s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 18px 20px rgba(12,26,17,.3)) saturate(.95)">
+        </div>
+        <div style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(13px,1.3vw,16px);line-height:1.4;color:var(--ink,#0C1A11)">Tropical Mango</div>
+        <div style="font-family:Poppins,sans-serif;font-weight:500;font-size:15px;line-height:1.3;color:#5A665E">Price announced at launch</div>
+        <span aria-disabled="true" style="display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:999px;border:1.5px solid rgba(12,26,17,.12);color:#8A948D;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;letter-spacing:.02em">Coming soon</span>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 BENEFITS -->
+  <section data-section="benefits" style="background:#fff;padding:clamp(56px,8vw,104px) 20px;">
+    <div style="max-width:1240px;margin:0 auto"><div style="display:flex;flex-direction:column;gap:40px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:16px;align-items:center"><span data-rv style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1;letter-spacing:.18em;text-transform:uppercase;color:var(--for,#0B4A2A)">What it supports*</span><h2 data-rv style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.84vw,51px);line-height:1.38;margin:0;color:var(--ink,#0C1A11);text-align:center;max-width:900px;text-wrap:balance">One small habit. Five daily wins.</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:16px;width:100%">
+        <div class="lx-lift" data-rv style="background:#FBF3D6;border-radius:24px;padding:26px 20px;display:flex;flex-direction:column;gap:12px;align-items:flex-start"><span style="position:relative;width:88px;height:88px;border-radius:50%;background:linear-gradient(145deg,#23884F 0%,#0B4A2A 58%,#052A17 100%);box-shadow:0 14px 24px -10px rgba(11,74,42,.65),inset 0 2px 0 rgba(255,255,255,.28),inset 0 -6px 12px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="url(#lg0)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))"><defs><linearGradient id="lg0" x1="3" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF3C4"/><stop offset=".5" stop-color="#F2C94C"/><stop offset="1" stop-color="#D9A01E"/></linearGradient></defs><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:16px;line-height:1.3">Daily nutrient boost</span><span style="font-family:Poppins,sans-serif;font-size:13.5px;line-height:1.55;color:#3F4A42">Organic kale, spinach, broccoli, spirulina and more for everyday nutrition.</span></div>
+        <div class="lx-lift" data-rv style="background:#FBF3D6;border-radius:24px;padding:26px 20px;display:flex;flex-direction:column;gap:12px;align-items:flex-start"><span style="position:relative;width:88px;height:88px;border-radius:50%;background:linear-gradient(145deg,#23884F 0%,#0B4A2A 58%,#052A17 100%);box-shadow:0 14px 24px -10px rgba(11,74,42,.65),inset 0 2px 0 rgba(255,255,255,.28),inset 0 -6px 12px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="url(#lg1)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))"><defs><linearGradient id="lg1" x1="3" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF3C4"/><stop offset=".5" stop-color="#F2C94C"/><stop offset="1" stop-color="#D9A01E"/></linearGradient></defs><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:16px;line-height:1.3">Gut health &amp; digestion</span><span style="font-family:Poppins,sans-serif;font-size:13.5px;line-height:1.55;color:#3F4A42">Digestive enzymes plus pineapple, ginger and aloe to support healthy digestion.</span></div>
+        <div class="lx-lift" data-rv style="background:#FBF3D6;border-radius:24px;padding:26px 20px;display:flex;flex-direction:column;gap:12px;align-items:flex-start"><span style="position:relative;width:88px;height:88px;border-radius:50%;background:linear-gradient(145deg,#23884F 0%,#0B4A2A 58%,#052A17 100%);box-shadow:0 14px 24px -10px rgba(11,74,42,.65),inset 0 2px 0 rgba(255,255,255,.28),inset 0 -6px 12px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="url(#lg2)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))"><defs><linearGradient id="lg2" x1="3" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF3C4"/><stop offset=".5" stop-color="#F2C94C"/><stop offset="1" stop-color="#D9A01E"/></linearGradient></defs><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:16px;line-height:1.3">Immune system support</span><span style="font-family:Poppins,sans-serif;font-size:13.5px;line-height:1.55;color:#3F4A42">Antioxidant-rich greens and reds to support your body's natural defenses.</span></div>
+        <div class="lx-lift" data-rv style="background:#FBF3D6;border-radius:24px;padding:26px 20px;display:flex;flex-direction:column;gap:12px;align-items:flex-start"><span style="position:relative;width:88px;height:88px;border-radius:50%;background:linear-gradient(145deg,#23884F 0%,#0B4A2A 58%,#052A17 100%);box-shadow:0 14px 24px -10px rgba(11,74,42,.65),inset 0 2px 0 rgba(255,255,255,.28),inset 0 -6px 12px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="url(#lg3)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))"><defs><linearGradient id="lg3" x1="3" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF3C4"/><stop offset=".5" stop-color="#F2C94C"/><stop offset="1" stop-color="#D9A01E"/></linearGradient></defs><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:16px;line-height:1.3">Radiant skin &amp; vitality</span><span style="font-family:Poppins,sans-serif;font-size:13.5px;line-height:1.55;color:#3F4A42">Plant polyphenols from beet, goji, pomegranate and acai.</span></div>
+        <div class="lx-lift" data-rv style="background:#FBF3D6;border-radius:24px;padding:26px 20px;display:flex;flex-direction:column;gap:12px;align-items:flex-start"><span style="position:relative;width:88px;height:88px;border-radius:50%;background:linear-gradient(145deg,#23884F 0%,#0B4A2A 58%,#052A17 100%);box-shadow:0 14px 24px -10px rgba(11,74,42,.65),inset 0 2px 0 rgba(255,255,255,.28),inset 0 -6px 12px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="url(#lg4)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))"><defs><linearGradient id="lg4" x1="3" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF3C4"/><stop offset=".5" stop-color="#F2C94C"/><stop offset="1" stop-color="#D9A01E"/></linearGradient></defs><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:16px;line-height:1.3">Clean, natural energy</span><span style="font-family:Poppins,sans-serif;font-size:13.5px;line-height:1.55;color:#3F4A42">Nutrient support for steady energy, with 0g sugar.</span></div>
+      </div></div></div>
+  </section>
+
+  <!-- 06 INGREDIENTS -->
+  <section data-section="ingredients" style="background:linear-gradient(180deg,var(--for,#0B4A2A) 0%,var(--for,#0B4A2A) 14%,var(--lim,#A6D62E) 66%,var(--yel,#F4DC2A) 100%);padding:clamp(56px,8vw,104px) 20px;">
+    <div style="max-width:1240px;margin:0 auto"><div style="display:flex;flex-direction:column;gap:30px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:16px;align-items:center"><span data-rv style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1;letter-spacing:.18em;text-transform:uppercase;color:var(--lim,#A6D62E)">What's inside</span><h2 data-rv style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.84vw,51px);line-height:1.38;margin:0;color:#fff;text-align:center;max-width:900px;text-wrap:balance">Three blends. One gummy.</h2></div>
+      <img data-rv src="assets/x-use-this.png" alt="Super Greens Gummies pouch" loading="lazy" style="width:min(300px,62vw);height:auto;display:block;filter:drop-shadow(0 26px 30px rgba(12,26,17,.35))">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(18px,2.4vw,28px);width:100%;align-items:stretch">
+        <div style="display:flex;flex-direction:column;gap:clamp(14px,1.6vw,20px)">
+        <div data-fx data-rv style="position:relative;overflow:hidden;flex:1 1 auto;display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:clamp(24px,2.6vw,36px);border-radius:34px;background:linear-gradient(150deg,#16703F 0%,#0B4A2A 52%,#062F1B 100%);color:#fff;box-shadow:0 26px 40px -24px rgba(6,47,27,.7);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s" style-hover="transform:translateY(-5px)">
+          <div aria-hidden="true" style="position:absolute;right:-6%;top:-22%;width:70%;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle,rgba(166,214,46,.30) 0%,transparent 68%)"></div>
+          <div aria-hidden="true" style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;position:absolute;right:clamp(14px,2vw,28px);bottom:clamp(12px,1.6vw,22px);font-size:clamp(56px,6vw,88px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(200,236,106,.10);pointer-events:none">2g</div>
+          <div style="position:relative;display:flex;align-items:center;gap:14px">
+            <span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(22px,2.5vw,33px);-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;line-height:1.25">Super Greens</span>
+            <span style="margin-left:auto;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;letter-spacing:.06em;color:#C8EC6A;background:rgba(200,236,106,.16);border-radius:999px;padding:8px 14px">2g</span>
+          </div>
+          <div style="position:relative;display:flex;flex-direction:column;gap:10px;font-family:Poppins,sans-serif;font-weight:500;font-size:clamp(14px,1.15vw,16px);line-height:1.45"><div style="display:flex;gap:10px;align-items:flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8EC6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Essential vitamins &amp; minerals for daily nutrition</span></div><div style="display:flex;gap:10px;align-items:flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8EC6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Antioxidants that support immune defense*</span></div></div>
+        </div>
+        <div data-fx data-rv style="position:relative;overflow:hidden;flex:1 1 auto;display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:clamp(24px,2.6vw,36px);border-radius:34px;background:linear-gradient(150deg,#E6392C 0%,#C8281F 52%,#98190F 100%);color:#fff;box-shadow:0 26px 40px -24px rgba(152,25,15,.7);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s" style-hover="transform:translateY(-5px)">
+          <div aria-hidden="true" style="position:absolute;right:-6%;top:-22%;width:70%;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle,rgba(255,214,110,.30) 0%,transparent 68%)"></div>
+          <div aria-hidden="true" style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;position:absolute;right:clamp(14px,2vw,28px);bottom:clamp(12px,1.6vw,22px);font-size:clamp(56px,6vw,88px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,227,220,.10);pointer-events:none">1g</div>
+          <div style="position:relative;display:flex;align-items:center;gap:14px">
+            <span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(22px,2.5vw,33px);-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;line-height:1.25">Super Reds</span>
+            <span style="margin-left:auto;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;letter-spacing:.06em;color:#FFE3DC;background:rgba(255,255,255,.16);border-radius:999px;padding:8px 14px">1g</span>
+          </div>
+          <div style="position:relative;display:flex;flex-direction:column;gap:10px;font-family:Poppins,sans-serif;font-weight:500;font-size:clamp(14px,1.15vw,16px);line-height:1.45"><div style="display:flex;gap:10px;align-items:flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFE3DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Plant polyphenols</span></div><div style="display:flex;gap:10px;align-items:flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFE3DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Supports circulation &amp; radiant skin*</span></div></div>
+        </div>
+        <div data-fx data-rv style="position:relative;overflow:hidden;flex:1 1 auto;display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:clamp(24px,2.6vw,36px);border-radius:34px;background:linear-gradient(150deg,#FFFFFF 0%,#FBF3D6 100%);color:#0C1A11;box-shadow:0 26px 40px -26px rgba(12,26,17,.45);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s" style-hover="transform:translateY(-5px)">
+          <div aria-hidden="true" style="position:absolute;right:-6%;top:-22%;width:70%;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle,rgba(166,214,46,.35) 0%,transparent 68%)"></div>
+          <div aria-hidden="true" style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;position:absolute;right:clamp(14px,2vw,28px);bottom:clamp(12px,1.6vw,22px);font-size:clamp(56px,6vw,88px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(11,74,42,.10);pointer-events:none">500mg</div>
+          <div style="position:relative;display:flex;align-items:center;gap:14px">
+            <span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(22px,2.5vw,33px);-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;line-height:1.25">Super Gut</span>
+            <span style="margin-left:auto;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;letter-spacing:.06em;color:#0B4A2A;background:rgba(11,74,42,.09);border-radius:999px;padding:8px 14px">500mg</span>
+          </div>
+          <div style="position:relative;display:flex;flex-direction:column;gap:10px;font-family:Poppins,sans-serif;font-weight:500;font-size:clamp(14px,1.15vw,16px);line-height:1.45"><div style="display:flex;gap:10px;align-items:flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B4A2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Supports healthy digestion &amp; nutrient absorption*</span></div></div>
+        </div>
+        </div>
+        <div id="supplement-facts" data-rv style="width:100%;max-width:none;margin:0;border-radius:32px;padding:clamp(14px,2.2vw,24px);background:#9CC77B;position:relative;overflow:hidden">
+        <!-- background image slot: replace this colour with the supplied green pattern -->
+        <div style="position:relative;background:#fff;border-radius:26px;padding:clamp(20px,3.5vw,34px);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#000;">
+          <h3 style="margin:0;font-size:clamp(24px,4.54vw,39px);line-height:1;font-weight:900;letter-spacing:-.01em;text-transform:uppercase">Supplement Facts</h3>
+          <p style="margin:12px 0 10px;font-size:clamp(12px,1.43vw,14px);line-height:1.35;font-weight:700">2 gummies per serving – 30 servings per pouch<br>60 gummies per pouch</p>
+          <div style="height:8px;background:#000"></div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,.9fr);align-items:baseline;padding:8px 0 6px;font-weight:800;font-size:clamp(10px,1.34vw,13px)"><span></span><span style="text-align:right">Amount Per Serving</span><span style="text-align:right">% Daily Value**</span></div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,.9fr);align-items:baseline;border-top:4px solid #000;padding:6px 0"><span style="font-weight:800;font-size:clamp(14px,1.85vw,18px)">Calories</span><span style="text-align:right;font-size:clamp(14px,1.85vw,18px);font-weight:500">16kcal</span><span style="text-align:right;font-size:clamp(14px,1.85vw,18px);font-weight:500">0%</span></div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,.9fr);align-items:baseline;border-top:1px solid #000;padding:6px 0"><span style="font-weight:800;font-size:clamp(14px,1.85vw,18px)">Total Carbohydrate</span><span style="text-align:right;font-size:clamp(14px,1.85vw,18px);font-weight:500">4g</span><span style="text-align:right;font-size:clamp(14px,1.85vw,18px);font-weight:500">2%</span></div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,.9fr);align-items:baseline;border-top:1px solid #000;padding:6px 0"><span style="font-weight:800;font-size:clamp(14px,1.85vw,18px)">Total Sugars</span><span style="text-align:right;font-size:clamp(14px,1.85vw,18px);font-weight:500">0g</span><span style="text-align:right;font-size:clamp(14px,1.85vw,18px);font-weight:500">0%</span></div>
+          <div style="border-top:1px solid #000;padding:8px 0 12px"><div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,.9fr);align-items:baseline"><span style="font-weight:800;font-size:clamp(14px,1.85vw,18px)">Super Greens Blend</span><span style="text-align:right;font-size:clamp(14px,1.85vw,18px);font-weight:500">2g</span><span style="text-align:right;font-size:clamp(14px,1.85vw,18px);font-weight:500">0%</span></div><p style="margin:8px 0 0;font-size:clamp(11px,1.18vw,12px);line-height:1.5;font-weight:500">(Organic Alfalfa, Organic Kale, Organic Parsley, Organic Spinach, Organic Broccoli, Organic Carrot, Organic Spirulina, Organic Wheatgrass, Organic Chlorella, Organic Astragalus, Organic Barley Grass)</p></div>
+          <div style="border-top:1px solid #000;padding:8px 0 12px"><div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,.9fr);align-items:baseline"><span style="font-weight:800;font-size:clamp(14px,1.85vw,18px)">Super Reds Blend</span><span style="text-align:right;font-size:clamp(14px,1.85vw,18px);font-weight:500">1g</span><span style="text-align:right;font-size:clamp(14px,1.85vw,18px);font-weight:500">0%</span></div><p style="margin:8px 0 0;font-size:clamp(11px,1.18vw,12px);line-height:1.5;font-weight:500">(Organic Beet, Organic Carrot, Organic Tomato, Organic Strawberry, Organic Cranberry, Organic Goji Berry, Organic Pomegranate, Organic Raspberry, Organic Apple, Organic Tart Cherry)</p></div>
+          <div style="border-top:1px solid #000;padding:8px 0 12px"><div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,.9fr);align-items:baseline"><span style="font-weight:800;font-size:clamp(14px,1.85vw,18px)">Super Gut Blend</span><span style="text-align:right;font-size:clamp(14px,1.85vw,18px);font-weight:500">500mg</span><span style="text-align:right;font-size:clamp(14px,1.85vw,18px);font-weight:500">0%</span></div><p style="margin:8px 0 0;font-size:clamp(11px,1.18vw,12px);line-height:1.5;font-weight:500">Organic Pineapple, Organic Ginger, Organic Amla, Organic Aloe Vera, Organic Prune, Organic Peppermint, Natural Digestive Enzymes (Papain, Bromelain, Amylase, Lactase, Lipase)</p></div>
+          <div style="height:8px;background:#000;margin-top:2px"></div>
+          <p style="margin:12px 0 0;font-size:clamp(11px,1.26vw,13px);line-height:1.45;font-weight:500">**The % Daily Value (DV) based on the reference caloric intake of 2,000 calories for adults.</p>
+          <p style="margin:4px 0 0;font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:clamp(11px,1.34vw,13px)">†Daily Value not established.</p>
+        </div>
+      </div>
+      </div></div></div>
+  </section>
+
+  <!-- 07 HOW IT WORKS -->
+  <section data-section="how-it-works" style="background:#FBF3D6;padding:clamp(56px,8vw,104px) 20px;">
+    <div style="max-width:1240px;margin:0 auto"><div style="display:flex;flex-direction:column;gap:40px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:16px;align-items:center"><span data-rv style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1;letter-spacing:.18em;text-transform:uppercase;color:var(--for,#0B4A2A)">Routine</span><h2 data-rv style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.84vw,51px);line-height:1.38;margin:0;color:var(--ink,#0C1A11);text-align:center;max-width:900px;text-wrap:balance">Your Limitless routine in 3 steps</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:20px;width:100%">
+        <div class="lx-lift" data-rv style="background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column"><div class="lx-zoom" style="position:relative;aspect-ratio:4/3;overflow:hidden"><img src="assets/x-08.png" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:16px;top:16px;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:14px;line-height:1;background:var(--yel,#F4DC2A);color:var(--ink,#0C1A11);border-radius:999px;padding:12px 14px 10px">01</span></div><div style="padding:22px 22px 26px;display:flex;flex-direction:column;gap:8px"><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;line-height:1.3">Take 2 gummies</span><span style="font-family:Poppins,sans-serif;font-size:14px;line-height:1.55;color:#3F4A42">Morning, afternoon, or whenever you want a quick wellness boost.</span></div></div>
+        <div class="lx-lift" data-rv style="background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column"><div class="lx-zoom" style="position:relative;aspect-ratio:4/3;overflow:hidden"><img src="assets/x-12.png" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:16px;top:16px;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:14px;line-height:1;background:var(--yel,#F4DC2A);color:var(--ink,#0C1A11);border-radius:999px;padding:12px 14px 10px">02</span></div><div style="padding:22px 22px 26px;display:flex;flex-direction:column;gap:8px"><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;line-height:1.3">Make it daily</span><span style="font-family:Poppins,sans-serif;font-size:14px;line-height:1.55;color:#3F4A42">Keep the pouch on your desk, in your bag or next to your coffee.</span></div></div>
+        <div class="lx-lift" data-rv style="background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column"><div class="lx-zoom" style="position:relative;aspect-ratio:4/3;overflow:hidden"><img src="assets/x-22.png" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:16px;top:16px;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:14px;line-height:1;background:var(--yel,#F4DC2A);color:var(--ink,#0C1A11);border-radius:999px;padding:12px 14px 10px">03</span></div><div style="padding:22px 22px 26px;display:flex;flex-direction:column;gap:8px"><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;line-height:1.3">Stay consistent</span><span style="font-family:Poppins,sans-serif;font-size:14px;line-height:1.55;color:#3F4A42">Consistent use over 4–6 weeks is how you'll get the most from your routine.*</span></div></div>
+      </div></div></div>
+  </section>
+
+  <!-- 08 WHY GUMMIES -->
+  <section data-section="why-gummies" style="background:#fff;padding:clamp(56px,8vw,104px) 20px;">
+    <div style="max-width:1240px;margin:0 auto"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(28px,5vw,72px);align-items:center">
+      <div data-rv style="border-radius:36px;overflow:hidden;aspect-ratio:4/5;background:#FBF3D6"><img src="assets/x-11.png" alt="A stack of three Super Greens gummies between two fingers" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      <div style="display:flex;flex-direction:column;gap:22px;align-items:flex-start">
+        <span data-rv style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1;letter-spacing:.18em;text-transform:uppercase;color:var(--for,#0B4A2A)">Why gummies?</span>
+        <h2 data-rv style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.84vw,51px);line-height:1.38;margin:0;color:var(--ink,#0C1A11);text-align:left;max-width:900px;text-wrap:balance">The easiest routine you'll ever keep.</h2>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div data-rv style="display:flex;gap:14px;align-items:center"><span style="flex:none;width:32px;height:32px;border-radius:50%;background:var(--lim,#A6D62E);color:var(--for,#0B4A2A);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:15px">✓</span><span style="font-family:Poppins,sans-serif;font-weight:500;font-size:16px;line-height:1.45">Tastes like a treat, so you actually stick with it</span></div><div data-rv style="display:flex;gap:14px;align-items:center"><span style="flex:none;width:32px;height:32px;border-radius:50%;background:var(--lim,#A6D62E);color:var(--for,#0B4A2A);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:15px">✓</span><span style="font-family:Poppins,sans-serif;font-weight:500;font-size:16px;line-height:1.45">Pre-portioned: 2 gummies, no scoops or measuring</span></div><div data-rv style="display:flex;gap:14px;align-items:center"><span style="flex:none;width:32px;height:32px;border-radius:50%;background:var(--lim,#A6D62E);color:var(--for,#0B4A2A);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:15px">✓</span><span style="font-family:Poppins,sans-serif;font-weight:500;font-size:16px;line-height:1.45">Travel-friendly pouch for desk, gym bag or carry-on</span></div><div data-rv style="display:flex;gap:14px;align-items:center"><span style="flex:none;width:32px;height:32px;border-radius:50%;background:var(--lim,#A6D62E);color:var(--for,#0B4A2A);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:15px">✓</span><span style="font-family:Poppins,sans-serif;font-weight:500;font-size:16px;line-height:1.45">0g sugar and 16 calories per serving</span></div>
+        </div>
+      </div></div></div>
+  </section>
+
+  <!-- 09 COMPARISON -->
+  <section data-section="comparison" style="background:#FBF3D6;padding:clamp(56px,8vw,104px) 20px;">
+    <div style="max-width:880px;margin:0 auto"><div style="display:flex;flex-direction:column;gap:32px;align-items:center">
+      <h2 data-rv style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.84vw,51px);line-height:1.38;margin:0;color:var(--ink,#0C1A11);text-align:center;max-width:900px;text-wrap:balance">Greens shouldn't feel like work.</h2>
+      <div data-rv style="width:100%;background:#fff;border-radius:28px;overflow:hidden">
+        <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1.3;letter-spacing:.06em;text-transform:uppercase">
+          <div style="padding:20px 18px"></div><div style="padding:20px 8px;text-align:center;background:var(--for,#0B4A2A);color:var(--yel,#F4DC2A)">Limitless X Gummies</div><div style="padding:20px 8px;text-align:center;color:#5A665E">Typical greens powder</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);border-top:1px solid rgba(12,26,17,.12);font-family:Poppins,sans-serif;font-weight:600;font-size:14px;line-height:1.3"><div style="padding:16px 18px">No mixing</div><div style="padding:16px 8px;text-align:center;background:#EEF7D2;color:var(--for,#0B4A2A);font-weight:700">✓</div><div style="padding:16px 8px;text-align:center;color:#7A847D">✕</div></div><div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);border-top:1px solid rgba(12,26,17,.12);font-family:Poppins,sans-serif;font-weight:600;font-size:14px;line-height:1.3"><div style="padding:16px 18px">No shaker bottle</div><div style="padding:16px 8px;text-align:center;background:#EEF7D2;color:var(--for,#0B4A2A);font-weight:700">✓</div><div style="padding:16px 8px;text-align:center;color:#7A847D">✕</div></div><div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);border-top:1px solid rgba(12,26,17,.12);font-family:Poppins,sans-serif;font-weight:600;font-size:14px;line-height:1.3"><div style="padding:16px 18px">Pre-portioned</div><div style="padding:16px 8px;text-align:center;background:#EEF7D2;color:var(--for,#0B4A2A);font-weight:700">✓</div><div style="padding:16px 8px;text-align:center;color:#7A847D">Scoop</div></div><div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);border-top:1px solid rgba(12,26,17,.12);font-family:Poppins,sans-serif;font-weight:600;font-size:14px;line-height:1.3"><div style="padding:16px 18px">Mess-free &amp; portable</div><div style="padding:16px 8px;text-align:center;background:#EEF7D2;color:var(--for,#0B4A2A);font-weight:700">✓</div><div style="padding:16px 8px;text-align:center;color:#7A847D">✕</div></div><div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);border-top:1px solid rgba(12,26,17,.12);font-family:Poppins,sans-serif;font-weight:600;font-size:14px;line-height:1.3"><div style="padding:16px 18px">Travel friendly</div><div style="padding:16px 8px;text-align:center;background:#EEF7D2;color:var(--for,#0B4A2A);font-weight:700">✓</div><div style="padding:16px 8px;text-align:center;color:#7A847D">Varies</div></div><div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);border-top:1px solid rgba(12,26,17,.12);font-family:Poppins,sans-serif;font-weight:600;font-size:14px;line-height:1.3"><div style="padding:16px 18px">Sugar per serving</div><div style="padding:16px 8px;text-align:center;background:#EEF7D2;color:var(--for,#0B4A2A);font-weight:700">0g</div><div style="padding:16px 8px;text-align:center;color:#7A847D">Varies</div></div>
+      </div></div></div>
+  </section>
+
+  <!-- 10 LIFESTYLE -->
+  <section data-section="lifestyle" style="background:#fff;padding:clamp(56px,8vw,104px) 0">
+    <div style="display:flex;flex-direction:column;gap:16px;align-items:center;padding:0 20px"><span data-rv style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1;letter-spacing:.18em;text-transform:uppercase;color:var(--for,#0B4A2A)">Wherever you are</span><h2 data-rv style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.84vw,51px);line-height:1.38;margin:0;color:var(--ink,#0C1A11);text-align:center;max-width:900px;text-wrap:balance">Wherever your day takes you.</h2></div>
+    <div id="lx2-row" style="display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:44px max(20px,calc((100vw - 1240px)/2)) 24px;scrollbar-width:none">
+      <figure style="flex:none;width:clamp(220px,24vw,300px);margin:0;scroll-snap-align:center;transform:rotate(-2.4deg)"><div style="border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#FBF3D6"><img src="assets/x-01.png" alt="Pouring gummies from the pouch" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div></figure><figure style="flex:none;width:clamp(220px,24vw,300px);margin:0;scroll-snap-align:center;transform:rotate(2.4deg)"><div style="border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#FBF3D6"><img src="assets/x-02.png" alt="Peeking over the pouch" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div></figure><figure style="flex:none;width:clamp(220px,24vw,300px);margin:0;scroll-snap-align:center;transform:rotate(-2.4deg)"><div style="border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#FBF3D6"><img src="assets/x-03.png" alt="Hands passing the pouch" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div></figure><figure style="flex:none;width:clamp(220px,24vw,300px);margin:0;scroll-snap-align:center;transform:rotate(2.4deg)"><div style="border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#FBF3D6"><img src="assets/x-08.png" alt="Tipping gummies into an open hand" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div></figure><figure style="flex:none;width:clamp(220px,24vw,300px);margin:0;scroll-snap-align:center;transform:rotate(-2.4deg)"><div style="border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#FBF3D6"><img src="assets/x-10.png" alt="Gummies held up to her eyes" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div></figure><figure style="flex:none;width:clamp(220px,24vw,300px);margin:0;scroll-snap-align:center;transform:rotate(2.4deg)"><div style="border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#FBF3D6"><img src="assets/x-11.png" alt="Three gummies stacked" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div></figure><figure style="flex:none;width:clamp(220px,24vw,300px);margin:0;scroll-snap-align:center;transform:rotate(-2.4deg)"><div style="border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#FBF3D6"><img src="assets/x-12.png" alt="Holding the pouch" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div></figure><figure style="flex:none;width:clamp(220px,24vw,300px);margin:0;scroll-snap-align:center;transform:rotate(2.4deg)"><div style="border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#FBF3D6"><img src="assets/x-22.png" alt="Flat lay with apples and cinnamon" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div></figure>
+    </div>
+    <div style="display:flex;justify-content:center;gap:12px;padding:0 20px">
+      <button onClick="{{ rowPrev }}" aria-label="Previous" style="width:52px;height:52px;border-radius:50%;border:2px solid var(--ink,#0C1A11);background:#fff;color:var(--ink,#0C1A11);font:700 18px/1 Poppins,sans-serif;cursor:pointer" style-hover="background:var(--ink,#0C1A11);color:#fff">←</button>
+      <button onClick="{{ rowNext }}" aria-label="Next" style="width:52px;height:52px;border-radius:50%;border:2px solid var(--ink,#0C1A11);background:var(--ink,#0C1A11);color:#fff;font:700 18px/1 Poppins,sans-serif;cursor:pointer" style-hover="background:var(--for,#0B4A2A)">→</button>
+    </div>
+  </section>
+
+  <!-- 10b LIFESTYLE — CIRCULAR CAROUSEL (compare) -->
+  <section data-section="lifestyle-arc" style="background:linear-gradient(180deg,#0B4A2A 0%,#0E5A32 100%);padding:clamp(56px,8vw,104px) 0 clamp(48px,7vw,90px);overflow:hidden">
+    <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center">
+      <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1;letter-spacing:.18em;text-transform:uppercase;color:var(--lim,#A6D62E)">Wherever you are · circular carousel</span>
+      <h2 style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.84vw,51px);line-height:1.38;margin:0;color:#FBF3D6;text-align:center;max-width:900px;text-wrap:balance">Wherever your day takes you.</h2>
+    </div>
+    <div id="lx2-arc" style="position:relative;margin-top:clamp(28px,4vw,56px);height:640px;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none">
+      <figure data-arc2 style="position:absolute;left:50%;top:0;margin:0;width:clamp(210px,24vw,330px);will-change:transform"><div style="position:relative;border:3px solid var(--ink,#0C1A11);border-radius:26px;overflow:hidden;aspect-ratio:4/5;background:var(--lim,#A6D62E);box-shadow:8px 8px 0 var(--ink,#0C1A11)"><img src="assets/x-01.png" alt="Pouring a pouch of gummies into her mouth" draggable="false" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none"></div><figcaption style="position:absolute;left:-10px;bottom:22px;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:12px;line-height:1.2;background:var(--yel,#F4DC2A);color:var(--ink,#0C1A11);border:3px solid var(--ink,#0C1A11);padding:10px 12px 8px;border-radius:12px;transform:rotate(-4deg);box-shadow:4px 4px 0 var(--ink,#0C1A11)"><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:10px;margin-right:6px;opacity:.7">01</span>POUR</figcaption></figure><figure data-arc2 style="position:absolute;left:50%;top:0;margin:0;width:clamp(210px,24vw,330px);will-change:transform"><div style="position:relative;border:3px solid var(--ink,#0C1A11);border-radius:26px;overflow:hidden;aspect-ratio:4/5;background:var(--lim,#A6D62E);box-shadow:8px 8px 0 var(--ink,#0C1A11)"><img src="assets/x-02.png" alt="Peeking over the pouch" draggable="false" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none"></div><figcaption style="position:absolute;left:-10px;bottom:22px;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:12px;line-height:1.2;background:var(--lim,#A6D62E);color:var(--ink,#0C1A11);border:3px solid var(--ink,#0C1A11);padding:10px 12px 8px;border-radius:12px;transform:rotate(-4deg);box-shadow:4px 4px 0 var(--ink,#0C1A11)"><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:10px;margin-right:6px;opacity:.7">02</span>PEEK</figcaption></figure><figure data-arc2 style="position:absolute;left:50%;top:0;margin:0;width:clamp(210px,24vw,330px);will-change:transform"><div style="position:relative;border:3px solid var(--ink,#0C1A11);border-radius:26px;overflow:hidden;aspect-ratio:4/5;background:var(--lim,#A6D62E);box-shadow:8px 8px 0 var(--ink,#0C1A11)"><img src="assets/x-03.png" alt="Hands passing the pouch" draggable="false" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none"></div><figcaption style="position:absolute;left:-10px;bottom:22px;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:12px;line-height:1.2;background:var(--yel,#F4DC2A);color:var(--ink,#0C1A11);border:3px solid var(--ink,#0C1A11);padding:10px 12px 8px;border-radius:12px;transform:rotate(-4deg);box-shadow:4px 4px 0 var(--ink,#0C1A11)"><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:10px;margin-right:6px;opacity:.7">03</span>PASS</figcaption></figure><figure data-arc2 style="position:absolute;left:50%;top:0;margin:0;width:clamp(210px,24vw,330px);will-change:transform"><div style="position:relative;border:3px solid var(--ink,#0C1A11);border-radius:26px;overflow:hidden;aspect-ratio:4/5;background:var(--lim,#A6D62E);box-shadow:8px 8px 0 var(--ink,#0C1A11)"><img src="assets/x-08.png" alt="Tipping gummies into an open hand" draggable="false" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none"></div><figcaption style="position:absolute;left:-10px;bottom:22px;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:12px;line-height:1.2;background:var(--lim,#A6D62E);color:var(--ink,#0C1A11);border:3px solid var(--ink,#0C1A11);padding:10px 12px 8px;border-radius:12px;transform:rotate(-4deg);box-shadow:4px 4px 0 var(--ink,#0C1A11)"><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:10px;margin-right:6px;opacity:.7">04</span>SNACK</figcaption></figure><figure data-arc2 style="position:absolute;left:50%;top:0;margin:0;width:clamp(210px,24vw,330px);will-change:transform"><div style="position:relative;border:3px solid var(--ink,#0C1A11);border-radius:26px;overflow:hidden;aspect-ratio:4/5;background:var(--lim,#A6D62E);box-shadow:8px 8px 0 var(--ink,#0C1A11)"><img src="assets/x-10.png" alt="Gummies held up to her eyes" draggable="false" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none"></div><figcaption style="position:absolute;left:-10px;bottom:22px;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:12px;line-height:1.2;background:var(--yel,#F4DC2A);color:var(--ink,#0C1A11);border:3px solid var(--ink,#0C1A11);padding:10px 12px 8px;border-radius:12px;transform:rotate(-4deg);box-shadow:4px 4px 0 var(--ink,#0C1A11)"><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:10px;margin-right:6px;opacity:.7">05</span>PEEPERS</figcaption></figure><figure data-arc2 style="position:absolute;left:50%;top:0;margin:0;width:clamp(210px,24vw,330px);will-change:transform"><div style="position:relative;border:3px solid var(--ink,#0C1A11);border-radius:26px;overflow:hidden;aspect-ratio:4/5;background:var(--lim,#A6D62E);box-shadow:8px 8px 0 var(--ink,#0C1A11)"><img src="assets/x-11.png" alt="Three gummies stacked" draggable="false" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none"></div><figcaption style="position:absolute;left:-10px;bottom:22px;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:12px;line-height:1.2;background:var(--lim,#A6D62E);color:var(--ink,#0C1A11);border:3px solid var(--ink,#0C1A11);padding:10px 12px 8px;border-radius:12px;transform:rotate(-4deg);box-shadow:4px 4px 0 var(--ink,#0C1A11)"><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:10px;margin-right:6px;opacity:.7">06</span>STACK</figcaption></figure><figure data-arc2 style="position:absolute;left:50%;top:0;margin:0;width:clamp(210px,24vw,330px);will-change:transform"><div style="position:relative;border:3px solid var(--ink,#0C1A11);border-radius:26px;overflow:hidden;aspect-ratio:4/5;background:var(--lim,#A6D62E);box-shadow:8px 8px 0 var(--ink,#0C1A11)"><img src="assets/x-12.png" alt="Holding the pouch against a green backdrop" draggable="false" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none"></div><figcaption style="position:absolute;left:-10px;bottom:22px;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:12px;line-height:1.2;background:var(--yel,#F4DC2A);color:var(--ink,#0C1A11);border:3px solid var(--ink,#0C1A11);padding:10px 12px 8px;border-radius:12px;transform:rotate(-4deg);box-shadow:4px 4px 0 var(--ink,#0C1A11)"><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:10px;margin-right:6px;opacity:.7">07</span>GRAB</figcaption></figure><figure data-arc2 style="position:absolute;left:50%;top:0;margin:0;width:clamp(210px,24vw,330px);will-change:transform"><div style="position:relative;border:3px solid var(--ink,#0C1A11);border-radius:26px;overflow:hidden;aspect-ratio:4/5;background:var(--lim,#A6D62E);box-shadow:8px 8px 0 var(--ink,#0C1A11)"><img src="assets/x-22.png" alt="Flat lay, opening the pouch" draggable="false" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none"></div><figcaption style="position:absolute;left:-10px;bottom:22px;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:12px;line-height:1.2;background:var(--lim,#A6D62E);color:var(--ink,#0C1A11);border:3px solid var(--ink,#0C1A11);padding:10px 12px 8px;border-radius:12px;transform:rotate(-4deg);box-shadow:4px 4px 0 var(--ink,#0C1A11)"><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:10px;margin-right:6px;opacity:.7">08</span>UNZIP</figcaption></figure>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:18px;padding:0 20px">
+      <button onClick="{{ arc2Prev }}" aria-label="Previous photo" style="width:56px;height:56px;border-radius:50%;border:3px solid var(--ink,#0C1A11);background:#FBF3D6;color:var(--ink,#0C1A11);font:700 20px/1 Poppins,sans-serif;cursor:pointer;box-shadow:4px 4px 0 var(--ink,#0C1A11)" style-active="transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink,#0C1A11)">←</button>
+      <span id="lx2-arc-count" style="font-family:Poppins,sans-serif;font-weight:700;font-size:14px;letter-spacing:.12em;color:#FBF3D6;min-width:76px;text-align:center">01 / 08</span>
+      <button onClick="{{ arc2Next }}" aria-label="Next photo" style="width:56px;height:56px;border-radius:50%;border:3px solid var(--ink,#0C1A11);background:var(--yel,#F4DC2A);color:var(--ink,#0C1A11);font:700 20px/1 Poppins,sans-serif;cursor:pointer;box-shadow:4px 4px 0 var(--ink,#0C1A11)" style-active="transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink,#0C1A11)">→</button>
+    </div>
+  </section>
+
+  <!-- 11 REVIEWS / UGC -->
+  <section id="reviews" data-section="reviews" style="background:#FBF3D6;padding:clamp(56px,8vw,104px) 0">
+    <div style="max-width:1240px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;gap:28px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:28px;align-items:end">
+        <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start"><span data-rv style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1;letter-spacing:.18em;text-transform:uppercase;color:var(--for,#0B4A2A)">Customer reviews</span><h2 data-rv style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.84vw,51px);line-height:1.38;margin:0;color:var(--ink,#0C1A11);text-align:left;max-width:900px;text-wrap:balance">Real people. Real routines.</h2></div>
+        <div data-rv style="display:flex;gap:20px;align-items:center;background:#fff;border-radius:24px;padding:20px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:32px;line-height:1.2">5.0</span><span style="color:#E0A800;letter-spacing:1px">★★★★★</span><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:11px;line-height:1">210 reviews</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:6px;font-family:Poppins,sans-serif;font-weight:600;font-size:12px;line-height:1">
+            <div style="display:flex;gap:8px;align-items:center"><span style="width:14px">5</span><span style="flex:1;height:8px;border-radius:4px;background:#ECE8D8;overflow:hidden"><span style="display:block;height:100%;width:100%;background:var(--for,#0B4A2A)"></span></span><span style="width:38px;text-align:right">100%</span></div><div style="display:flex;gap:8px;align-items:center"><span style="width:14px">4</span><span style="flex:1;height:8px;border-radius:4px;background:#ECE8D8;overflow:hidden"><span style="display:block;height:100%;width:0%;background:var(--for,#0B4A2A)"></span></span><span style="width:38px;text-align:right">0%</span></div><div style="display:flex;gap:8px;align-items:center"><span style="width:14px">3</span><span style="flex:1;height:8px;border-radius:4px;background:#ECE8D8;overflow:hidden"><span style="display:block;height:100%;width:0%;background:var(--for,#0B4A2A)"></span></span><span style="width:38px;text-align:right">0%</span></div><div style="display:flex;gap:8px;align-items:center"><span style="width:14px">2</span><span style="flex:1;height:8px;border-radius:4px;background:#ECE8D8;overflow:hidden"><span style="display:block;height:100%;width:0%;background:var(--for,#0B4A2A)"></span></span><span style="width:38px;text-align:right">0%</span></div><div style="display:flex;gap:8px;align-items:center"><span style="width:14px">1</span><span style="flex:1;height:8px;border-radius:4px;background:#ECE8D8;overflow:hidden"><span style="display:block;height:100%;width:0%;background:var(--for,#0B4A2A)"></span></span><span style="width:38px;text-align:right">0%</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{ reviewFilters }}" as="f" hint-placeholder-count="7"><button onClick="{{ f.pick }}" style="{{ f.style }}">{{ f.label }}</button></sc-for></div>
+        <div style="display:flex;gap:10px"><button onClick="{{ revPrev }}" aria-label="Previous reviews" style="flex:none;width:52px;height:52px;border-radius:50%;border:2px solid var(--ink,#0C1A11);background:#fff;color:var(--ink,#0C1A11);font:700 18px/1 Poppins,sans-serif;cursor:pointer" style-hover="background:var(--ink,#0C1A11);color:#fff">←</button><button onClick="{{ revNext }}" aria-label="Next reviews" style="flex:none;width:52px;height:52px;border-radius:50%;border:2px solid var(--ink,#0C1A11);background:var(--ink,#0C1A11);color:#fff;font:700 18px/1 Poppins,sans-serif;cursor:pointer" style-hover="background:var(--for,#0B4A2A);color:#fff">→</button></div>
+      </div>
+    </div>
+    <div style="position:relative;margin-top:28px">
+      <div id="lx2-rev" style="display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 max(20px,calc((100vw - 1240px)/2));padding:8px max(20px,calc((100vw - 1240px)/2)) 28px;scrollbar-width:none;overscroll-behavior-x:contain">
+        <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+          <article class="lx-lift" style="{{ r.cardStyle }}">
+            <sc-if value="{{ r.isPlaceholder }}"><div style="aspect-ratio:1/1;border-radius:14px;border:2px dashed rgba(12,26,17,.3);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-family:Poppins,sans-serif;font-size:12px;line-height:1.5;color:#5A665E">UGC photo slot<br>Import from review app</div></sc-if>
+            <div style="color:#E0A800;letter-spacing:1px">★★★★★</div>
+            <h3 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;line-height:1.3">{{ r.title }}</h3>
+            <p style="margin:0;font-family:Poppins,sans-serif;font-size:14px;line-height:1.55;color:#2B3A31">{{ r.body }}</p>
+            <div style="display:flex;align-items:center;gap:10px;margin-top:auto;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;line-height:1"><span style="width:32px;height:32px;border-radius:50%;background:var(--lim,#A6D62E);color:var(--for,#0B4A2A);display:flex;align-items:center;justify-content:center;font-weight:700;flex:none">{{ r.initial }}</span><span>{{ r.name }}</span><span style="font-weight:500;font-size:11px;color:#5A665E">{{ r.badge }}</span></div>
+          </article>
+        </sc-for>
+      </div>
+      <div aria-hidden="true" style="position:absolute;left:0;top:0;bottom:0;width:clamp(40px,9vw,160px);pointer-events:none;z-index:2;background:linear-gradient(90deg,#FBF3D6 0%,rgba(251,243,214,.85) 30%,rgba(251,243,214,0) 100%)"></div>
+      <div aria-hidden="true" style="position:absolute;right:0;top:0;bottom:0;width:clamp(40px,9vw,160px);pointer-events:none;z-index:2;background:linear-gradient(270deg,#FBF3D6 0%,rgba(251,243,214,.85) 30%,rgba(251,243,214,0) 100%)"></div>
+    </div>
+  </section>
+
+  <!-- 12 BUNDLE BUILDER -->
+  <section id="bundles" data-section="bundle-builder" style="background:#fff;padding:clamp(56px,8vw,104px) 20px clamp(40px,5vw,64px)">
+    <div style="max-width:1240px;margin:0 auto"><div style="display:flex;flex-direction:column;gap:32px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:16px;align-items:center"><span data-rv style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1;letter-spacing:.18em;text-transform:uppercase;color:var(--for,#0B4A2A)">Build your bundle</span><h2 data-rv style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.84vw,51px);line-height:1.38;margin:0;color:var(--ink,#0C1A11);text-align:center;max-width:900px;text-wrap:balance">More pouches. More savings.</h2>
+        <div role="tablist" style="display:inline-flex;background:#FBF3D6;border-radius:999px;padding:4px;gap:4px;margin-top:6px">
+          <button onClick="{{ pickSubOnly }}" data-track="SelectSubscription" style="{{ tabSubStyle }}">Subscribe &amp; Save 15%</button>
+          <button onClick="{{ pickOnceOnly }}" style="{{ tabOnceStyle }}">One-time</button>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;align-items:stretch;width:100%">
+        <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="3">
+          <div class="lx-lift" onClick="{{ t.pick }}" data-track="SelectBundle" style="{{ t.cardStyle }}">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:28px"><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1;letter-spacing:.14em;text-transform:uppercase;color:#4A564E">{{ t.name }}</span><sc-if value="{{ t.badge }}"><span style="background:var(--red,#C8281F);color:#fff;border-radius:6px;padding:7px 9px;font-family:Poppins,sans-serif;font-weight:700;font-size:11px;line-height:1;letter-spacing:.06em">{{ t.badge }}</span></sc-if></div>
+            <div style="position:relative;height:clamp(380px,34vw,470px);overflow:hidden;background:radial-gradient(circle at 50% 72%,#FFF6CC 0%,#FBF3D6 52%,#F1E4B0 100%);border-radius:22px"><sc-for list="{{ t.pouches }}" as="p" hint-placeholder-count="3"><img src="assets/pouch-apple-cinnamon.png" alt="" style="{{ p.style }}"></sc-for></div>
+            <div style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(15px,1.8vw,20px);line-height:1.3">{{ t.qtyLabel }}</div>
+            <div style="display:flex;flex-direction:column;gap:9px;font-family:Poppins,sans-serif;font-weight:500;font-size:13.5px;line-height:1.2;border-top:1px solid rgba(12,26,17,.12);padding-top:14px">
+              <div style="display:flex;justify-content:space-between"><span style="color:#4A564E">Retail value</span><span>{{ t.retail }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span style="color:#4A564E">Your price</span><span style="font-weight:700">{{ t.total }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span style="color:#4A564E">You save</span><span style="color:#A82019;font-weight:700">{{ t.save }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span style="color:#4A564E">Price per day</span><span>{{ t.perDay }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span style="color:#4A564E">Shipping</span><span>{{ t.ship }}</span></div>
+              <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:#4A564E">Free gifts</span><span style="text-align:right">{{ t.gifts }}</span></div>
+            </div>
+            <span style="{{ t.btnStyle }}">{{ t.btnLabel }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:0;text-align:center;font-family:Poppins,sans-serif;font-size:12px;line-height:1.5;color:#4A564E;max-width:760px">Savings = bundle discount on the regular price of $49.95/pouch, then 15% Subscribe &amp; Save applied to the bundle price. Price per day based on 30 servings per pouch.</p></div></div>
+  </section>
+
+  <!-- 13 SUBSCRIBE & SAVE -->
+  <section data-section="subscribe-save" style="background:#fff;padding:0 20px clamp(56px,8vw,104px)">
+    <div data-rv style="max-width:1240px;margin:0 auto;background:var(--for,#0B4A2A);color:#fff;border-radius:36px;padding:clamp(28px,5vw,60px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(24px,4vw,48px);align-items:stretch">
+      <div style="display:flex;flex-direction:column;gap:18px;align-items:flex-start">
+        <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--lim,#A6D62E)">Subscribe &amp; Save</span>
+        <h2 style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.84vw,51px);line-height:1.38;margin:0;color:var(--yel,#F4DC2A)">Join the Limitless Routine.</h2>
+        <p style="margin:0;font-family:Poppins,sans-serif;font-size:15.5px;line-height:1.6;color:#E9F0EA;max-width:460px">Your greens arrive before you run out, at member pricing. You stay in control the whole time.</p>
+        <div style="border-radius:24px;overflow:hidden;width:min(100%,360px);aspect-ratio:16/10"><img src="assets/x-03.png" alt="Hands passing a Super Greens pouch" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:clamp(12px,1.4vw,18px);align-self:stretch;height:100%;min-height:420px">
+        <div class="lx-lift" data-rv style="display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:clamp(22px,2.4vw,34px);border-radius:30px;border:1px solid rgba(255,255,255,.14);background:linear-gradient(160deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.05) 100%)"><span style="flex:none;width:52px;height:52px;border-radius:16px;background:rgba(166,214,46,.14);border:1px solid rgba(166,214,46,.22);display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8EC6A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span><div style="display:flex;flex-direction:column;gap:8px"><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(18px,1.7vw,23px);line-height:1.2;color:#fff">Save 15% every order</span><span style="font-family:Poppins,sans-serif;font-weight:400;font-size:clamp(14px,1.2vw,16px);line-height:1.55;color:rgba(255,255,255,.78)">Applied automatically at checkout.</span></div></div>
+        <div class="lx-lift" data-rv style="display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:clamp(22px,2.4vw,34px);border-radius:30px;border:1px solid rgba(255,255,255,.14);background:linear-gradient(160deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.05) 100%)"><span style="flex:none;width:52px;height:52px;border-radius:16px;background:rgba(166,214,46,.14);border:1px solid rgba(166,214,46,.22);display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8EC6A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span><div style="display:flex;flex-direction:column;gap:8px"><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(18px,1.7vw,23px);line-height:1.2;color:#fff">Delivered every {{ cadence }}</span><span style="font-family:Poppins,sans-serif;font-weight:400;font-size:clamp(14px,1.2vw,16px);line-height:1.55;color:rgba(255,255,255,.78)">Timed to your 30-serving pouch.</span></div></div>
+        <div class="lx-lift" data-rv style="display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:clamp(22px,2.4vw,34px);border-radius:30px;border:1px solid rgba(255,255,255,.14);background:linear-gradient(160deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.05) 100%)"><span style="flex:none;width:52px;height:52px;border-radius:16px;background:rgba(166,214,46,.14);border:1px solid rgba(166,214,46,.22);display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8EC6A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></svg></span><div style="display:flex;flex-direction:column;gap:8px"><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(18px,1.7vw,23px);line-height:1.2;color:#fff">Skip, pause or cancel</span><span style="font-family:Poppins,sans-serif;font-weight:400;font-size:clamp(14px,1.2vw,16px);line-height:1.55;color:rgba(255,255,255,.78)">Anytime from your account. No calls.</span></div></div>
+        <div class="lx-lift" data-rv style="display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:clamp(22px,2.4vw,34px);border-radius:30px;border:1.5px dashed rgba(255,255,255,.35);background:transparent"><span style="flex:none;width:52px;height:52px;border-radius:16px;background:rgba(166,214,46,.14);border:1px solid rgba(166,214,46,.22);display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8EC6A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg></span><div style="display:flex;flex-direction:column;gap:8px"><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(18px,1.7vw,23px);line-height:1.2;color:#fff">Member extras</span><span style="font-family:Poppins,sans-serif;font-weight:400;font-size:clamp(14px,1.2vw,16px);line-height:1.55;color:rgba(255,255,255,.78)">Early access / member bundles — confirm before launch.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 FREE GIFTS -->
+  <section data-section="free-gifts" style="background:var(--yel,#F4DC2A);padding:clamp(56px,8vw,104px) 20px;">
+    <div style="max-width:1240px;margin:0 auto"><div style="display:flex;flex-direction:column;gap:36px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:16px;align-items:center"><span data-rv style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1;letter-spacing:.18em;text-transform:uppercase;color:var(--for,#0B4A2A)">Free gifts</span><h2 data-rv style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.84vw,51px);line-height:1.38;margin:0;color:var(--ink,#0C1A11);text-align:center;max-width:900px;text-wrap:balance">Stock up. Unlock more.</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px;width:100%">
+        <div class="lx-lift" data-rv style="background:#fff;color:var(--ink,#0C1A11);border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:12px"><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em">1 POUCH</span><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:14px;line-height:1.5">Your Super Greens</span><span style="font-family:Poppins,sans-serif;font-size:13px;line-height:1.5;color:#3F4A42">Free shipping with Subscribe &amp; Save only if order total reaches $70.</span></div>
+        <div class="lx-lift" data-rv style="background:var(--lim,#A6D62E);color:var(--ink,#0C1A11);border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:12px"><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em">2–3 POUCHES</span><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:14px;line-height:1.5">+ Free shipping</span><span style="font-family:Poppins,sans-serif;font-size:13px;line-height:1.5">Every order $70+ ships free.</span></div>
+        <div class="lx-lift" data-rv style="background:#fff;color:var(--ink,#0C1A11);border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:12px"><div style="aspect-ratio:16/10;border-radius:16px;border:2px dashed currentColor;display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-size:12px;line-height:1.4;text-align:center;opacity:.7">T-shirt render<br>1200×750</div><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em">6 POUCHES</span><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:14px;line-height:1.5">+ Free Limitless X T-Shirt</span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:13px">{{ tshirtValue }} VALUE — FREE</span></div>
+        <div class="lx-lift" data-rv style="background:var(--for,#0B4A2A);color:#fff;border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:12px"><div style="aspect-ratio:16/10;border-radius:16px;border:2px dashed currentColor;display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-size:12px;line-height:1.4;text-align:center;opacity:.7">Hat render<br>1200×750</div><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em">6 POUCHES · SUBSCRIBE</span><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:14px;line-height:1.5">+ T-Shirt + Free Limitless X Hat</span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:13px">{{ hatValue }} VALUE — FREE</span></div>
+      </div>
+      <p style="margin:0;text-align:center;font-family:Poppins,sans-serif;font-size:12px;line-height:1.5;color:#2B3A31">Gifts added automatically when your order qualifies, while supplies last. T-shirt size selected in cart.</p></div></div>
+  </section>
+
+  <!-- 15 FAQ -->
+  <section data-section="faq" style="background:#fff;padding:clamp(56px,8vw,104px) 20px;">
+    <div style="max-width:820px;margin:0 auto"><div style="display:flex;flex-direction:column;gap:32px;align-items:center">
+      <h2 data-rv style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(26px,3.84vw,51px);line-height:1.38;margin:0;color:var(--ink,#0C1A11);text-align:center;max-width:900px;text-wrap:balance">Questions, answered.</h2>
+      <div style="display:flex;flex-direction:column;width:100%;border-top:1px solid rgba(12,26,17,.18)">
+        <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="7">
+          <div style="{{ q.wrapStyle }}">
+            <button onClick="{{ q.toggle }}" aria-expanded="{{ q.open }}" style="width:100%;background:none;border:0;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;cursor:pointer;color:var(--ink,#0C1A11);font-family:Poppins,sans-serif;font-weight:600;font-size:16px;line-height:1.35;min-height:60px"><span>{{ q.q }}</span><span style="flex:none;font:400 26px/1 Poppins,sans-serif">{{ q.sign }}</span></button>
+            <sc-if value="{{ q.open }}"><p style="margin:0 0 22px;font-family:Poppins,sans-serif;font-size:15px;line-height:1.65;color:#2B3A31;max-width:700px">{{ q.a }}</p></sc-if>
+          </div>
+        </sc-for>
+      </div></div></div>
+  </section>
+
+  <!-- 16 GUARANTEE -->
+  <section data-section="guarantee" style="background:#FBF3D6;padding:clamp(40px,6vw,72px) 20px">
+    <div data-rv style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:28px">
+      <div style="flex:none;width:132px;height:132px;border-radius:50%;background:var(--for,#0B4A2A);color:var(--yel,#F4DC2A);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center"><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:36px;line-height:1.1">60</span><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:11px;line-height:1.2;letter-spacing:.12em">DAY<br>GUARANTEE</span></div>
+      <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:10px">
+        <h2 style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(23px,3.07vw,38px);line-height:1.4;margin:0">Try it for 60 days. Risk-free.</h2>
+        <p style="margin:0;font-family:Poppins,sans-serif;font-size:15px;line-height:1.6;color:#2B3A31">If you don't feel more energized, balanced and supported, return your order for a full refund. See our <a href="../../pages/returns-exchanges/index.html">returns policy</a> for details.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17 FINAL OFFER -->
+  <section data-section="final-offer" style="background:var(--yel,#F4DC2A);padding:clamp(56px,8vw,104px) 20px">
+    <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(24px,5vw,64px);align-items:center">
+      <div data-rv style="position:relative;justify-self:center;width:min(100%,400px)">
+        <div style="border-radius:36px;overflow:hidden;aspect-ratio:4/5;background:var(--lim,#A6D62E)"><img src="assets/x-01.png" alt="Pouring Super Greens gummies into her mouth" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <img src="assets/x-use-this.png" alt="" loading="lazy" style="position:absolute;right:-10%;bottom:-6%;width:44%;height:auto;transform:rotate(8deg);filter:drop-shadow(0 18px 22px rgba(12,26,17,.35))">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start">
+        <h2 data-rv style="-webkit-text-stroke:.028em currentColor;paint-order:stroke fill;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(28px,4.48vw,59px);line-height:1.36;margin:0;color:var(--ink,#0C1A11)">Start your Limitless routine today.</h2>
+        <p data-rv style="margin:0;font-family:Poppins,sans-serif;font-weight:500;font-size:17px;line-height:1.55;color:var(--ink,#0C1A11);max-width:480px">Save up to {{ maxSavePct }}% with bundles + Subscribe &amp; Save. Free shipping on $70+. 60-day guarantee.</p>
+        <a href="#offer" data-track="ViewOffer" style="display:flex;align-items:center;justify-content:center;min-height:60px;padding:12px 28px;border-radius:999px;background:var(--for,#0B4A2A);color:#fff;text-decoration:none;border:0;cursor:pointer;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(12px,1.2vw,15px);line-height:1.4;text-align:center" style-hover="background:var(--ink,#0C1A11)">{{ cta }} →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--for,#0B4A2A);color:#fff;padding:clamp(56px,6vw,88px) 20px 0;overflow:hidden">
+    <div style="max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:12px;text-align:center">
+      <p data-compliance="fda-disclaimer" style="margin:0;font-family:Poppins,sans-serif;font-size:12px;line-height:1.6;color:#D5E3D9">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+      <p style="margin:0;font-family:Poppins,sans-serif;font-size:12px;line-height:1.6;color:#D5E3D9">© Limitless X · <a href="../../pages/privacy-policy/index.html" style="color:var(--yel,#F4DC2A)">Privacy</a> · <a href="../../pages/terms-conditions/index.html" style="color:var(--yel,#F4DC2A)">Terms</a></p>
+    </div>
+    <div aria-hidden="true" style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:min(12.6vw,220px);letter-spacing:.035em;line-height:1;text-align:center;white-space:nowrap;color:var(--lim,#A6D62E);margin-top:clamp(56px,7vw,110px);margin-bottom:-.09em;padding:0 2vw">LIMITLESS</div>
+  </footer>
+
+  <!-- 18 STICKY MOBILE CTA -->
+  <sc-if value="{{ showSticky }}">
+    <div data-section="sticky-cta" style="position:fixed;left:0;right:0;bottom:0;z-index:70;background:#fff;border-top:1px solid rgba(12,26,17,.12);box-shadow:0 -8px 24px rgba(12,26,17,.1);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px">
+      <img src="assets/pouch-apple-cinnamon.png" alt="" style="width:40px;height:52px;object-fit:contain;flex:none">
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span style="font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:10px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Super Greens Gummies</span><span style="font-family:Poppins,sans-serif;font-weight:500;font-size:12px;line-height:1.1"><span style="color:#E0A800">★★★★★</span> From {{ startPrice }}</span></div>
+      <a href="#offer" data-track="ViewOffer" style="flex:none;display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:999px;background:var(--for,#0B4A2A);color:#fff;text-decoration:none;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:11px;line-height:1.2">{{ cta }}</a>
+    </div>
+  </sc-if>
+
+  <!-- QUIZ / LEAD CAPTURE MODAL -->
+  <sc-if value="{{ quizOpen }}">
+    <div data-module="quiz" style="position:fixed;inset:0;z-index:100;background:rgba(12,26,17,.6);display:flex;align-items:flex-end;justify-content:center">
+      <div role="dialog" aria-modal="true" style="width:100%;max-width:540px;max-height:92vh;overflow-y:auto;background:#fff;border-radius:28px 28px 0 0;padding:22px 20px 28px;display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <div style="flex:1;height:8px;border-radius:4px;background:#ECE8D8;overflow:hidden"><div style="{{ quizBarStyle }}"></div></div>
+          <button onClick="{{ closeQuiz }}" aria-label="Close" style="border:0;background:#FBF3D6;width:44px;height:44px;border-radius:50%;cursor:pointer;font:600 16px/1 Poppins,sans-serif">✕</button>
+        </div>
+        <sc-if value="{{ qIntro }}">
+          <div style="display:flex;flex-direction:column;gap:14px;text-align:center;align-items:center">
+            <img src="assets/pouch-apple-cinnamon.png" alt="" style="width:120px;height:auto">
+            <h3 style="margin:0;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:20px;line-height:1.4">Unlock your Limitless offer</h3>
+            <p style="margin:0;font-family:Poppins,sans-serif;font-weight:500;font-size:15px;line-height:1.5">Take our 30-second wellness quiz and unlock:</p>
+            <div style="display:flex;flex-direction:column;gap:6px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;line-height:1.3"><span>UP TO {{ maxSavePct }}% OFF</span><span>+ FREE SHIPPING</span><span>+ EXCLUSIVE FREE GIFTS</span></div>
+            <span style="font-family:Poppins,sans-serif;font-size:11.5px;line-height:1.4;color:#4A564E">On qualifying bundles. See how savings are calculated at the end.</span>
+            <button onClick="{{ quizNext }}" style="width:100%;border:0;background:var(--for,#0B4A2A);color:#fff;border-radius:999px;min-height:60px;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:13px;cursor:pointer">Unlock my offer</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ qQuestion }}">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1;letter-spacing:.14em;color:var(--for,#0B4A2A)">QUESTION {{ quizStep }} OF 3</span>
+            <h3 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:22px;line-height:1.25">{{ question.title }}</h3>
+            <div style="display:flex;flex-direction:column;gap:10px"><sc-for list="{{ question.options }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ qEmail }}">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <h3 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:22px;line-height:1.25">Where should we send your personalized offer?</h3>
+            <label style="display:flex;flex-direction:column;gap:6px;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;line-height:1">Email<input type="email" value="{{ email }}" onChange="{{ onEmail }}" placeholder="you@email.com" autocomplete="email" style="min-height:54px;border:2px solid #E4E0D0;border-radius:14px;padding:0 14px;font-family:Poppins,sans-serif;font-size:16px;line-height:1"></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;line-height:1">Phone (optional)<input type="tel" value="{{ phone }}" onChange="{{ onPhone }}" placeholder="(555) 555-5555" autocomplete="tel" style="min-height:54px;border:2px solid #E4E0D0;border-radius:14px;padding:0 14px;font-family:Poppins,sans-serif;font-size:16px;line-height:1"></label>
+            <label data-compliance="sms-consent" style="display:flex;gap:10px;align-items:flex-start;font-family:Poppins,sans-serif;font-size:11.5px;line-height:1.5;color:#3F4A42;cursor:pointer"><input type="checkbox" checked="{{ sms }}" onChange="{{ onSms }}" style="width:22px;height:22px;flex:none;margin-top:2px;accent-color:#0B4A2A"><span>Yes, text me offers from Limitless X. By checking this box you agree to receive recurring automated marketing texts at the number provided. Consent is not a condition of purchase. Msg &amp; data rates may apply. Msg frequency varies. Reply HELP for help, STOP to cancel. See Terms &amp; Privacy.</span></label>
+            <button onClick="{{ submitEmail }}" data-track="Lead" style="{{ submitStyle }}">Reveal my offer</button>
+            <span style="font-family:Poppins,sans-serif;font-size:11px;line-height:1.4;text-align:center;color:#4A564E">We'll also email you your offer. Unsubscribe anytime.</span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ qReveal }}">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1.3;letter-spacing:.14em;color:var(--for,#0B4A2A);text-align:center">✓ YOUR LIMITLESS OFFER IS UNLOCKED</span>
+            <h3 style="margin:0;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:17px;line-height:1.45;text-align:center">{{ revealHeadline }}</h3>
+            <div style="background:#FBF3D6;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:9px;font-family:Poppins,sans-serif;font-weight:500;font-size:14px;line-height:1.2">
+              <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:12px;line-height:1.2;letter-spacing:.1em;color:#4A564E">HOW YOUR SAVINGS ARE CALCULATED</span>
+              <div style="display:flex;justify-content:space-between"><span>6 pouches × $49.95</span><span>{{ best.retail }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span>Bundle discount ({{ best.bundlePct }}%)</span><span>−{{ best.bundleOff }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span>Subscribe &amp; Save (15%)</span><span>−{{ best.subOff }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span>Shipping</span><span>FREE</span></div>
+              <div style="display:flex;justify-content:space-between"><span>T-shirt + hat</span><span>{{ giftValues }} VALUE — FREE</span></div>
+              <div style="display:flex;justify-content:space-between;border-top:1px solid rgba(12,26,17,.2);padding-top:10px;font-weight:700"><span>Your price</span><span>{{ best.total }} ({{ best.savePct }}% off)</span></div>
+            </div>
+            <button onClick="{{ claimOffer }}" data-track="ViewOffer" style="width:100%;border:0;background:var(--for,#0B4A2A);color:#fff;border-radius:999px;min-height:60px;font-family:Boldonse,Poppins,sans-serif;font-weight:400;text-transform:uppercase;font-size:13px;cursor:pointer">Claim my offer</button>
+            <button onClick="{{ closeQuiz }}" style="border:0;background:none;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;line-height:1;cursor:pointer;min-height:44px;color:var(--ink,#0C1A11)">See all options</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;cForest&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0B4A2A&quot;,&quot;options&quot;:[&quot;#0B4A2A&quot;,&quot;#0E5A32&quot;,&quot;#123D2A&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Colors&quot;},&quot;cYellow&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#F4DC2A&quot;,&quot;options&quot;:[&quot;#F4DC2A&quot;,&quot;#FFE45C&quot;,&quot;#F6B93B&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Colors&quot;},&quot;cLime&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#A6D62E&quot;,&quot;options&quot;:[&quot;#A6D62E&quot;,&quot;#7DB82B&quot;,&quot;#C8D43A&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Colors&quot;},&quot;cRed&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C8281F&quot;,&quot;options&quot;:[&quot;#C8281F&quot;,&quot;#D9412B&quot;,&quot;#B3241A&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Colors&quot;},&quot;heroVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;product&quot;,&quot;benefit&quot;,&quot;offer&quot;],&quot;default&quot;:&quot;product&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;CRO tests&quot;},&quot;ctaLabel&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;GET MY OFFER&quot;,&quot;TRY SUPER GREENS&quot;,&quot;START MY LIMITLESS ROUTINE&quot;,&quot;UNLOCK MY SAVINGS&quot;],&quot;default&quot;:&quot;GET MY OFFER&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;CRO tests&quot;},&quot;bundleSet&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;1/3/6&quot;,&quot;1/2/4&quot;,&quot;1/3/5&quot;],&quot;default&quot;:&quot;1/3/6&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;CRO tests&quot;},&quot;defaultPlan&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;subscribe&quot;,&quot;one-time&quot;],&quot;default&quot;:&quot;subscribe&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;CRO tests&quot;},&quot;cadence&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;30 days&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;disc2&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:5,&quot;min&quot;:0,&quot;max&quot;:50,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;disc3&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:10,&quot;min&quot;:0,&quot;max&quot;:50,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;disc4&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:15,&quot;min&quot;:0,&quot;max&quot;:50,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;disc5&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:17,&quot;min&quot;:0,&quot;max&quot;:50,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;disc6&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:20,&quot;min&quot;:0,&quot;max&quot;:50,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;tshirtValue&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;hatValue&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;}}">
+class Component extends DCLogic {
+  state = { paused: false, vis: true, plan: null, qty: 1, img: 0, faq: 0, filter: 'Most helpful', quizOpen: false, quizStep: 0, answers: {}, email: '', phone: '', sms: false, scrolled: false, w: 1200 };
+
+  PRICE = 49.95; SUB = 15; FREE_SHIP = 70; SERVINGS = 30;
+  INK = 'var(--ink,#0C1A11)'; FOR = 'var(--for,#0B4A2A)'; YEL = 'var(--yel,#F4DC2A)'; LIM = 'var(--lim,#A6D62E)'; RED = 'var(--red,#C8281F)'; CRE = 'var(--cre,#FBF3D6)';
+  PALETTES = {
+    'Pouch Sun': { yel: '#F4DC2A', lim: '#A6D62E', for: '#0B4A2A', red: '#C8281F' },
+    'Orchard': { yel: '#E8D53A', lim: '#7DB82B', for: '#0E5A32', red: '#D9412B' },
+    'Ember': { yel: '#F6B93B', lim: '#C8D43A', for: '#123D2A', red: '#B3241A' },
+    'Gummy Lime': { yel: '#DDF23A', lim: '#6BBF2A', for: '#06381F', red: '#E0472D' }
+  };
+
+  componentDidMount() {
+    this._on = () => this.setState({ scrolled: window.scrollY > 520, w: window.innerWidth });
+    window.addEventListener('scroll', this._on, { passive: true });
+    window.addEventListener('resize', this._on);
+    this._on();
+    this.persistUtm();
+    this.track('PageView'); this.track('ViewContent', { product: 'superfoods-super-greens-blend-gummies' });
+    this.applyProps();
+    setTimeout(() => this.initReveal(), 60);
+    this.startSparks(); this.startTrail();
+    setTimeout(() => this.initArc2(), 120);
+    setTimeout(() => { const el = document.getElementById('lx-slider'); if (el && 'IntersectionObserver' in window) { this._sio = new IntersectionObserver(es => this.setState({ vis: es[0].isIntersecting }), { threshold: .25 }); this._sio.observe(el); } }, 80);
+  }
+  componentDidUpdate() { this.syncMain(); this.applyProps(); }
+  componentWillUnmount() { window.removeEventListener('scroll', this._on); window.removeEventListener('resize', this._on); if (this._io) this._io.disconnect(); if (this._sio) this._sio.disconnect(); this._sparkOn = false; cancelAnimationFrame(this._arcRaf); clearInterval(this._arcTimer); if (this._arcIo) this._arcIo.disconnect(); if (this._arcRs) window.removeEventListener('resize', this._arcRs); if (this._trail) document.removeEventListener('pointermove', this._trail); (this._timers || []).forEach(clearTimeout); }
+  syncMain() {
+    const el = document.getElementById('lx-pouch'), g = this._main; if (!el || !g) return;
+    if (el.getAttribute('src') !== g.src) el.setAttribute('src', g.src);
+    el.setAttribute('alt', g.alt);
+    el.style.width = ''; el.style.height = ''; el.style.objectFit = ''; el.style.filter = ''; el.style.borderRadius = '';
+    Object.assign(el.style, this._mainStyle);
+  }
+  applyProps() {
+    const p = this.props, root = document.querySelector('[data-screen-label]'); if (!root) return;
+    const m = { for: p.cForest ?? '#0B4A2A', yel: p.cYellow ?? '#F4DC2A', lim: p.cLime ?? '#A6D62E', red: p.cRed ?? '#C8281F' };
+    Object.keys(m).forEach(k => root.style.setProperty('--' + k, m[k]));
+  }
+  initReveal() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+    const els = [...document.querySelectorAll('[data-rv]')], vh = window.innerHeight;
+    this._io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; this._io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(el => { if (el.getBoundingClientRect().top > vh) { el.style.opacity = '0'; el.style.transform = 'translateY(28px)'; el.style.transition = 'opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)'; this._io.observe(el); } });
+  }
+  startSparks() {
+    const box = document.getElementById('lx-sparks');
+    if (!box || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this._sparkOn = true; this._timers = this._timers || [];
+    const spawn = () => {
+      if (!this._sparkOn) return;
+      const r = box.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < window.innerHeight) {
+        const el = document.createElement('span'), size = 14 + Math.random() * 22, dur = 1.5 + Math.random() * 1.6;
+        el.style.cssText = 'position:absolute;left:' + (Math.random() * 100).toFixed(1) + '%;top:' + (Math.random() * 100).toFixed(1) + '%;width:' + size.toFixed(0) + 'px;height:' + size.toFixed(0) + 'px;margin:-' + (size / 2).toFixed(0) + 'px 0 0 -' + (size / 2).toFixed(0) + 'px;background:radial-gradient(circle,#fff 0,#FFE9A3 30%,rgba(255,220,120,0) 70%);clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%);opacity:0;animation:lxspin ' + dur.toFixed(2) + 's ease-in-out 1 forwards';
+        box.appendChild(el);
+        setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, dur * 1000 + 100);
+      }
+      this._timers.push(setTimeout(spawn, 220 + Math.random() * 520));
+    };
+    for (let i = 0; i < 3; i++) this._timers.push(setTimeout(spawn, i * 260));
+  }
+  startTrail() {
+    if (!window.matchMedia('(hover:hover)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let last = 0;
+    this._trail = (e) => {
+      const t = e.target && e.target.closest ? e.target.closest('.lx-lift,.lx-flav,[data-fx]') : null;
+      if (!t) return;
+      const now = performance.now(); if (now - last < 55) return; last = now;
+      const el = document.createElement('span'), size = 9 + Math.random() * 10;
+      el.style.cssText = 'position:fixed;left:' + (e.clientX + (Math.random() * 16 - 8)).toFixed(0) + 'px;top:' + (e.clientY + (Math.random() * 16 - 8)).toFixed(0) + 'px;width:' + size.toFixed(0) + 'px;height:' + size.toFixed(0) + 'px;margin:-' + (size / 2).toFixed(0) + 'px 0 0 -' + (size / 2).toFixed(0) + 'px;background:radial-gradient(circle,#fff 0,#FFE27A 34%,rgba(242,201,76,0) 72%);clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%);opacity:0;pointer-events:none;z-index:500;animation:lxtwk .7s ease-out 1 forwards';
+      document.body.appendChild(el);
+      setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 760);
+    };
+    document.addEventListener('pointermove', this._trail, { passive: true });
+  }
+  initArc2() {
+    const root = document.getElementById('lx2-arc'); if (!root) return;
+    const cards = [...root.querySelectorAll('[data-arc2]')], n = cards.length, reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches, st = { pos: reduce ? 0 : -2.6 };
+    const count = document.getElementById('lx2-arc-count');
+    const wrap = (d) => { d = ((d % n) + n) % n; return d > n / 2 ? d - n : d; };
+    const layout = () => {
+      const W = root.clientWidth, cw = cards[0].offsetWidth, ch = cw * 1.25, R = Math.max(W * .85, 620), step = cw * .82 / R, top = 36;
+      cards.forEach((c, i) => {
+        const d = wrap(i - st.pos), a = d * step, ad = Math.abs(d), x = Math.sin(a) * R, y = (1 - Math.cos(a)) * R * .9, sc = 1.08 - Math.min(ad, 3) * .07;
+        c.style.transform = 'translate(-50%,0) translate(' + x.toFixed(1) + 'px,' + (top + y).toFixed(1) + 'px) rotate(' + (a * 57.2958).toFixed(2) + 'deg) scale(' + sc.toFixed(3) + ')';
+        c.style.zIndex = String(100 - Math.round(ad * 10));
+        c.style.opacity = ad > 3.4 ? '0' : ad > 2.6 ? String((3.4 - ad) / .8) : '1';
+        c.style.pointerEvents = ad > 3.4 ? 'none' : 'auto';
+        c.style.filter = ad < .5 ? 'none' : 'brightness(' + (1 - Math.min(ad, 3) * .09).toFixed(2) + ')';
+      });
+      root.style.height = Math.round(top + ch * 1.1 + (1 - Math.cos(3 * step)) * R * .9 + 30) + 'px';
+      if (count) { const idx = ((Math.round(st.pos) % n) + n) % n; count.textContent = '0' + (idx + 1) + ' / 0' + n; }
+    };
+    this._arcLayout = layout; layout();
+    const tween = (target, dur) => {
+      cancelAnimationFrame(this._arcRaf);
+      const from = st.pos, t0 = performance.now(), ease = (t) => 1 - Math.pow(1 - t, 3);
+      const stp = (now) => { const p = Math.min(1, (now - t0) / (dur * 1000)); st.pos = from + (target - from) * ease(p); layout(); if (p < 1) this._arcRaf = requestAnimationFrame(stp); };
+      this._arcRaf = requestAnimationFrame(stp);
+    };
+    this._arcAuto = true; this.arc2Go = (dir) => { this._arcAuto = false; tween(Math.round(st.pos) + dir, .9); };
+    let drag = null, moved = 0, card = null;
+    root.addEventListener('pointerdown', (e) => { drag = { x: e.clientX, pos: st.pos }; moved = 0; card = e.target.closest('[data-arc2]'); cancelAnimationFrame(this._arcRaf); this._arcAuto = false; root.style.cursor = 'grabbing'; try { root.setPointerCapture(e.pointerId); } catch (x) {} });
+    root.addEventListener('pointermove', (e) => { if (!drag) return; const dx = e.clientX - drag.x; moved = Math.max(moved, Math.abs(dx)); st.pos = drag.pos - dx / (cards[0].offsetWidth * .85); layout(); });
+    const up = () => { if (!drag) return; root.style.cursor = 'grab'; if (moved < 6 && card) { tween(Math.round(st.pos) + wrap(cards.indexOf(card) - Math.round(st.pos)), .9); } else tween(Math.round(st.pos), .8); drag = null; };
+    root.addEventListener('pointerup', up); root.addEventListener('pointercancel', up);
+    this._arcRs = () => layout(); window.addEventListener('resize', this._arcRs);
+    if (!reduce && 'IntersectionObserver' in window) {
+      let seen = false, vis = false;
+      this._arcIo = new IntersectionObserver((es) => { vis = es[0].isIntersecting; if (vis && !seen) { seen = true; tween(0, 1.7); } }, { threshold: .3 });
+      this._arcIo.observe(root);
+      this._arcTimer = setInterval(() => { if (this._arcAuto && vis) tween(Math.round(st.pos) + 1, 1); }, 3400);
+    }
+  }
+  scrollRow(dir, id) { const r = document.getElementById(id || 'lx2-row'); if (r) r.scrollBy({ left: dir * Math.min(360, r.clientWidth * .8), behavior: 'smooth' }); }
+
+  /* ---------- funnel logic (unchanged) ---------- */
+  persistUtm() {
+    try {
+      const q = new URLSearchParams(location.search); const keep = {};
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'gclid', 'ttclid'].forEach(k => { if (q.get(k)) keep[k] = q.get(k); });
+      if (Object.keys(keep).length) sessionStorage.setItem('lx_utm', JSON.stringify(keep));
+    } catch (e) {}
+  }
+  track(event, data) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event }, data || {}));
+  }
+
+  disc() {
+    const p = this.props;
+    return { 1: 0, 2: p.disc2 ?? 5, 3: p.disc3 ?? 10, 4: p.disc4 ?? 15, 5: p.disc5 ?? 17, 6: p.disc6 ?? 20 };
+  }
+  money(n) { return '$' + n.toFixed(2); }
+  calc(plan, qty) {
+    const retail = this.PRICE * qty, bundlePct = this.disc()[qty] || 0;
+    const bundleOff = retail * bundlePct / 100;
+    const subOff = plan === 'sub' ? (retail - bundleOff) * this.SUB / 100 : 0;
+    const total = retail - bundleOff - subOff;
+    const save = retail - total;
+    return { retail, bundlePct, bundleOff, subOff, total, save, savePct: Math.round(save / retail * 100), perDay: total / (qty * this.SERVINGS), freeShip: total >= this.FREE_SHIP, tshirt: qty >= 6, hat: qty >= 6 && plan === 'sub' };
+  }
+  plan() { return this.state.plan || (this.props.defaultPlan === 'one-time' ? 'once' : 'sub'); }
+  setPlan(plan) {
+    const subQ = [1, 3, 6];
+    let qty = this.state.qty;
+    if (plan === 'sub' && !subQ.includes(qty)) qty = qty === 2 ? 3 : 6;
+    this.setState({ plan, qty });
+    if (plan === 'sub') this.track('SelectSubscription');
+  }
+  pick(plan, qty) { this.setState({ plan, qty }); this.track('SelectBundle', { plan, qty }); }
+
+  chipStyle(sel) {
+    return { flex: '1 1 0', minWidth: 0, minHeight: '68px', padding: '8px 4px', borderRadius: '14px', border: '2px solid ' + (sel ? this.FOR : '#E4E0D0'), background: sel ? '#E9F4CC' : '#fff', color: this.INK, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '5px', cursor: 'pointer', font: '700 14px/1.1 Poppins, sans-serif' };
+  }
+  cardStyle(sel) {
+    return { border: '2px solid ' + (sel ? this.FOR : '#E4E0D0'), background: '#fff', boxShadow: sel ? '0 0 0 4px rgba(11,74,42,.12)' : 'none', borderRadius: '20px', padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', cursor: 'pointer', transition: 'box-shadow .15s, border-color .15s' };
+  }
+  dot(sel) {
+    return { width: '22px', height: '22px', borderRadius: '50%', border: sel ? '7px solid ' + this.FOR : '2px solid #B9B6AA', background: '#fff', flex: 'none' };
+  }
+
+  renderVals() {
+    const s = this.state, plan = this.plan(), qty = s.qty, isSub = plan === 'sub';
+    const p = this.calc(plan, qty);
+    const cta = this.props.ctaLabel ?? 'GET MY OFFER';
+    const hero = this.props.heroVariant ?? 'product';
+    const cadence = this.props.cadence ?? '30 days';
+    const tshirtValue = this.props.tshirtValue ? '$' + this.props.tshirtValue : '$XX';
+    const hatValue = this.props.hatValue ? '$' + this.props.hatValue : '$XX';
+    const INK = this.INK, CRE = this.CRE, YEL = this.YEL, LIM = this.LIM, RED = this.RED, FOR = this.FOR;
+
+    const optLabel = (pl, q) => { const c = this.calc(pl, q); return c.savePct > 0 ? 'SAVE ' + c.savePct + '%' : this.money(c.total); };
+    const tagFor = (q) => q === 6 ? 'BEST VALUE' : '';
+    const mk = (pl, list) => list.map(q => ({ label: q + (q === 1 ? ' Pouch' : ' Pouches'), saveLabel: optLabel(pl, q), tag: tagFor(q), chipStyle: this.chipStyle(plan === pl && qty === q), pick: () => this.pick(pl, q) }));
+
+    const perks = [];
+    perks.push(p.freeShip ? { icon: '✓', text: 'FREE SHIPPING UNLOCKED', on: true } : { icon: '→', text: this.money(this.FREE_SHIP - p.total) + ' away from free shipping', on: false });
+    perks.push(p.tshirt ? { icon: '✓', text: 'FREE LIMITLESS X T-SHIRT (' + tshirtValue + ' VALUE)', on: true } : { icon: '+', text: 'Get 6 pouches to unlock a free T-shirt', on: false });
+    if (isSub) perks.push(p.hat ? { icon: '✓', text: 'FREE LIMITLESS X HAT (' + hatValue + ' VALUE)', on: true } : { icon: '+', text: 'Subscribe to 6 pouches to unlock a free hat', on: false });
+    perks.forEach(k => { k.style = { display: 'flex', gap: '8px', alignItems: 'center', font: (k.on ? '700' : '500') + ' 13px/1.3 Poppins, sans-serif', color: k.on ? FOR : INK }; });
+
+    const gallery = [
+      { src: 'assets/x-use-this.png', alt: 'Super Greens Gummies Apple Cinnamon pouch', fit: 'contain' },
+      { src: 'assets/x-01.png', alt: 'Pouring gummies straight from the pouch', fit: 'cover' },
+      { src: 'assets/x-02.png', alt: 'Peeking over the pouch', fit: 'cover' },
+      { src: 'assets/x-03.png', alt: 'Hands passing the pouch', fit: 'cover' },
+      { src: 'assets/x-12.png', alt: 'Holding the pouch on a green backdrop', fit: 'cover' },
+      { src: 'assets/x-22.png', alt: 'Flat lay with apples and cinnamon', fit: 'cover' },
+      { src: 'assets/supplement-facts.png', alt: 'Supplement facts', fit: 'facts' }
+    ];
+    const mainImg = gallery[s.img];
+    const mainImgStyle = mainImg.fit === 'contain' ? { width: '72%', height: '90%', objectFit: 'contain', filter: 'drop-shadow(0 22px 26px rgba(12,26,17,.3))' } : mainImg.fit === 'plain' ? { width: '92%', height: '92%', objectFit: 'contain', borderRadius: '16px' } : { width: '100%', height: '100%', objectFit: 'cover' };
+
+    this._main = mainImg; this._mainStyle = mainImgStyle;
+    const setKey = this.props.bundleSet ?? '1/3/6';
+    const tierQ = setKey.split('/').map(Number);
+    const names = ['Starter', 'Standard', 'Best Value'];
+    const tiers = tierQ.map((q, i) => {
+      const c = this.calc(plan, q), sel = qty === q;
+      const gifts = [c.tshirt ? 'T-shirt' : null, c.hat ? 'Hat' : null].filter(Boolean).join(' + ') || '—';
+      return {
+        name: names[i], qtyLabel: q + (q === 1 ? ' Pouch' : ' Pouches'), badge: i === 2 ? 'BEST VALUE' : '',
+        retail: this.money(c.retail), total: this.money(c.total), save: c.save > 0 ? this.money(c.save) + ' (' + c.savePct + '%)' : '—',
+        perDay: this.money(c.perDay), ship: c.freeShip ? 'FREE' : 'Standard', gifts,
+        pouches: Array.from({ length: q }, (_, k) => {
+          const mid = (q - 1) / 2, d = k - mid, ang = q === 1 ? 0 : d * (q <= 3 ? 13 : q === 4 ? 10 : q === 5 ? 9 : 8.5);
+          const h = q === 1 ? 82 : q <= 3 ? 76 : q === 4 ? 72 : 68, topPct = (100 - h) / 2 - (q > 1 ? 8 : 5);
+          return { style: { position: 'absolute', left: '50%', top: topPct + '%', height: h + '%', width: 'auto', transformOrigin: '50% 190%', transform: 'translateX(-50%) rotate(' + ang + 'deg)', zIndex: String(20 - Math.round(Math.abs(d) * 2)), filter: 'drop-shadow(0 14px 16px rgba(12,26,17,.32))' } };
+        }),
+        cardStyle: Object.assign(this.cardStyle(sel), { padding: '22px', gap: '14px', borderRadius: '24px', color: INK }),
+        btnStyle: { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '56px', borderRadius: '999px', border: '0', background: sel ? FOR : INK, color: sel ? '#fff' : '#fff', font: "400 12px/1.3 Boldonse, Poppins, sans-serif", textTransform: 'uppercase' },
+        btnLabel: sel ? '✓ Selected' : 'Select',
+        pick: () => { this.pick(plan, q); }
+      };
+    });
+    const tab = (on) => ({ border: 0, borderRadius: '999px', minHeight: '46px', padding: '0 20px', cursor: 'pointer', font: '700 13px/1 Poppins, sans-serif', background: on ? INK : 'transparent', color: on ? YEL : INK });
+
+    const realReviews = [
+      { name: 'Casey Edwards', title: 'Tastes good and actually makes a difference', body: "Honestly, I didn't think something that tastes like candy could actually help, but these do. I've noticed improvements in how I feel every day, especially with energy and bloating. It's become a small but powerful part of my routine." },
+      { name: 'Abigail Richardson', title: 'Love the convenience', body: 'Love the convenience — no powders, no mixing. Just grab and go.' },
+      { name: 'Zoe Wood', title: 'Subtle but real changes', body: "The changes aren't dramatic but definitely real. Better digestion and steady energy." }
+    ].map(r => Object.assign(r, { initial: r.name[0], badge: 'limitlessx.com review', isPlaceholder: false }));
+    const ph = [1, 2].map(i => ({ name: 'Customer name', initial: '?', title: 'Imported review ' + i, body: 'Placeholder until verified reviews + UGC photos are imported from the review app.', badge: 'PLACEHOLDER', isPlaceholder: true }));
+    const bgs = ['#fff', '#fff', '#fff', '#fff', '#fff'];
+    const reviews = realReviews.concat(ph).map((r, i) => Object.assign(r, { cardStyle: { flex: '0 0 min(82vw, 330px)', scrollSnapAlign: 'start', background: bgs[i], color: INK, border: r.isPlaceholder ? '2px dashed rgba(12,26,17,.3)' : '0', borderRadius: '24px', padding: '22px', display: 'flex', flexDirection: 'column', gap: '12px' } }));
+    const reviewFilters = ['Most helpful', 'Newest', 'With photos', 'Energy', 'Digestion', 'Taste', 'Convenience'].map(l => ({ label: l, pick: () => this.setState({ filter: l }), style: { border: '2px solid ' + INK, background: s.filter === l ? INK : '#fff', color: s.filter === l ? '#fff' : INK, borderRadius: '999px', minHeight: '44px', padding: '0 16px', cursor: 'pointer', font: '600 13px/1 Poppins, sans-serif' } }));
+
+    const faqData = [
+      ['What makes Limitless Superfood Gummies different from powders or pills?', 'Most superfood powders taste earthy and require mixing, while capsules are hard to stick with. Our gummies combine organic greens, reds, and gut-supporting enzymes in a delicious gummy with 0g sugar — so it\u2019s easy to stay consistent.'],
+      ['When will I start noticing results?', 'Many people feel improved digestion and steady energy within the first week. For benefits like skin vitality, immune support, and overall wellness, consistent use over 4\u20136 weeks delivers the best results.*'],
+      ['Do the gummies contain any sugar?', 'No — each serving has 0g sugar and only 16 calories, making them a clean choice for daily nutrition.'],
+      ['How many gummies are in a pouch?', 'Each pouch contains 60 gummies — 30 servings of 2 gummies.'],
+      ['Are they safe to take every day?', 'Our gummies are made with organic, plant-based ingredients in a GMP-certified, third-party tested facility and are designed for daily use. Consult your healthcare professional if you are pregnant, nursing, taking medication or have a medical condition.'],
+      ['How does Subscribe & Save work?', 'You save 15% on every order and your pouches ship every ' + cadence + '. You can skip, pause or cancel anytime from your account before your next billing date.'],
+      ['What if I don\u2019t notice a difference?', 'We stand behind our products with a 60-day satisfaction guarantee. If you don\u2019t feel more energized, balanced, and supported, simply return your order for a full refund.']
+    ];
+    const faqs = faqData.map(([q, a], i) => ({ q, a, open: s.faq === i, sign: s.faq === i ? '−' : '+', toggle: () => this.setState({ faq: s.faq === i ? -1 : i }), wrapStyle: { borderBottom: '1px solid rgba(12,26,17,.18)' } }));
+
+    const QS = [
+      { key: 'goal', title: 'What is your primary goal?', options: ['More daily nutrition', 'Gut & digestive support', 'Energy & performance', 'Weight management', 'Overall wellness'] },
+      { key: 'consistency', title: 'How consistent are you with taking greens?', options: ['Every day', 'Sometimes', 'Almost never'] },
+      { key: 'priority', title: 'What matters most?', options: ['Taste', 'Convenience', 'Ingredients', 'Value', 'Results'] }
+    ];
+    const qs = s.quizStep;
+    const qd = QS[qs - 1];
+    const question = qd ? { title: qd.title, options: qd.options.map(o => ({ label: o, pick: () => { this.setState({ answers: Object.assign({}, s.answers, { [qd.key]: o }), quizStep: qs + 1 }); }, style: { textAlign: 'left', minHeight: '58px', padding: '0 18px', borderRadius: '16px', cursor: 'pointer', border: '2px solid ' + (s.answers[qd.key] === o ? FOR : '#E4E0D0'), background: s.answers[qd.key] === o ? '#E9F4CC' : '#fff', boxShadow: 'none', color: INK, font: '600 15px/1.2 Poppins, sans-serif' } })) } : { title: '', options: [] };
+    const emailOk = /.+@.+\..+/.test(s.email);
+
+    let maxSavePct = 0;
+    [1, 3, 6].forEach(q => { maxSavePct = Math.max(maxSavePct, this.calc('sub', q).savePct); });
+    const b = this.calc('sub', 6);
+    const best = { retail: this.money(b.retail), bundlePct: b.bundlePct, bundleOff: this.money(b.bundleOff), subOff: this.money(b.subOff), total: this.money(b.total), savePct: b.savePct };
+    const startPrice = this.money(this.calc('sub', 1).total);
+
+    return {
+      cta, cadence, tshirtValue, hatValue, maxSavePct, startPrice, unitPrice: this.money(this.PRICE),
+      isHeroProduct: hero === 'product', isHeroBenefit: hero === 'benefit', isHeroOffer: hero === 'offer',
+      gallery: gallery.map((g, i) => {
+        const base = { flex: 'none', width: '100%', height: '100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' };
+        const slideStyle = g.fit === 'facts' ? Object.assign({}, base, { backgroundColor: '#9CC77B', containerType: 'size', overflowY: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 0' }) : g.fit === 'contain' ? Object.assign({}, base, { backgroundColor: YEL, backgroundImage: 'url(' + g.src + '), radial-gradient(circle at 50% 55%, rgba(255,255,255,.55), transparent 62%)', backgroundPosition: '50% 52%, center', backgroundSize: 'auto 84%, auto' }) : g.fit === 'plain' ? Object.assign({}, base, { backgroundColor: '#fff', backgroundImage: 'url(' + g.src + ')', backgroundSize: 'contain' }) : Object.assign({}, base, { backgroundImage: 'url(' + g.src + ')', backgroundSize: 'cover' });
+        return { alt: g.alt, slideStyle, isFacts: g.fit === 'facts', pick: () => this.setState({ img: i }), active: s.img === i, dotBtn: { position: 'relative', width: '28px', height: '28px', border: 0, padding: 0, background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }, dotCore: { width: s.img === i ? '10px' : '8px', height: s.img === i ? '10px' : '8px', borderRadius: '50%', background: s.img === i ? '#fff' : 'rgba(255,255,255,.65)', transition: 'all .25s' } };
+      }),
+      trackStyle: { display: 'flex', height: '100%', position: 'absolute', inset: 0, transform: 'translateX(-' + (s.img * 100) + '%)', transition: 'transform .55s cubic-bezier(.65,0,.25,1)' },
+      notFacts: s.img !== gallery.length - 1,
+      ringStyle: { strokeDashoffset: 69.115, animation: 'lxring 5.5s linear forwards', animationPlayState: (s.paused || !s.vis) ? 'paused' : 'running' },
+      ringEnd: () => this.setState(st => ({ img: (st.img + 1) % gallery.length })),
+      swEnter: () => this.setState({ paused: true }), swLeave: () => this.setState({ paused: false }),
+      swDown: (e) => { this._sx = e.clientX; },
+      swUp: (e) => { const dx = e.clientX - (this._sx == null ? e.clientX : this._sx); this._sx = null; if (Math.abs(dx) > 40) this.setState({ img: Math.max(0, Math.min(gallery.length - 1, s.img + (dx < 0 ? 1 : -1))) }); },
+      isSub, isOnce: !isSub,
+      subCardStyle: this.cardStyle(isSub), onceCardStyle: this.cardStyle(!isSub), subDotStyle: this.dot(isSub), onceDotStyle: this.dot(!isSub),
+      pickSub: () => { if (!isSub) this.setPlan('sub'); }, pickOnce: () => { if (isSub) this.setPlan('once'); },
+      pickSubOnly: () => this.setPlan('sub'), pickOnceOnly: () => this.setPlan('once'),
+      tabSubStyle: tab(isSub), tabOnceStyle: tab(!isSub),
+      subOpts: mk('sub', [1, 3, 6]), onceOpts: mk('once', [1, 2, 3, 6]),
+      price: { total: this.money(p.total), retail: this.money(p.retail), save: this.money(p.save), savePct: p.savePct, hasSavings: p.save > 0.004, perDay: this.money(p.perDay), perks },
+      cartHref: 'Post-Purchase Flow.dc.html?plan=' + plan + '&qty=' + qty + '#cart',
+      onAddToCart: () => { this.track('AddToCart', { plan, qty, value: +p.total.toFixed(2) }); },
+      tiers, reviews, reviewFilters, faqs,
+      arc2Prev: () => this.arc2Go && this.arc2Go(-1), arc2Next: () => this.arc2Go && this.arc2Go(1), rowPrev: () => this.scrollRow(-1), rowNext: () => this.scrollRow(1), revPrev: () => this.scrollRow(-1, 'lx2-rev'), revNext: () => this.scrollRow(1, 'lx2-rev'),
+      showSticky: s.scrolled && s.w < 900 && !s.quizOpen,
+      quizOpen: s.quizOpen, quizStep: qs,
+      openQuiz: () => { this.setState({ quizOpen: true, quizStep: 0 }); this.track('QuizStart'); },
+      closeQuiz: () => this.setState({ quizOpen: false }),
+      quizNext: () => this.setState({ quizStep: 1 }),
+      quizBarStyle: { width: Math.min(100, qs / 5 * 100) + '%', height: '100%', background: FOR, transition: 'width .25s' },
+      qIntro: qs === 0, qQuestion: qs >= 1 && qs <= 3, qEmail: qs === 4, qReveal: qs === 5,
+      question, email: s.email, phone: s.phone, sms: s.sms,
+      onEmail: (e) => this.setState({ email: e.target.value }), onPhone: (e) => this.setState({ phone: e.target.value }), onSms: (e) => this.setState({ sms: e.target.checked }),
+      submitStyle: { width: '100%', border: 0, background: emailOk ? FOR : '#9FB7A8', color: '#fff', borderRadius: '999px', minHeight: '62px', font: "400 14px/1.3 Boldonse, Poppins, sans-serif", textTransform: 'uppercase', boxShadow: 'none', cursor: emailOk ? 'pointer' : 'not-allowed' },
+      submitEmail: () => { if (!emailOk) return; this.track('QuizComplete', s.answers); this.track('Lead'); this.track('EmailCaptured', { sms_optin: s.sms }); this.setState({ quizStep: 5 }); },
+      revealHeadline: 'Up to ' + maxSavePct + '% off + free shipping + free gifts',
+      best, giftValues: tshirtValue + ' + ' + hatValue,
+      claimOffer: () => { this.setState({ plan: 'sub', qty: 6, quizOpen: false }); this.track('ViewOffer', { plan: 'sub', qty: 6 }); const el = document.getElementById('offer'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 8, behavior: 'smooth' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

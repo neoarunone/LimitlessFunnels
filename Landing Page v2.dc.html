@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Super Greens Gummies — Limitless X</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="image-slot.js"></script>
+<style>
+@font-face{font-family:"Boldonse";src:url("../../assets/theme-fonts/Boldonse-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Bebas Neue Pro";src:url("../../assets/theme-fonts/BebasNeuePro-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../../assets/theme-fonts/Poppins-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../../assets/theme-fonts/Poppins-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../../assets/theme-fonts/Poppins-SemiBold.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Poppins";src:url("../../assets/theme-fonts/Poppins-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+@keyframes lxFloat{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-16px) rotate(calc(var(--r) + 8deg))}}
+@keyframes lxMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F7F1E3;color:#0C120E;font-family:Poppins,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:#0B3D24}
+a:hover{color:#C8281F}
+button{font-family:inherit}
+</style>
+</helmet>
+
+<div data-screen-label="Super Greens Landing v2" style="min-height:100vh;background:#F7F1E3;overflow-x:hidden;padding-bottom:84px">
+
+  <!-- 01 ANNOUNCEMENT -->
+  <div data-section="announcement-bar" style="background:#0C120E;color:#fff;padding:10px 16px;display:flex;justify-content:center;flex-wrap:wrap;gap:6px 26px;font:700 12px/1.3 Poppins,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-align:center">
+    <span>Free shipping on orders $70+</span>
+    <span style="color:#CCFF3D">Members save 15%</span>
+    <span>60-day guarantee</span>
+  </div>
+
+  <!-- 02 HERO -->
+  <section id="offer" data-section="hero" style="background:#EFD84A;position:relative;overflow:hidden">
+    <div style="position:absolute;right:-4vw;top:40px;font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:clamp(120px,22vw,340px);line-height:1.28;color:#E6CB2E;white-space:nowrap;pointer-events:none;user-select:none" aria-hidden="true">GREENS</div>
+    <header style="position:relative;max-width:1320px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <img src="assets/logo-limitlessx.svg" alt="Limitless X" style="height:26px;width:auto;display:block">
+      <button onClick="{{ openQuiz }}" data-track="QuizStart" style="border:2px solid #0C120E;background:#0C120E;color:#CCFF3D;border-radius:999px;padding:0 18px;min-height:44px;font:700 12px/1 Poppins,sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer">Unlock my offer</button>
+    </header>
+
+    <div style="position:relative;max-width:1320px;margin:0 auto;padding:8px 20px 64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,500px),1fr));gap:clamp(12px,3vw,48px);align-items:start">
+
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="#reviews" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#0C120E;font:600 14px/1 Poppins,sans-serif">
+          <span style="font-size:18px;letter-spacing:2px">★★★★★</span><span>5.0 · 210 customer reviews</span>
+        </a>
+        <sc-if value="{{ isHeroProduct }}" hint-placeholder-val="{{ true }}">
+          <h1 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(34px,5.6vw,84px);line-height:1.28;margin:6px 0 0;text-transform:uppercase;color:#0B3D24;letter-spacing:-.01em">Greens.<br><span style="color:#0C120E">But make them</span><br><span style="display:inline-block;background:#0C120E;color:#CCFF3D;padding:.02em .18em .12em;transform:rotate(-2deg);margin-top:.14em">gummies.</span></h1>
+        </sc-if>
+        <sc-if value="{{ isHeroBenefit }}">
+          <h1 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(32px,5vw,76px);line-height:1.28;margin:6px 0 0;text-transform:uppercase;color:#0B3D24">Your greens.<br><span style="display:inline-block;background:#0C120E;color:#CCFF3D;padding:.02em .18em .12em;transform:rotate(-2deg);margin-top:.14em">Without the green drink.</span></h1>
+        </sc-if>
+        <sc-if value="{{ isHeroOffer }}">
+          <h1 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(32px,5vw,76px);line-height:1.28;margin:6px 0 0;text-transform:uppercase;color:#0B3D24">Your greens.<br><span style="display:inline-block;background:#C8281F;color:#fff;padding:.02em .18em .12em;transform:rotate(-2deg);margin-top:.14em">Up to {{ maxSavePct }}% off.</span></h1>
+        </sc-if>
+
+        <div style="position:relative;width:100%;max-width:620px;aspect-ratio:1/1;margin:4px auto 0">
+          <div style="position:absolute;left:8%;top:8%;width:84%;height:84%;border-radius:50%;background:#CCFF3D"></div>
+          <div style="position:absolute;left:14%;top:14%;width:72%;height:72%;border-radius:50%;border:2px dashed #0B3D24;opacity:.35"></div>
+          <img ref="{{ pouchRef }}" src="assets/pouch-apple-cinnamon.png" alt="Limitless X SuperFoods Super Greens Gummies, Apple Cinnamon, 60 gummies" style="position:absolute;left:19%;top:1%;width:56%;height:auto;transform:rotate(-7deg);filter:drop-shadow(0 34px 34px rgba(12,18,14,.35));will-change:transform">
+          <img src="assets/gummy-pile.png" alt="Green Super Greens gummies" style="position:absolute;right:-10%;bottom:-2%;width:62%;height:auto;filter:drop-shadow(0 20px 22px rgba(12,18,14,.3))">
+          {{ heroFloat }}
+          <div style="position:absolute;left:0;top:16%;width:clamp(78px,17%,112px);aspect-ratio:1/1;border-radius:50%;background:#C8281F;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-14deg);box-shadow:0 10px 20px rgba(0,0,0,.18)"><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:clamp(28px,4vw,40px);line-height:.85">0G</span><span style="font:700 10px/1 Poppins,sans-serif;letter-spacing:.12em">SUGAR</span></div>
+          <div style="position:absolute;right:2%;top:6%;width:clamp(74px,16%,104px);aspect-ratio:1/1;border-radius:50%;background:#0C120E;color:#CCFF3D;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(10deg);box-shadow:0 10px 20px rgba(0,0,0,.18)"><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:clamp(28px,4vw,40px);line-height:.85">2</span><span style="font:700 10px/1 Poppins,sans-serif;letter-spacing:.12em">A DAY</span></div>
+          <div style="position:absolute;left:4%;bottom:12%;background:#fff;color:#0C120E;border-radius:999px;padding:10px 14px;transform:rotate(-4deg);font:700 12px/1 Poppins,sans-serif;letter-spacing:.08em;box-shadow:0 10px 20px rgba(0,0,0,.14)">16 CAL · 30 SERVINGS</div>
+        </div>
+      </div>
+
+      <div data-module="offer-selector" style="background:#fff;border-radius:28px;padding:clamp(18px,2.4vw,28px);display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 60px rgba(12,18,14,.18);position:sticky;top:16px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.16em;color:#0D5C33;text-transform:uppercase">SuperFoods Super Greens Gummies</div>
+          <p style="margin:0;font:400 15px/1.55 Poppins,sans-serif;color:#3E463F;text-wrap:pretty">Organic greens, antioxidant-rich reds and gut-supporting enzymes in 2 gummies a day. No powders, no mixing, no shaker bottle.*</p>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span style="font:600 13px/1 Poppins,sans-serif">Flavor:</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;background:#0C120E;color:#fff;border-radius:999px;padding:0 14px 0 6px;min-height:40px;font:600 13px/1 Poppins,sans-serif"><img src="assets/pouch-apple-cinnamon.png" alt="" style="width:22px;height:30px;object-fit:contain">Apple Cinnamon</span>
+          <span style="border:1.5px dashed #BDB6A2;color:#5A6159;border-radius:999px;padding:0 12px;min-height:40px;display:inline-flex;align-items:center;font:500 12px/1 Poppins,sans-serif">4 more flavors soon</span>
+        </div>
+
+        <div onClick="{{ pickSub }}" data-track="SelectSubscription" style="{{ subCardStyle }}">
+          <div style="display:flex;align-items:center;gap:10px;justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="{{ subDotStyle }}"></span>
+              <span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:24px;line-height:1;letter-spacing:.02em">Join the Limitless Routine</span>
+            </div>
+            <span style="background:#CCFF3D;color:#0C120E;border-radius:999px;padding:6px 10px;font:700 11px/1 Poppins,sans-serif;letter-spacing:.08em">SAVE 15%</span>
+          </div>
+          <div style="display:flex;gap:8px">
+            <sc-for list="{{ subOpts }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.pick }}" data-track="SelectBundle" style="{{ o.chipStyle }}">
+                <span>{{ o.label }}</span>
+                <span style="font:700 11px/1 Poppins,sans-serif">{{ o.saveLabel }}</span>
+                <span style="font:700 9.5px/1 Poppins,sans-serif;letter-spacing:.08em">{{ o.tag }}</span>
+              </button>
+            </sc-for>
+          </div>
+          <div style="font:500 12px/1.45 Poppins,sans-serif">Delivered every {{ cadence }} · skip, pause or cancel anytime</div>
+        </div>
+
+        <div onClick="{{ pickOnce }}" style="{{ onceCardStyle }}">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="{{ onceDotStyle }}"></span>
+            <span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:22px;line-height:1;letter-spacing:.02em">One-time purchase</span>
+          </div>
+          <sc-if value="{{ isOnce }}">
+            <div style="display:flex;gap:8px">
+              <sc-for list="{{ onceOpts }}" as="o" hint-placeholder-count="4">
+                <button onClick="{{ o.pick }}" data-track="SelectBundle" style="{{ o.chipStyle }}">
+                  <span>{{ o.label }}</span>
+                  <span style="font:700 11px/1 Poppins,sans-serif">{{ o.saveLabel }}</span>
+                  <span style="font:700 9.5px/1 Poppins,sans-serif;letter-spacing:.08em">{{ o.tag }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="background:#F7F1E3;border-radius:18px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center;font:700 11px/1 Poppins,sans-serif;letter-spacing:.14em"><span>YOUR HAUL</span><span>{{ meter.label }}</span></div>
+          <div style="height:10px;border-radius:5px;background:#E4DCC6;overflow:hidden"><div style="{{ meter.fillStyle }}"></div></div>
+          <sc-for list="{{ price.perks }}" as="k" hint-placeholder-count="2">
+            <div style="{{ k.style }}"><span style="width:18px;text-align:center">{{ k.icon }}</span><span>{{ k.text }}</span></div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+            <span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:54px;line-height:.9">{{ price.total }}</span>
+            <sc-if value="{{ price.hasSavings }}"><s style="font:500 17px/1 Poppins,sans-serif;color:#5A6159">{{ price.retail }}</s></sc-if>
+            <sc-if value="{{ price.hasSavings }}"><span style="background:#C8281F;color:#fff;border-radius:999px;padding:7px 10px;font:700 12px/1 Poppins,sans-serif">SAVE {{ price.save }}</span></sc-if>
+          </div>
+          <span style="font:600 13px/1 Poppins,sans-serif">{{ price.perDay }} / day</span>
+        </div>
+
+        <a href="{{ cartHref }}" onClick="{{ onAddToCart }}" data-track="AddToCart" style="display:flex;align-items:center;justify-content:center;gap:12px;min-height:66px;border-radius:999px;background:#0C120E;color:#CCFF3D;text-decoration:none;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:30px;letter-spacing:.04em;box-shadow:0 6px 0 #0B3D24;transition:transform .12s" style-hover="transform:translateY(-2px)" style-active="transform:translateY(4px);box-shadow:0 2px 0 #0B3D24">{{ cta }} →</a>
+
+        <sc-if value="{{ isSub }}">
+          <p data-compliance="subscription-disclosure" style="margin:0;font:400 11.5px/1.5 Poppins,sans-serif;color:#3E463F">By subscribing you agree to be charged {{ price.total }} (plus applicable tax/shipping) every {{ cadence }} until you cancel. You can skip, pause or cancel anytime from your account. Subscription price reflects 15% off the regular price.</p>
+        </sc-if>
+        <div style="display:flex;justify-content:center;gap:8px 16px;flex-wrap:wrap;font:500 12px/1 Poppins,sans-serif;color:#3E463F">
+          <span>Shop Pay · Apple Pay · Google Pay</span><span>60-day guarantee</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 PROOF TICKER -->
+  <section data-section="social-proof" style="background:#0C120E;color:#fff;padding:18px 0;overflow:hidden">{{ proofTicker }}</section>
+
+  <!-- 04 NO SCOOP -->
+  <section data-section="why-super-greens" style="background:#fff;position:relative;overflow:hidden;padding:clamp(64px,9vw,128px) 20px">
+    <div data-reveal="" style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:clamp(24px,4vw,56px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <h2 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(40px,6.6vw,104px);line-height:1.28;margin:0;text-transform:uppercase"><span style="color:#0C120E">No scoop.</span><br><span style="color:#0D5C33">No shaker.</span><br><span style="color:#C8281F">No excuses.</span></h2>
+        <p style="margin:0;font:400 17px/1.6 Poppins,sans-serif;color:#3E463F;max-width:520px;text-wrap:pretty">Most of us know we should eat more greens. Actually doing it every day is the hard part. Super Greens Gummies pack organic greens, antioxidant-rich reds and gut-supporting enzymes into two gummies you'll look forward to.*</p>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:560px">
+          <div style="background:#0B3D24;color:#fff;border-radius:20px;padding:18px 14px;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:clamp(44px,5vw,60px);line-height:.85;color:#CCFF3D">3</span><span style="font:600 12px/1.3 Poppins,sans-serif">Superfood blends per serving</span></div>
+          <div style="background:#EFD84A;color:#0C120E;border-radius:20px;padding:18px 14px;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:clamp(44px,5vw,60px);line-height:.85">3.5g</span><span style="font:600 12px/1.3 Poppins,sans-serif">Combined blend per serving</span></div>
+          <div style="background:#C8281F;color:#fff;border-radius:20px;padding:18px 14px;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:clamp(44px,5vw,60px);line-height:.85">0g</span><span style="font:600 12px/1.3 Poppins,sans-serif">Sugar, 16 calories</span></div>
+        </div>
+      </div>
+      <div style="position:relative;aspect-ratio:1/1;max-width:640px;width:100%;margin:0 auto">
+        <div style="position:absolute;inset:4%;border-radius:44% 56% 52% 48%/48% 44% 56% 52%;background:#EFD84A"></div>
+        <img src="assets/gummy-pile.png" alt="Macro of Super Greens gummies, soft sugar-free texture" loading="lazy" style="position:absolute;left:-4%;top:14%;width:112%;height:auto;filter:drop-shadow(0 30px 30px rgba(12,18,14,.3))">
+        <div style="position:absolute;right:0;bottom:6%;background:#0C120E;color:#fff;border-radius:999px;padding:12px 18px;transform:rotate(-6deg);font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:22px;letter-spacing:.04em">Actual gummies. 2 a day.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 BENEFITS -->
+  <section data-section="benefits" style="background:#F7F1E3;padding:clamp(64px,8vw,112px) 0">
+    <div data-reveal="" style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+      <div style="padding:0 20px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px">
+        <h2 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(34px,5vw,76px);line-height:1.28;margin:0;text-transform:uppercase;max-width:900px">One small habit.<br><span style="color:#0D5C33">Five daily wins.</span></h2>
+        <span style="font:600 13px/1 Poppins,sans-serif;letter-spacing:.12em;text-transform:uppercase">What it supports* · swipe →</span>
+      </div>
+      <div style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 12px;scrollbar-width:none">
+        <div style="flex:1 0 min(76vw,250px);scroll-snap-align:start;background:#0B3D24;color:#fff;border-radius:28px;padding:24px 20px;display:flex;flex-direction:column;gap:14px;min-height:340px"><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:20px;color:#CCFF3D">01</span><span style="width:88px;height:88px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center"><img src="assets/icon-nutrition.png" alt="" style="width:60px;height:60px"></span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:36px;line-height:.92;margin-top:auto">Daily nutrient boost</span><span style="font:400 14px/1.5 Poppins,sans-serif">Organic kale, spinach, broccoli, spirulina and more for everyday nutrition.</span></div>
+        <div style="flex:1 0 min(76vw,250px);scroll-snap-align:start;background:#EFD84A;color:#0C120E;border-radius:28px;padding:24px 20px;display:flex;flex-direction:column;gap:14px;min-height:340px"><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:20px">02</span><span style="width:88px;height:88px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center"><img src="assets/icon-gut.png" alt="" style="width:60px;height:60px"></span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:36px;line-height:.92;margin-top:auto">Gut health &amp; digestion</span><span style="font:400 14px/1.5 Poppins,sans-serif">Digestive enzymes plus pineapple, ginger and aloe to support healthy digestion.</span></div>
+        <div style="flex:1 0 min(76vw,250px);scroll-snap-align:start;background:#C8281F;color:#fff;border-radius:28px;padding:24px 20px;display:flex;flex-direction:column;gap:14px;min-height:340px"><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:20px">03</span><span style="width:88px;height:88px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center"><img src="assets/icon-immune.png" alt="" style="width:60px;height:60px"></span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:36px;line-height:.92;margin-top:auto">Immune system support</span><span style="font:400 14px/1.5 Poppins,sans-serif">Antioxidant-rich greens and reds to support your body's natural defenses.</span></div>
+        <div style="flex:1 0 min(76vw,250px);scroll-snap-align:start;background:#CCFF3D;color:#0C120E;border-radius:28px;padding:24px 20px;display:flex;flex-direction:column;gap:14px;min-height:340px"><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:20px">04</span><span style="width:88px;height:88px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center"><img src="assets/icon-skin.png" alt="" style="width:60px;height:60px"></span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:36px;line-height:.92;margin-top:auto">Radiant skin &amp; vitality</span><span style="font:400 14px/1.5 Poppins,sans-serif">Plant polyphenols from beet, goji, pomegranate and acai.</span></div>
+        <div style="flex:1 0 min(76vw,250px);scroll-snap-align:start;background:#0C120E;color:#fff;border-radius:28px;padding:24px 20px;display:flex;flex-direction:column;gap:14px;min-height:340px"><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:20px;color:#EFD84A">05</span><span style="width:88px;height:88px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center"><img src="assets/icon-energy.png" alt="" style="width:60px;height:60px"></span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:36px;line-height:.92;margin-top:auto">Clean, natural energy</span><span style="font:400 14px/1.5 Poppins,sans-serif">Nutrient support for steady energy, with 0g sugar.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 DARK: CHEW. SMILE. GO. -->
+  <section data-section="how-it-works" style="background:#0C120E;color:#fff;position:relative;overflow:hidden;padding:clamp(64px,9vw,128px) 20px">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(40px,6vw,80px)">
+      <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:24px;align-items:center">
+        <h2 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(56px,10vw,168px);line-height:1.28;margin:0;text-transform:uppercase"><span style="color:#fff">Chew.</span><br><span style="color:#CCFF3D">Smile.</span><br><span style="color:#EFD84A">Go.</span></h2>
+        <div style="position:relative;aspect-ratio:1/1;max-width:560px;width:100%;margin:0 auto">
+          <div style="position:absolute;inset:10%;border-radius:50%;background:#0B3D24"></div>
+          <img src="assets/pouch-apple-cinnamon.png" alt="Super Greens pouch" loading="lazy" style="position:absolute;left:24%;top:0;width:52%;height:auto;transform:rotate(9deg);filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))">
+          <img src="assets/gummy-pile.png" alt="" loading="lazy" style="position:absolute;left:-12%;bottom:0;width:66%;height:auto;transform:scaleX(-1);filter:drop-shadow(0 24px 24px rgba(0,0,0,.5))">
+          {{ darkFloat }}
+        </div>
+      </div>
+
+      <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px">
+        <div style="background:#17211B;border-radius:28px;padding:26px 22px;display:flex;flex-direction:column;gap:12px"><span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.16em;color:#CCFF3D">MORNING</span><span style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:44px;line-height:1.28;color:#CCFF3D">01</span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:32px;line-height:.95">Take 2 gummies</span><span style="font:400 14px/1.55 Poppins,sans-serif;color:#D5DBD6">Morning, afternoon, or whenever you want a quick wellness boost.</span></div>
+        <div style="background:#17211B;border-radius:28px;padding:26px 22px;display:flex;flex-direction:column;gap:12px"><span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.16em;color:#EFD84A">ANYWHERE</span><span style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:44px;line-height:1.28;color:#EFD84A">02</span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:32px;line-height:.95">Make it daily</span><span style="font:400 14px/1.55 Poppins,sans-serif;color:#D5DBD6">Keep the pouch on your desk, in your bag or next to your coffee.</span></div>
+        <div style="background:#17211B;border-radius:28px;padding:26px 22px;display:flex;flex-direction:column;gap:12px"><span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.16em;color:#FF8A7E">4–6 WEEKS</span><span style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:44px;line-height:1.28;color:#FF8A7E">03</span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:32px;line-height:.95">Stay consistent</span><span style="font:400 14px/1.55 Poppins,sans-serif;color:#D5DBD6">Consistent use over 4–6 weeks is how you'll get the most from your routine.*</span></div>
+      </div>
+
+      <div data-section="why-gummies" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
+        <span style="border:1.5px solid #3A4A40;border-radius:999px;padding:12px 18px;font:600 14px/1.2 Poppins,sans-serif">Tastes like a treat, so you actually stick with it</span>
+        <span style="border:1.5px solid #3A4A40;border-radius:999px;padding:12px 18px;font:600 14px/1.2 Poppins,sans-serif">Pre-portioned: 2 gummies, no scoops</span>
+        <span style="border:1.5px solid #3A4A40;border-radius:999px;padding:12px 18px;font:600 14px/1.2 Poppins,sans-serif">Travel-friendly pouch</span>
+        <span style="border:1.5px solid #3A4A40;border-radius:999px;padding:12px 18px;font:600 14px/1.2 Poppins,sans-serif">0g sugar · 16 calories</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 INGREDIENT EXPLOSION -->
+  <section data-section="ingredients" style="background:#CCFF3D;position:relative;overflow:hidden;padding:clamp(64px,9vw,120px) 0">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <div data-reveal="" style="padding:0 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px">
+        <span style="background:#0C120E;color:#CCFF3D;border-radius:999px;padding:8px 14px;font:700 12px/1 Poppins,sans-serif;letter-spacing:.16em">WHAT'S INSIDE</span>
+        <h2 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(34px,6vw,96px);line-height:1.28;margin:0;text-transform:uppercase;color:#0B3D24">This little gummy<br>is packed.</h2>
+      </div>
+
+      <div style="position:relative;height:clamp(460px,58vw,700px);margin:0 12px">
+        <div style="position:absolute;left:50%;top:50%;width:min(64vw,520px);aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:50%;background:#EFD84A"></div>
+        <div style="position:absolute;left:50%;top:50%;width:min(84vw,700px);aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:50%;border:2px dashed #0B3D24;opacity:.3"></div>
+        <img src="assets/pouch-apple-cinnamon.png" alt="Super Greens pouch surrounded by its ingredients" loading="lazy" style="position:absolute;left:50%;top:50%;height:74%;width:auto;transform:translate(-50%,-52%) rotate(4deg);filter:drop-shadow(0 34px 34px rgba(12,18,14,.35))">
+        {{ ingFloat }}
+        <span style="position:absolute;left:3%;top:6%;background:#0B3D24;color:#fff;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(-6deg)">Kale</span>
+        <span style="position:absolute;left:14%;top:20%;background:#0B3D24;color:#fff;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(4deg)">Spinach</span>
+        <span style="position:absolute;left:2%;top:34%;background:#0B3D24;color:#fff;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(-3deg)">Broccoli</span>
+        <span style="position:absolute;left:12%;top:48%;background:#0B3D24;color:#fff;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(5deg)">Spirulina</span>
+        <span style="position:absolute;left:3%;top:62%;background:#0B3D24;color:#fff;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(-5deg)">Chlorella</span>
+        <span style="position:absolute;left:13%;top:77%;background:#0B3D24;color:#fff;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(3deg)">Wheatgrass</span>
+        <span style="position:absolute;left:4%;top:90%;background:#fff;color:#0C120E;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(-2deg)">Papain · Bromelain</span>
+        <span style="position:absolute;right:3%;top:6%;background:#C8281F;color:#fff;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(6deg)">Beet</span>
+        <span style="position:absolute;right:14%;top:19%;background:#C8281F;color:#fff;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(-4deg)">Goji</span>
+        <span style="position:absolute;right:2%;top:32%;background:#C8281F;color:#fff;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(3deg)">Pomegranate</span>
+        <span style="position:absolute;right:13%;top:46%;background:#C8281F;color:#fff;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(-5deg)">Acai</span>
+        <span style="position:absolute;right:3%;top:60%;background:#C8281F;color:#fff;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(4deg)">Tart cherry</span>
+        <span style="position:absolute;right:14%;top:74%;background:#0C120E;color:#EFD84A;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(-3deg)">Ginger</span>
+        <span style="position:absolute;right:2%;top:88%;background:#0C120E;color:#EFD84A;border-radius:999px;padding:9px 14px;font:700 clamp(11px,1.2vw,15px)/1 Poppins,sans-serif;transform:rotate(5deg)">Pineapple · Aloe</span>
+      </div>
+
+      <div style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 12px;scrollbar-width:none">
+        <div style="flex:1 0 min(84vw,340px);scroll-snap-align:start;background:#0B3D24;color:#fff;border-radius:28px;padding:26px 22px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:26px;line-height:1.28;text-transform:uppercase">Super Greens</span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:34px;color:#CCFF3D">2g</span></div>
+          <span style="font:500 14px/1.5 Poppins,sans-serif">Organic kale, spinach, broccoli, spirulina, chlorella, wheatgrass &amp; more.</span>
+          <ul style="margin:0;padding-left:18px;font:400 13.5px/1.6 Poppins,sans-serif;color:#DDEBE1"><li>Essential vitamins &amp; minerals for daily nutrition</li><li>Antioxidants that support immune defense*</li></ul>
+        </div>
+        <div style="flex:1 0 min(84vw,340px);scroll-snap-align:start;background:#C8281F;color:#fff;border-radius:28px;padding:26px 22px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:26px;line-height:1.28;text-transform:uppercase">Super Reds</span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:34px">1g</span></div>
+          <span style="font:500 14px/1.5 Poppins,sans-serif">Beet, strawberry, cranberry, goji, pomegranate, acai, tart cherry &amp; more.</span>
+          <ul style="margin:0;padding-left:18px;font:400 13.5px/1.6 Poppins,sans-serif"><li>Plant polyphenols</li><li>Supports circulation &amp; radiant skin*</li></ul>
+        </div>
+        <div style="flex:1 0 min(84vw,340px);scroll-snap-align:start;background:#0C120E;color:#fff;border-radius:28px;padding:26px 22px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:26px;line-height:1.28;text-transform:uppercase;color:#EFD84A">Super Gut</span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:34px;color:#EFD84A">500mg</span></div>
+          <span style="font:500 14px/1.5 Poppins,sans-serif">Pineapple, ginger, aloe vera, peppermint, prune + digestive enzymes (papain, bromelain, amylase, lactase, lipase).</span>
+          <ul style="margin:0;padding-left:18px;font:400 13.5px/1.6 Poppins,sans-serif"><li>Supports healthy digestion &amp; nutrient absorption*</li></ul>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;padding:0 20px"><a href="assets/supplement-facts.png" target="_blank" style="font:700 14px/1 Poppins,sans-serif;color:#0B3D24;letter-spacing:.06em;text-transform:uppercase">View full Supplement Facts →</a></div>
+    </div>
+  </section>
+
+  <!-- 08 LIFESTYLE -->
+  <section data-section="lifestyle" style="background:#F7F1E3;padding:clamp(64px,8vw,112px) 0">
+    <div data-reveal="" style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <h2 style="padding:0 20px;font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(34px,5.4vw,84px);line-height:1.28;margin:0;text-transform:uppercase">Greens that go<br><span style="color:#0D5C33">where you go.</span></h2>
+      <div style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 12px;scrollbar-width:none">
+        <figure style="flex:0 0 min(74vw,300px);scroll-snap-align:start;margin:0;position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#E9E2CF">
+          <img src="assets/lifestyle-apples.png" alt="Apple Cinnamon pouch with apples and cinnamon" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block">
+          <figcaption style="position:absolute;left:14px;top:14px;background:#EFD84A;color:#0C120E;border-radius:999px;padding:9px 14px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:20px;letter-spacing:.04em">Morning</figcaption>
+        </figure>
+        <figure style="flex:0 0 min(74vw,300px);scroll-snap-align:start;margin:0;position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#E9E2CF">
+          <img src="assets/lifestyle-laptop.png" alt="Pouch on a desk beside a laptop" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:72% 50%;display:block">
+          <figcaption style="position:absolute;left:14px;top:14px;background:#0C120E;color:#CCFF3D;border-radius:999px;padding:9px 14px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:20px;letter-spacing:.04em">Desk</figcaption>
+        </figure>
+        <figure style="flex:0 0 min(74vw,300px);scroll-snap-align:start;margin:0;position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden">
+          <image-slot id="ls-gym" shape="rect" placeholder="GYM · pouch in open gym bag, top-down, 4:5 (brief L3)"></image-slot>
+          <figcaption style="position:absolute;left:14px;top:14px;background:#C8281F;color:#fff;border-radius:999px;padding:9px 14px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:20px;letter-spacing:.04em;pointer-events:none">Gym</figcaption>
+        </figure>
+        <figure style="flex:0 0 min(74vw,300px);scroll-snap-align:start;margin:0;position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden">
+          <image-slot id="ls-travel" shape="rect" placeholder="TRAVEL · pouch in carry-on / tray table, 4:5 (brief L4)"></image-slot>
+          <figcaption style="position:absolute;left:14px;top:14px;background:#CCFF3D;color:#0C120E;border-radius:999px;padding:9px 14px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:20px;letter-spacing:.04em;pointer-events:none">Travel</figcaption>
+        </figure>
+        <figure style="flex:0 0 min(74vw,300px);scroll-snap-align:start;margin:0;position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden">
+          <image-slot id="ls-go" shape="rect" placeholder="ON THE GO · hand holding pouch, street, 4:5 (brief L5)"></image-slot>
+          <figcaption style="position:absolute;left:14px;top:14px;background:#fff;color:#0C120E;border-radius:999px;padding:9px 14px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:20px;letter-spacing:.04em;pointer-events:none">On the go</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 COMPARISON -->
+  <section data-section="comparison" style="background:#C8281F;color:#fff;padding:clamp(64px,9vw,120px) 20px;position:relative;overflow:hidden">
+    <div data-reveal="" style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+      <h2 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(32px,5.6vw,88px);line-height:1.28;margin:0;text-transform:uppercase;text-align:center">Same daily intention.<br><span style="color:#EFD84A">Way less drama.</span></h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px;align-items:stretch">
+        <div style="background:#F7F1E3;color:#0C120E;border-radius:32px;padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;gap:14px;transform:rotate(-1deg)">
+          <span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.16em;color:#5A6159">TYPICAL GREENS POWDER</span>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+            <span style="background:#fff;border-radius:16px;padding:14px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:26px;line-height:1;text-decoration:line-through;text-decoration-color:#C8281F;text-decoration-thickness:3px">1 · Scoop</span>
+            <span style="background:#fff;border-radius:16px;padding:14px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:26px;line-height:1;text-decoration:line-through;text-decoration-color:#C8281F;text-decoration-thickness:3px">2 · Measure</span>
+            <span style="background:#fff;border-radius:16px;padding:14px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:26px;line-height:1;text-decoration:line-through;text-decoration-color:#C8281F;text-decoration-thickness:3px">3 · Find shaker</span>
+            <span style="background:#fff;border-radius:16px;padding:14px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:26px;line-height:1;text-decoration:line-through;text-decoration-color:#C8281F;text-decoration-thickness:3px">4 · Add water</span>
+            <span style="background:#fff;border-radius:16px;padding:14px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:26px;line-height:1;text-decoration:line-through;text-decoration-color:#C8281F;text-decoration-thickness:3px">5 · Shake &amp; mix</span>
+            <span style="background:#fff;border-radius:16px;padding:14px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:26px;line-height:1;text-decoration:line-through;text-decoration-color:#C8281F;text-decoration-thickness:3px">6 · Clean up</span>
+          </div>
+        </div>
+        <div style="background:#CCFF3D;color:#0C120E;border-radius:32px;padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;transform:rotate(1deg)">
+          <span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.16em">LIMITLESS X GUMMIES</span>
+          <span style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:clamp(44px,6vw,92px);line-height:1.28;text-transform:uppercase;position:relative;z-index:1">Open.<br>Chew.<br>Done.</span>
+          <img src="assets/gummy-single.png" alt="" loading="lazy" style="position:absolute;right:-6%;bottom:-8%;width:52%;height:auto;transform:rotate(-14deg);filter:drop-shadow(0 20px 20px rgba(12,18,14,.3))">
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
+        <span style="background:#fff;color:#0C120E;border-radius:999px;padding:12px 18px;font:700 14px/1 Poppins,sans-serif">✓ No mixing</span>
+        <span style="background:#fff;color:#0C120E;border-radius:999px;padding:12px 18px;font:700 14px/1 Poppins,sans-serif">✓ No shaker bottle</span>
+        <span style="background:#fff;color:#0C120E;border-radius:999px;padding:12px 18px;font:700 14px/1 Poppins,sans-serif">✓ Pre-portioned</span>
+        <span style="background:#fff;color:#0C120E;border-radius:999px;padding:12px 18px;font:700 14px/1 Poppins,sans-serif">✓ Mess-free &amp; portable</span>
+        <span style="background:#fff;color:#0C120E;border-radius:999px;padding:12px 18px;font:700 14px/1 Poppins,sans-serif">✓ 0g sugar per serving</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 REVIEWS -->
+  <section id="reviews" data-section="reviews" style="background:#fff;padding:clamp(64px,8vw,112px) 0">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <div data-reveal="" style="padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px;align-items:end">
+        <blockquote style="margin:0;display:flex;flex-direction:column;gap:14px">
+          <span style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:clamp(80px,10vw,150px);line-height:.6;color:#CCFF3D;-webkit-text-stroke:2px #0B3D24">“</span>
+          <p style="margin:0;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:clamp(40px,5.4vw,78px);line-height:.92;text-transform:uppercase;text-wrap:balance">Honestly, I didn't think something that tastes like candy could actually help, but these do.</p>
+          <footer style="font:600 14px/1 Poppins,sans-serif">Casey Edwards · ★★★★★ · limitlessx.com review</footer>
+        </blockquote>
+        <div style="display:flex;gap:18px;align-items:center;background:#0B3D24;color:#fff;border-radius:28px;padding:22px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:54px;line-height:1.28;color:#CCFF3D">5.0</span><span style="letter-spacing:2px">★★★★★</span><span style="font:500 12px/1 Poppins,sans-serif">210 reviews</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:6px;font:600 12px/1 Poppins,sans-serif">
+            <div style="display:flex;gap:8px;align-items:center"><span style="width:14px">5</span><span style="flex:1;height:8px;border-radius:4px;background:#CCFF3D"></span><span style="width:34px;text-align:right">100%</span></div>
+            <div style="display:flex;gap:8px;align-items:center"><span style="width:14px">4</span><span style="flex:1;height:8px;border-radius:4px;background:#2A4F3A"></span><span style="width:34px;text-align:right">0%</span></div>
+            <div style="display:flex;gap:8px;align-items:center"><span style="width:14px">3</span><span style="flex:1;height:8px;border-radius:4px;background:#2A4F3A"></span><span style="width:34px;text-align:right">0%</span></div>
+            <div style="display:flex;gap:8px;align-items:center"><span style="width:14px">2</span><span style="flex:1;height:8px;border-radius:4px;background:#2A4F3A"></span><span style="width:34px;text-align:right">0%</span></div>
+            <div style="display:flex;gap:8px;align-items:center"><span style="width:14px">1</span><span style="flex:1;height:8px;border-radius:4px;background:#2A4F3A"></span><span style="width:34px;text-align:right">0%</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:0 20px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none">
+        <sc-for list="{{ reviewFilters }}" as="f" hint-placeholder-count="6">
+          <button onClick="{{ f.pick }}" style="{{ f.style }}">{{ f.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 12px;scrollbar-width:none;align-items:stretch">
+        <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="5">
+          <article style="{{ r.cardStyle }}">
+            <sc-if value="{{ r.isPlaceholder }}">
+              <div style="position:relative;flex:1;min-height:0;border-radius:20px;overflow:hidden">
+                <image-slot id="{{ r.slotId }}" shape="rect" placeholder="UGC · verified customer photo/video (9:16). Import from review app."></image-slot>
+                <span style="position:absolute;left:10px;top:10px;background:#0C120E;color:#fff;border-radius:999px;padding:6px 10px;font:700 10px/1 Poppins,sans-serif;letter-spacing:.1em;pointer-events:none">PLACEHOLDER</span>
+              </div>
+            </sc-if>
+            <div style="letter-spacing:2px">★★★★★</div>
+            <h3 style="margin:0;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:28px;line-height:.95;text-transform:uppercase">{{ r.title }}</h3>
+            <p style="margin:0;font:400 14px/1.55 Poppins,sans-serif">{{ r.body }}</p>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:auto;font:600 13px/1 Poppins,sans-serif">
+              <span style="width:32px;height:32px;border-radius:50%;background:#0C120E;color:#CCFF3D;display:flex;align-items:center;justify-content:center">{{ r.initial }}</span>
+              <span>{{ r.name }}</span>
+              <span style="font:500 11px/1 Poppins,sans-serif">{{ r.badge }}</span>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ BAND -->
+  <section data-section="quiz-banner" style="background:#EFD84A;padding:clamp(36px,5vw,56px) 20px">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px">
+      <div style="display:flex;flex-direction:column;gap:10px;max-width:760px">
+        <span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.16em;text-transform:uppercase">30-second wellness quiz</span>
+        <h2 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(28px,4vw,56px);line-height:1.28;margin:0;text-transform:uppercase">Unlock your Limitless offer</h2>
+        <p style="margin:0;font:500 15px/1.5 Poppins,sans-serif">Up to {{ maxSavePct }}% off + free shipping + free gifts on qualifying orders.</p>
+      </div>
+      <button onClick="{{ openQuiz }}" data-track="QuizStart" style="border:0;background:#0C120E;color:#CCFF3D;border-radius:999px;min-height:64px;padding:0 32px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:28px;letter-spacing:.04em;cursor:pointer;box-shadow:0 6px 0 #0B3D24">Unlock my offer →</button>
+    </div>
+  </section>
+
+  <!-- 12 BUNDLES (DARK) -->
+  <section id="bundles" data-section="bundle-builder" style="background:#0C120E;color:#fff;padding:clamp(64px,9vw,128px) 20px;position:relative;overflow:hidden">
+    <div style="position:absolute;left:-2vw;bottom:-3vw;font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:clamp(100px,18vw,280px);line-height:1.28;color:#141D17;white-space:nowrap;pointer-events:none" aria-hidden="true">HAUL</div>
+    <div style="position:relative;max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:18px;align-items:center;text-align:center">
+        <h2 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(36px,6vw,96px);line-height:1.28;margin:0;text-transform:uppercase">Pick your <span style="color:#CCFF3D">haul.</span></h2>
+        <div role="tablist" style="display:inline-flex;background:#17211B;border-radius:999px;padding:5px;gap:4px">
+          <button onClick="{{ pickSubOnly }}" data-track="SelectSubscription" style="{{ tabSubStyle }}">Member · save 15%</button>
+          <button onClick="{{ pickOnceOnly }}" style="{{ tabOnceStyle }}">One-time</button>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;align-items:end">
+        <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="3">
+          <div onClick="{{ t.pick }}" data-track="SelectBundle" style="{{ t.cardStyle }}">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:28px">
+              <span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:28px;line-height:1;letter-spacing:.02em;text-transform:uppercase">{{ t.name }}</span>
+              <sc-if value="{{ t.badge }}"><span style="background:#C8281F;color:#fff;border-radius:999px;padding:7px 10px;font:700 11px/1 Poppins,sans-serif;letter-spacing:.08em">{{ t.badge }}</span></sc-if>
+            </div>
+            <div style="display:flex;align-items:flex-end;justify-content:center;height:190px;padding-top:10px">
+              <sc-for list="{{ t.pouches }}" as="p" hint-placeholder-count="3"><img src="assets/pouch-apple-cinnamon.png" alt="" style="{{ p.style }}"></sc-for>
+            </div>
+            <div style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:30px;line-height:1.28;text-transform:uppercase">{{ t.qtyLabel }}</div>
+            <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+              <span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:56px;line-height:.85">{{ t.total }}</span>
+              <sc-if value="{{ t.hasSave }}"><s style="font:500 16px/1 Poppins,sans-serif">{{ t.retail }}</s></sc-if>
+              <span style="font:600 13px/1 Poppins,sans-serif">{{ t.perDay }}/day</span>
+            </div>
+            <sc-if value="{{ t.hasSave }}"><span style="align-self:flex-start;background:#C8281F;color:#fff;border-radius:999px;padding:8px 12px;font:700 12px/1 Poppins,sans-serif;letter-spacing:.04em">YOU SAVE {{ t.save }}</span></sc-if>
+            <div style="display:flex;flex-direction:column;gap:8px;font:600 14px/1.25 Poppins,sans-serif">
+              <sc-for list="{{ t.perks }}" as="k" hint-placeholder-count="2"><div style="{{ k.style }}"><span style="width:20px;text-align:center">{{ k.icon }}</span><span>{{ k.text }}</span></div></sc-for>
+            </div>
+            <sc-if value="{{ t.hasGifts }}">
+              <div style="display:flex;gap:8px">
+                <div style="flex:1;background:#0C120E;color:#fff;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font:700 10px/1 Poppins,sans-serif;letter-spacing:.12em;color:#CCFF3D">FREE</span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:22px;line-height:1">Limitless tee</span></div>
+                <sc-if value="{{ t.hasHat }}"><div style="flex:1;background:#0C120E;color:#fff;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font:700 10px/1 Poppins,sans-serif;letter-spacing:.12em;color:#CCFF3D">FREE</span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:22px;line-height:1">Limitless hat</span></div></sc-if>
+              </div>
+            </sc-if>
+            <span style="{{ t.btnStyle }}">{{ t.btnLabel }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:0;text-align:center;font:400 12px/1.5 Poppins,sans-serif;color:#C9D1CB">Savings = bundle discount on the regular price of $49.95/pouch, then 15% Subscribe &amp; Save applied to the bundle price. Price per day based on 30 servings per pouch.</p>
+    </div>
+  </section>
+
+  <!-- 13 MEMBERSHIP -->
+  <section data-section="subscribe-save" style="background:#F7F1E3;padding:clamp(64px,9vw,128px) 20px;overflow:hidden">
+    <div data-reveal="" style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(32px,5vw,72px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.16em;color:#0D5C33;text-transform:uppercase">Subscribe &amp; Save</span>
+        <h2 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(36px,5.4vw,84px);line-height:1.28;margin:0;text-transform:uppercase">Join the<br><span style="color:#0D5C33">Limitless</span><br>routine.</h2>
+        <p style="margin:0;font:400 16px/1.6 Poppins,sans-serif;color:#3E463F;max-width:460px">Your greens arrive before you run out, at member pricing. You stay in control the whole time.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="background:#fff;border-radius:999px;padding:10px 14px;font:600 13px/1 Poppins,sans-serif">Skip anytime</span>
+          <span style="background:#fff;border-radius:999px;padding:10px 14px;font:600 13px/1 Poppins,sans-serif">Pause anytime</span>
+          <span style="background:#fff;border-radius:999px;padding:10px 14px;font:600 13px/1 Poppins,sans-serif">Cancel from your account</span>
+          <span style="background:#fff;border:1.5px dashed #BDB6A2;border-radius:999px;padding:10px 14px;font:600 13px/1 Poppins,sans-serif;color:#5A6159">Member extras: confirm before launch</span>
+        </div>
+      </div>
+      <div style="position:relative;padding-top:40px">
+        <div style="position:relative;background:#0B3D24;color:#fff;border-radius:32px;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:18px;transform:rotate(-2deg);box-shadow:0 40px 60px rgba(12,18,14,.25)">
+          <img src="assets/pouch-apple-cinnamon.png" alt="" loading="lazy" style="position:absolute;right:-10px;top:-64px;width:clamp(110px,22%,160px);height:auto;transform:rotate(14deg);filter:drop-shadow(0 20px 20px rgba(0,0,0,.4))">
+          <span style="position:absolute;left:-14px;top:50%;width:28px;height:28px;border-radius:50%;background:#F7F1E3"></span>
+          <span style="position:absolute;right:-14px;top:50%;width:28px;height:28px;border-radius:50%;background:#F7F1E3"></span>
+          <div style="display:flex;align-items:center;gap:10px"><span style="background:#CCFF3D;color:#0C120E;border-radius:999px;padding:7px 12px;font:700 11px/1 Poppins,sans-serif;letter-spacing:.12em">MEMBER CARD</span></div>
+          <span style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:clamp(24px,2.6vw,34px);line-height:1.28;text-transform:uppercase;max-width:78%">{{ member.qtyLabel }}</span>
+          <div style="display:flex;gap:8px">
+            <sc-for list="{{ subOpts }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.pick }}" style="{{ o.chipStyle }}"><span>{{ o.label }}</span><span style="font:700 11px/1 Poppins,sans-serif">{{ o.saveLabel }}</span></button>
+            </sc-for>
+          </div>
+          <div style="display:flex;flex-direction:column;border-top:1.5px dashed #3E6A52">
+            <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #1F5237;font:500 14px/1.2 Poppins,sans-serif"><span>Normal price</span><s>{{ member.normal }}</s></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #1F5237;font:600 14px/1.2 Poppins,sans-serif"><span>Member price</span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:40px;line-height:.9;color:#CCFF3D">{{ member.price }}</span></div>
+            <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #1F5237;font:500 14px/1.2 Poppins,sans-serif"><span>Member savings</span><span style="font-weight:700">{{ member.save }}</span></div>
+            <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #1F5237;font:500 14px/1.2 Poppins,sans-serif"><span>Shipping</span><span style="font-weight:700">{{ member.ship }}</span></div>
+            <div style="display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #1F5237;font:500 14px/1.2 Poppins,sans-serif"><span>Gifts</span><span style="font-weight:700;text-align:right">{{ member.gift }}</span></div>
+            <div style="display:flex;justify-content:space-between;padding:12px 0;font:500 14px/1.2 Poppins,sans-serif"><span>Delivery</span><span style="font-weight:700">Every {{ cadence }}</span></div>
+          </div>
+          <button onClick="{{ joinRoutine }}" data-track="SelectSubscription" style="border:0;background:#CCFF3D;color:#0C120E;border-radius:999px;min-height:60px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:26px;letter-spacing:.04em;cursor:pointer;box-shadow:0 5px 0 #0C120E">Join the routine →</button>
+          <span style="font:400 11.5px/1.45 Poppins,sans-serif;color:#DDEBE1">Recurring every {{ cadence }} until you cancel. Full terms shown at selection and checkout.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 FREE GIFT REVEAL -->
+  <section data-section="free-gifts" style="background:#EFD84A;padding:clamp(64px,9vw,128px) 20px;position:relative;overflow:hidden">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(28px,4vw,48px)">
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:6px">
+        <h2 style="margin:0;font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(80px,17vw,260px);line-height:1.28;text-transform:uppercase;color:#0C120E;letter-spacing:-.02em">Wait.</h2>
+        <span style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:clamp(26px,4.4vw,68px);line-height:1.28;text-transform:uppercase;color:#0B3D24">You're getting more.</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px;align-items:start">
+        <div style="background:#fff;color:#0C120E;border-radius:32px;padding:16px 16px 22px;display:flex;flex-direction:column;gap:12px;transform:rotate(-2deg);box-shadow:0 30px 50px rgba(12,18,14,.18)">
+          <div style="position:relative;aspect-ratio:1/1;border-radius:22px;overflow:hidden"><image-slot id="gift-tee" shape="rect" placeholder="Limitless X T-shirt flat-lay on lime, 1:1 (brief G1)"></image-slot></div>
+          <span style="font:700 11px/1 Poppins,sans-serif;letter-spacing:.14em">WITH 6 POUCHES</span>
+          <span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:40px;line-height:.9">Limitless X T-Shirt</span>
+          <span style="align-self:flex-start;background:#C8281F;color:#fff;border-radius:999px;padding:8px 12px;font:700 12px/1 Poppins,sans-serif">{{ tshirtValue }} VALUE — FREE</span>
+        </div>
+        <div style="background:#0C120E;color:#fff;border-radius:32px;padding:16px 16px 22px;display:flex;flex-direction:column;gap:12px;transform:rotate(1.5deg);box-shadow:0 30px 50px rgba(12,18,14,.25)">
+          <div style="position:relative;aspect-ratio:1/1;border-radius:22px;overflow:hidden"><image-slot id="gift-hat" shape="rect" placeholder="Limitless X hat, 3/4 angle on yellow, 1:1 (brief G2)"></image-slot></div>
+          <span style="font:700 11px/1 Poppins,sans-serif;letter-spacing:.14em;color:#CCFF3D">6 POUCHES · MEMBERS</span>
+          <span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:40px;line-height:.9">Limitless X Hat</span>
+          <span style="align-self:flex-start;background:#CCFF3D;color:#0C120E;border-radius:999px;padding:8px 12px;font:700 12px/1 Poppins,sans-serif">{{ hatValue }} VALUE — FREE</span>
+        </div>
+        <div style="background:#CCFF3D;color:#0C120E;border-radius:32px;padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;gap:10px;justify-content:space-between;min-height:100%;transform:rotate(-1deg);box-shadow:0 30px 50px rgba(12,18,14,.18)">
+          <span style="font:700 11px/1 Poppins,sans-serif;letter-spacing:.14em">ORDERS $70+</span>
+          <span style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:clamp(64px,8vw,120px);line-height:1.28;text-transform:uppercase">Free</span>
+          <span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:44px;line-height:.9">Shipping</span>
+          <span style="font:500 14px/1.5 Poppins,sans-serif">Every 3- and 6-pouch bundle clears the threshold.</span>
+        </div>
+      </div>
+      <p style="margin:0;text-align:center;font:500 12px/1.5 Poppins,sans-serif">Gifts added automatically when your order qualifies, while supplies last. T-shirt size selected in cart.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN YOUR BOX -->
+  <section data-section="haul-box" style="background:#fff;padding:clamp(64px,9vw,128px) 20px">
+    <div data-reveal="" style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(28px,5vw,64px);align-items:center">
+      <div style="position:relative;aspect-ratio:4/5;border-radius:32px;overflow:hidden;background:#F7F1E3">
+        <image-slot id="haul-flatlay" shape="rect" placeholder="HAUL flat-lay: 6 pouches + tee + hat + mailer box, top-down, 4:5 (brief H1)"></image-slot>
+        <span style="position:absolute;left:16px;top:16px;background:#0C120E;color:#CCFF3D;border-radius:999px;padding:9px 14px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:20px;letter-spacing:.04em;pointer-events:none">What's in the box</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <h2 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(34px,5vw,76px);line-height:1.28;margin:0;text-transform:uppercase">Your<br>Limitless<br><span style="color:#0D5C33">haul.</span></h2>
+        <div style="display:flex;flex-direction:column;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:clamp(24px,2.4vw,32px);line-height:1">
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:2px solid #0C120E"><span>6 × Super Greens pouches</span><span>{{ haul.pouches }}</span></div>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:2px solid #0C120E"><span><span style="color:#C8281F">+</span> 1 × Limitless X T-shirt</span><span>{{ tshirtValue }}</span></div>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:2px solid #0C120E"><span><span style="color:#C8281F">+</span> 1 × Limitless X hat</span><span>{{ hatValue }}</span></div>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:2px solid #0C120E"><span><span style="color:#C8281F">+</span> Shipping</span><span>FREE</span></div>
+        </div>
+        <div style="background:#0C120E;color:#fff;border-radius:24px;padding:20px 22px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;justify-content:space-between;font:500 15px/1.2 Poppins,sans-serif"><span>Total retail value</span><s>{{ haul.value }}</s></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;font:600 15px/1.2 Poppins,sans-serif"><span>Today (member price)</span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:48px;line-height:.9;color:#CCFF3D">{{ haul.today }}</span></div>
+          <div style="display:flex;justify-content:space-between;font:700 15px/1.2 Poppins,sans-serif;color:#EFD84A"><span>You save</span><span>{{ haul.save }}</span></div>
+          <sc-if value="{{ haul.needsValues }}"><span style="font:400 11.5px/1.45 Poppins,sans-serif;color:#C9D1CB">Tee and hat retail values not yet set, so totals exclude them.</span></sc-if>
+        </div>
+        <button onClick="{{ claimOffer }}" data-track="ViewOffer" style="border:0;background:#0C120E;color:#CCFF3D;border-radius:999px;min-height:66px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:30px;letter-spacing:.04em;cursor:pointer;box-shadow:0 6px 0 #0B3D24">Get the haul →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 FAQ -->
+  <section data-section="faq" style="background:#F7F1E3;padding:clamp(64px,8vw,112px) 20px">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(24px,5vw,64px);align-items:start">
+      <h2 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(34px,4.6vw,68px);line-height:1.28;margin:0;text-transform:uppercase">Questions?<br><span style="color:#0D5C33">Answered.</span></h2>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="7">
+          <div style="{{ q.wrapStyle }}">
+            <button onClick="{{ q.toggle }}" aria-expanded="{{ q.open }}" style="width:100%;background:none;border:0;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;cursor:pointer;color:inherit;font:600 16px/1.35 Poppins,sans-serif;min-height:60px"><span>{{ q.q }}</span><span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:30px;line-height:1;flex:none">{{ q.sign }}</span></button>
+            <sc-if value="{{ q.open }}"><p style="margin:0;padding:0 20px 20px;font:400 15px/1.6 Poppins,sans-serif;max-width:680px">{{ q.a }}</p></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16+17 GUARANTEE + FINAL -->
+  <section data-section="final-offer" style="background:#CCFF3D;position:relative;overflow:hidden;padding:clamp(56px,8vw,104px) 20px clamp(64px,9vw,120px)">
+    <div style="position:absolute;left:50%;top:clamp(20px,4vw,60px);transform:translateX(-50%);font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:clamp(90px,19vw,300px);line-height:1.28;color:#B8EB20;white-space:nowrap;pointer-events:none" aria-hidden="true">LIMITLESS</div>
+    <div style="position:relative;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px;align-items:center">
+      <div style="position:relative;aspect-ratio:1/1;max-width:520px;width:100%;margin:0 auto">
+        <img src="assets/pouch-apple-cinnamon.png" alt="Super Greens Gummies pouch" loading="lazy" style="position:absolute;left:18%;top:0;width:60%;height:auto;transform:rotate(-8deg);filter:drop-shadow(0 34px 34px rgba(12,18,14,.35))">
+        {{ finalFloat }}
+        <div data-section="guarantee" style="position:absolute;right:0;bottom:6%;width:clamp(120px,30%,160px);aspect-ratio:1/1;border-radius:50%;background:#0C120E;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(12deg);box-shadow:0 14px 24px rgba(0,0,0,.25)"><span style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-size:clamp(34px,5vw,48px);line-height:1.28;color:#CCFF3D">60</span><span style="font:700 11px/1.15 Poppins,sans-serif;letter-spacing:.1em">DAY<br>GUARANTEE</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <h2 style="font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:clamp(34px,5vw,76px);line-height:1.28;margin:0;text-transform:uppercase;color:#0C120E">Start your<br>Limitless<br>routine today.</h2>
+        <p style="margin:0;font:500 16px/1.55 Poppins,sans-serif">Save up to {{ maxSavePct }}% with bundles + Subscribe &amp; Save. Free shipping on $70+.</p>
+        <p style="margin:0;font:400 14px/1.6 Poppins,sans-serif"><strong>Try it for 60 days. Risk-free.</strong> If you don't feel more energized, balanced and supported, return your order for a full refund. See our <a href="../../pages/returns-exchanges/index.html">returns policy</a> for details.</p>
+        <a href="#offer" data-track="ViewOffer" style="display:flex;align-items:center;justify-content:center;min-height:68px;border-radius:999px;background:#0C120E;color:#CCFF3D;text-decoration:none;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:30px;letter-spacing:.04em;max-width:460px;box-shadow:0 6px 0 #0B3D24">{{ cta }} →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#0C120E;color:#C9D1CB;padding:36px 20px 44px">
+    <div style="max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:10px;text-align:center">
+      <p data-compliance="fda-disclaimer" style="margin:0;font:400 12px/1.6 Poppins,sans-serif">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+      <p style="margin:0;font:400 12px/1.6 Poppins,sans-serif">© Limitless X · <a href="../../pages/privacy-policy/index.html" style="color:#fff">Privacy</a> · <a href="../../pages/terms-conditions/index.html" style="color:#fff">Terms</a></p>
+    </div>
+  </footer>
+
+  <!-- 18 STICKY MOBILE CTA -->
+  <sc-if value="{{ showSticky }}">
+    <div data-section="sticky-cta" style="position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;background:#0C120E;color:#fff;border-radius:999px;box-shadow:0 14px 30px rgba(0,0,0,.3);padding:8px 8px 8px 14px;display:flex;align-items:center;gap:10px">
+      <img src="assets/pouch-apple-cinnamon.png" alt="" style="width:30px;height:44px;object-fit:contain;flex:none">
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+        <span style="font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:18px;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Super Greens Gummies</span>
+        <span style="font:500 11.5px/1.1 Poppins,sans-serif"><span style="color:#CCFF3D">★★★★★</span> From {{ startPrice }}</span>
+      </div>
+      <a href="#offer" data-track="ViewOffer" style="flex:none;display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:999px;background:#CCFF3D;color:#0C120E;text-decoration:none;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:20px;letter-spacing:.04em">{{ cta }}</a>
+    </div>
+  </sc-if>
+
+  <!-- QUIZ MODAL -->
+  <sc-if value="{{ quizOpen }}">
+    <div data-module="quiz" style="position:fixed;inset:0;z-index:60;background:rgba(12,18,14,.7);display:flex;align-items:flex-end;justify-content:center">
+      <div role="dialog" aria-modal="true" style="width:100%;max-width:520px;max-height:92vh;overflow-y:auto;background:#fff;border-radius:28px 28px 0 0;padding:22px 20px 28px;display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <div style="flex:1;height:8px;border-radius:4px;background:#EFEADB;overflow:hidden"><div style="{{ quizBarStyle }}"></div></div>
+          <button onClick="{{ closeQuiz }}" aria-label="Close" style="border:0;background:#F7F1E3;width:44px;height:44px;border-radius:50%;cursor:pointer;font:500 18px/1 Poppins,sans-serif">✕</button>
+        </div>
+
+        <sc-if value="{{ qIntro }}">
+          <div style="display:flex;flex-direction:column;gap:14px;text-align:center;align-items:center">
+            <div style="position:relative;width:200px;height:190px"><div style="position:absolute;inset:10px;border-radius:50%;background:#CCFF3D"></div><img src="assets/pouch-apple-cinnamon.png" alt="" style="position:absolute;left:50px;top:0;width:100px;transform:rotate(-8deg)"><img src="assets/gummy-single.png" alt="" style="position:absolute;right:0;bottom:0;width:80px;transform:rotate(12deg)"></div>
+            <h3 style="margin:0;font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:30px;line-height:1.28;text-transform:uppercase">Unlock your Limitless offer</h3>
+            <p style="margin:0;font:500 15px/1.5 Poppins,sans-serif">Take our 30-second wellness quiz and unlock:</p>
+            <div style="display:flex;flex-direction:column;gap:4px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:26px;line-height:1"><span>UP TO {{ maxSavePct }}% OFF</span><span>+ FREE SHIPPING</span><span>+ EXCLUSIVE FREE GIFTS</span></div>
+            <span style="font:400 11.5px/1.4 Poppins,sans-serif;color:#3E463F">On qualifying bundles. See how savings are calculated at the end.</span>
+            <button onClick="{{ quizNext }}" style="width:100%;border:0;background:#0C120E;color:#CCFF3D;border-radius:999px;min-height:60px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:26px;letter-spacing:.04em;cursor:pointer">Unlock my offer</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ qQuestion }}">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.14em;color:#0D5C33">QUESTION {{ quizStep }} OF 3</span>
+            <h3 style="margin:0;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:34px;line-height:.95;text-transform:uppercase">{{ question.title }}</h3>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <sc-for list="{{ question.options }}" as="o" hint-placeholder-count="4">
+                <button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ qEmail }}">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <h3 style="margin:0;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:34px;line-height:.95;text-transform:uppercase">Where should we send your personalized offer?</h3>
+            <label style="display:flex;flex-direction:column;gap:6px;font:600 13px/1 Poppins,sans-serif">Email
+              <input type="email" value="{{ email }}" onChange="{{ onEmail }}" placeholder="you@email.com" autocomplete="email" style="min-height:54px;border:2px solid #E4DCC6;border-radius:14px;padding:0 14px;font:400 16px/1 Poppins,sans-serif">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:6px;font:600 13px/1 Poppins,sans-serif">Phone (optional)
+              <input type="tel" value="{{ phone }}" onChange="{{ onPhone }}" placeholder="(555) 555-5555" autocomplete="tel" style="min-height:54px;border:2px solid #E4DCC6;border-radius:14px;padding:0 14px;font:400 16px/1 Poppins,sans-serif">
+            </label>
+            <label data-compliance="sms-consent" style="display:flex;gap:10px;align-items:flex-start;font:400 11.5px/1.5 Poppins,sans-serif;color:#3E463F;cursor:pointer">
+              <input type="checkbox" checked="{{ sms }}" onChange="{{ onSms }}" style="width:20px;height:20px;flex:none;margin-top:2px">
+              <span>Yes, text me offers from Limitless X. By checking this box you agree to receive recurring automated marketing texts at the number provided. Consent is not a condition of purchase. Msg &amp; data rates may apply. Msg frequency varies. Reply HELP for help, STOP to cancel. See Terms &amp; Privacy.</span>
+            </label>
+            <button onClick="{{ submitEmail }}" data-track="Lead" style="{{ submitStyle }}">Reveal my offer</button>
+            <span style="font:400 11px/1.4 Poppins,sans-serif;color:#3E463F;text-align:center">We'll also email you your offer. Unsubscribe anytime.</span>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ qReveal }}">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.14em;color:#0D5C33;text-align:center">✓ YOUR LIMITLESS OFFER IS UNLOCKED</span>
+            <h3 style="margin:0;font-family:Boldonse,'Bebas Neue Pro',sans-serif;font-weight:400;font-size:26px;line-height:1.28;text-transform:uppercase;text-align:center">{{ revealHeadline }}</h3>
+            <div style="background:#F7F1E3;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:8px;font:500 14px/1.2 Poppins,sans-serif">
+              <span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.1em;color:#3E463F">HOW YOUR SAVINGS ARE CALCULATED</span>
+              <div style="display:flex;justify-content:space-between"><span>6 pouches × $49.95</span><span>{{ best.retail }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span>Bundle discount ({{ best.bundlePct }}%)</span><span>−{{ best.bundleOff }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span>Subscribe &amp; Save (15%)</span><span>−{{ best.subOff }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span>Shipping</span><span>FREE</span></div>
+              <div style="display:flex;justify-content:space-between"><span>T-shirt + hat</span><span>{{ giftValues }} VALUE — FREE</span></div>
+              <div style="display:flex;justify-content:space-between;border-top:1px solid #DAD2BC;padding-top:8px;font-weight:700"><span>Your price</span><span>{{ best.total }} ({{ best.savePct }}% off)</span></div>
+            </div>
+            <button onClick="{{ claimOffer }}" data-track="ViewOffer" style="width:100%;border:0;background:#0C120E;color:#CCFF3D;border-radius:999px;min-height:60px;font-family:'Bebas Neue Pro',sans-serif;font-weight:700;font-size:26px;letter-spacing:.04em;cursor:pointer">Claim my offer</button>
+            <button onClick="{{ closeQuiz }}" style="border:0;background:none;font:600 14px/1 Poppins,sans-serif;color:#3E463F;cursor:pointer;min-height:44px">See all options</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;product&quot;,&quot;benefit&quot;,&quot;offer&quot;],&quot;default&quot;:&quot;product&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;CRO tests&quot;},&quot;ctaLabel&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;GET MY OFFER&quot;,&quot;TRY SUPER GREENS&quot;,&quot;START MY LIMITLESS ROUTINE&quot;,&quot;UNLOCK MY SAVINGS&quot;],&quot;default&quot;:&quot;GET MY OFFER&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;CRO tests&quot;},&quot;bundleSet&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;1/3/6&quot;,&quot;1/2/4&quot;,&quot;1/3/5&quot;],&quot;default&quot;:&quot;1/3/6&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;CRO tests&quot;},&quot;defaultPlan&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;subscribe&quot;,&quot;one-time&quot;],&quot;default&quot;:&quot;subscribe&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;CRO tests&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;CRO tests&quot;},&quot;disc2&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:5,&quot;min&quot;:0,&quot;max&quot;:50,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;disc3&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:10,&quot;min&quot;:0,&quot;max&quot;:50,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;disc4&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:15,&quot;min&quot;:0,&quot;max&quot;:50,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;disc5&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:17,&quot;min&quot;:0,&quot;max&quot;:50,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;disc6&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:20,&quot;min&quot;:0,&quot;max&quot;:60,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;cadence&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;30 days&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;tshirtValue&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:0,&quot;min&quot;:0,&quot;max&quot;:200,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;},&quot;hatValue&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:0,&quot;min&quot;:0,&quot;max&quot;:200,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing (placeholders)&quot;}}">
+class Component extends DCLogic {
+  state = { plan: null, qty: 1, faq: 0, filter: 'Most helpful', quizOpen: false, quizStep: 0, answers: {}, email: '', phone: '', sms: false, scrolled: false, w: 1200 };
+
+  PRICE = 49.95; SUB = 15; FREE_SHIP = 70; SERVINGS = 30;
+  INK = '#0C120E'; FOREST = '#0B3D24'; LIME = '#CCFF3D'; POUCH = '#EFD84A'; CREAM = '#F7F1E3'; APPLE = '#C8281F';
+  pouchRef = React.createRef();
+
+  motionOn() { return (this.props.motion ?? true) && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches); }
+
+  componentDidMount() {
+    this._on = () => {
+      const scrolled = window.scrollY > 520, w = window.innerWidth;
+      if (scrolled !== this.state.scrolled || w !== this.state.w) this.setState({ scrolled, w });
+      const el = this.pouchRef.current;
+      if (el && this.motionOn() && window.scrollY < 1000) { const y = window.scrollY; el.style.transform = 'translateY(' + (y * -0.12) + 'px) rotate(' + (-7 + y * 0.012) + 'deg)'; }
+    };
+    window.addEventListener('scroll', this._on, { passive: true });
+    window.addEventListener('resize', this._on);
+    this._on();
+    this.persistUtm();
+    this.track('PageView'); this.track('ViewContent', { product: 'superfoods-super-greens-blend-gummies' });
+    if (this.motionOn() && 'IntersectionObserver' in window) {
+      setTimeout(() => {
+        const els = Array.from(document.querySelectorAll('[data-reveal]')).filter(el => el.getBoundingClientRect().top > window.innerHeight);
+        this._io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = 1; e.target.style.transform = 'none'; this._io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+        els.forEach(el => { el.style.opacity = 0; el.style.transform = 'translateY(48px)'; el.style.transition = 'opacity .7s ease, transform .8s cubic-bezier(.2,.8,.2,1)'; this._io.observe(el); });
+      }, 60);
+    }
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._on); window.removeEventListener('resize', this._on); if (this._io) this._io.disconnect(); }
+
+  persistUtm() {
+    try {
+      const q = new URLSearchParams(location.search); const keep = {};
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'gclid', 'ttclid'].forEach(k => { if (q.get(k)) keep[k] = q.get(k); });
+      if (Object.keys(keep).length) sessionStorage.setItem('lx_utm', JSON.stringify(keep));
+    } catch (e) {}
+  }
+  track(event, data) { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event }, data || {})); }
+
+  disc() { const p = this.props; return { 1: 0, 2: p.disc2 ?? 5, 3: p.disc3 ?? 10, 4: p.disc4 ?? 15, 5: p.disc5 ?? 17, 6: p.disc6 ?? 20 }; }
+  money(n) { return '$' + n.toFixed(2); }
+  calc(plan, qty) {
+    const retail = this.PRICE * qty, bundlePct = this.disc()[qty] || 0;
+    const bundleOff = retail * bundlePct / 100;
+    const subOff = plan === 'sub' ? (retail - bundleOff) * this.SUB / 100 : 0;
+    const total = retail - bundleOff - subOff, save = retail - total;
+    return { retail, bundlePct, bundleOff, subOff, total, save, savePct: Math.round(save / retail * 100), perDay: total / (qty * this.SERVINGS), freeShip: total >= this.FREE_SHIP, tshirt: qty >= 6, hat: qty >= 6 && plan === 'sub' };
+  }
+  plan() { return this.state.plan || (this.props.defaultPlan === 'one-time' ? 'once' : 'sub'); }
+  setPlan(plan) {
+    let qty = this.state.qty;
+    if (plan === 'sub' && ![1, 3, 6].includes(qty)) qty = qty === 2 ? 3 : 6;
+    this.setState({ plan, qty });
+    if (plan === 'sub') this.track('SelectSubscription');
+  }
+  pick(plan, qty) { this.setState({ plan, qty }); this.track('SelectBundle', { plan, qty }); }
+  scrollToOffer() { const el = document.getElementById('offer'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 8, behavior: 'smooth' }); }
+
+  chipStyle(sel, dark) {
+    const bg = sel ? (dark ? this.LIME : this.INK) : (dark ? '#14482C' : '#fff');
+    const fg = sel ? (dark ? this.INK : '#fff') : (dark ? '#fff' : this.INK);
+    return { flex: '1 1 0', minWidth: 0, minHeight: '66px', padding: '8px 4px', borderRadius: '16px', border: '2px solid ' + (sel ? bg : (dark ? '#2B6446' : '#E4DCC6')), background: bg, color: fg, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '4px', cursor: 'pointer', font: '700 14px/1.1 Poppins, sans-serif', transition: 'transform .12s', transform: sel ? 'translateY(-2px)' : 'none' };
+  }
+  planCard(sel, kind) {
+    const sub = kind === 'sub';
+    return { border: '3px solid ' + (sel ? (sub ? this.LIME : this.INK) : (sub ? this.FOREST : '#E4DCC6')), background: sub ? this.FOREST : '#fff', color: sub ? '#fff' : this.INK, boxShadow: sel && sub ? '0 14px 30px rgba(11,61,36,.35)' : 'none', borderRadius: '22px', padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', cursor: 'pointer' };
+  }
+  dot(sel, dark) { return { width: '22px', height: '22px', borderRadius: '50%', border: sel ? '7px solid ' + (dark ? this.LIME : this.INK) : '2px solid ' + (dark ? '#6F9A80' : '#B9B09A'), background: dark ? this.FOREST : '#fff', flex: 'none' }; }
+
+  floater(src, css, dur, delay, rot) {
+    const anim = this.motionOn() ? 'lxFloat ' + dur + 's ease-in-out ' + delay + 's infinite' : 'none';
+    return React.createElement('img', { key: src + css.left + css.top + css.right, src, alt: '', 'aria-hidden': true, style: Object.assign({ position: 'absolute', height: 'auto', pointerEvents: 'none', '--r': rot + 'deg', transform: 'rotate(' + rot + 'deg)', animation: anim, filter: 'drop-shadow(0 16px 16px rgba(12,18,14,.3))' }, css) });
+  }
+  group(items) { return React.createElement(React.Fragment, null, ...items); }
+  ticker(items) {
+    const row = (k) => items.map((t, i) => React.createElement('span', { key: k + i, style: { display: 'inline-flex', alignItems: 'center', gap: '28px', paddingRight: '28px', whiteSpace: 'nowrap', fontFamily: "'Bebas Neue Pro', sans-serif", fontWeight: 700, fontSize: '26px', letterSpacing: '.04em' } }, t, React.createElement('span', { style: { width: '10px', height: '10px', borderRadius: '50%', background: i % 2 ? this.POUCH : this.LIME, display: 'inline-block' } })));
+    return React.createElement('div', { style: { display: 'flex', width: 'max-content', animation: this.motionOn() ? 'lxMarquee 38s linear infinite' : 'none' } }, ...row('a'), ...row('b'));
+  }
+
+  renderVals() {
+    const s = this.state, plan = this.plan(), qty = s.qty, isSub = plan === 'sub';
+    const p = this.calc(plan, qty);
+    const cta = this.props.ctaLabel ?? 'GET MY OFFER';
+    const hero = this.props.heroVariant ?? 'product';
+    const cadence = this.props.cadence ?? '30 days';
+    const teeN = this.props.tshirtValue || 0, hatN = this.props.hatValue || 0;
+    const tshirtValue = teeN ? '$' + teeN : '$XX';
+    const hatValue = hatN ? '$' + hatN : '$XX';
+    const qLabel = (q) => q + (q === 1 ? ' Pouch' : ' Pouches');
+
+    const optLabel = (pl, q) => { const c = this.calc(pl, q); return c.savePct > 0 ? 'SAVE ' + c.savePct + '%' : this.money(c.total); };
+    const tagFor = (q) => q === 6 ? 'BEST VALUE' : '';
+    const mk = (pl, list, dark) => list.map(q => ({ label: qLabel(q), saveLabel: optLabel(pl, q), tag: tagFor(q), chipStyle: this.chipStyle(plan === pl && qty === q, dark), pick: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.pick(pl, q); } }));
+
+    const perkLine = (c, pl) => {
+      const out = [];
+      out.push(c.freeShip ? { icon: '✓', text: 'FREE SHIPPING UNLOCKED', on: true } : { icon: '→', text: this.money(this.FREE_SHIP - c.total) + ' away from free shipping', on: false });
+      out.push(c.tshirt ? { icon: '✓', text: 'FREE LIMITLESS X T-SHIRT (' + tshirtValue + ' VALUE)', on: true } : { icon: '+', text: 'Get 6 pouches to unlock a free T-shirt', on: false });
+      if (pl === 'sub') out.push(c.hat ? { icon: '✓', text: 'FREE LIMITLESS X HAT (' + hatValue + ' VALUE)', on: true } : { icon: '+', text: 'Subscribe to 6 pouches to unlock a free hat', on: false });
+      return out;
+    };
+    const perks = perkLine(p, plan);
+    perks.forEach(k => { k.style = { display: 'flex', gap: '8px', alignItems: 'center', font: (k.on ? '700' : '500') + ' 13px/1.3 Poppins, sans-serif', color: k.on ? '#0D5C33' : '#3E463F' }; });
+    const unlocked = perks.filter(k => k.on).length;
+    const meter = { label: unlocked + ' / ' + perks.length + ' UNLOCKED', fillStyle: { width: Math.max(6, unlocked / perks.length * 100) + '%', height: '100%', borderRadius: '5px', background: unlocked === perks.length ? '#0D5C33' : this.INK, transition: 'width .5s cubic-bezier(.2,.8,.2,1)' } };
+
+    const setKey = this.props.bundleSet ?? '1/3/6';
+    const tierQ = setKey.split('/').map(Number);
+    const names = ['Try it', 'Stock up', 'Go Limitless'];
+    const tiers = tierQ.map((q, i) => {
+      const c = this.calc(plan, q), sel = qty === q, rec = i === tierQ.length - 1;
+      const size = q === 1 ? 150 : q <= 3 ? 130 : 108, overlap = q === 1 ? 0 : q <= 3 ? 44 : 58;
+      const tp = perkLine(c, plan).filter(k => !/T-SHIRT|HAT|T-shirt|hat/.test(k.text) || k.on === false).map(k => Object.assign(k, { style: { display: 'flex', gap: '8px', alignItems: 'center', opacity: k.on ? 1 : .92, fontWeight: k.on ? 700 : 500 } }));
+      return {
+        name: names[i], qtyLabel: qLabel(q), badge: rec ? 'BEST VALUE' : '',
+        retail: this.money(c.retail), total: this.money(c.total), save: this.money(c.save), hasSave: c.save > 0.004,
+        perDay: this.money(c.perDay), perks: tp.filter(k => !(k.on && /T-SHIRT|HAT/.test(k.text))),
+        hasGifts: c.tshirt, hasHat: c.hat,
+        pouches: Array.from({ length: q }, (_, k) => { const off = k - (q - 1) / 2; return { style: { height: size + 'px', width: 'auto', marginLeft: k ? '-' + overlap + 'px' : 0, transform: 'rotate(' + (off * 7) + 'deg) translateY(' + (Math.abs(off) * 8) + 'px)', zIndex: 10 - Math.round(Math.abs(off) * 2), position: 'relative', filter: 'drop-shadow(0 12px 14px rgba(0,0,0,.35))' } }; }),
+        cardStyle: { position: 'relative', borderRadius: '32px', padding: rec ? '26px 22px' : '22px 20px', display: 'flex', flexDirection: 'column', gap: '14px', cursor: 'pointer', background: rec ? this.LIME : '#17211B', color: rec ? this.INK : '#fff', border: '3px solid ' + (sel ? (rec ? '#fff' : this.LIME) : (rec ? this.LIME : '#26342B')), boxShadow: sel ? '0 0 0 4px ' + (rec ? 'rgba(255,255,255,.35)' : 'rgba(204,255,61,.25)') + ', 0 30px 60px rgba(0,0,0,.4)' : 'none', transition: 'transform .2s', minHeight: rec ? '620px' : '560px' },
+        btnStyle: { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '58px', marginTop: 'auto', borderRadius: '999px', background: rec ? this.INK : (sel ? this.LIME : '#fff'), color: rec ? this.LIME : this.INK, fontFamily: "'Bebas Neue Pro', sans-serif", fontWeight: 700, fontSize: '24px', letterSpacing: '.04em' },
+        btnLabel: sel ? '✓ SELECTED' : 'SELECT ' + qLabel(q).toUpperCase(),
+        pick: () => { this.pick(plan, q); }
+      };
+    });
+    const tab = (on) => ({ border: 0, borderRadius: '999px', minHeight: '46px', padding: '0 20px', cursor: 'pointer', font: '700 13px/1 Poppins, sans-serif', letterSpacing: '.04em', background: on ? this.LIME : 'transparent', color: on ? this.INK : '#fff' });
+
+    const mq = [1, 3, 6].includes(qty) ? qty : 3;
+    const mSub = this.calc('sub', mq), mOnce = this.calc('once', mq);
+    const member = { qtyLabel: qLabel(mq) + ' every ' + cadence, normal: this.money(mOnce.total), price: this.money(mSub.total), save: this.money(mOnce.total - mSub.total) + ' / delivery', ship: mSub.freeShip ? 'FREE' : 'Standard rate', gift: [mSub.tshirt ? 'Tee' : null, mSub.hat ? 'Hat' : null].filter(Boolean).join(' + ') || 'Unlock at 6 pouches' };
+
+    const b = this.calc('sub', 6);
+    const hv = b.retail + teeN + hatN;
+    const haul = { pouches: this.money(b.retail), value: this.money(hv), today: this.money(b.total), save: this.money(hv - b.total), needsValues: !(teeN && hatN) };
+
+    const realReviews = [
+      { name: 'Casey Edwards', title: 'Tastes good and actually makes a difference', body: "Honestly, I didn't think something that tastes like candy could actually help, but these do. I've noticed improvements in how I feel every day, especially with energy and bloating. It's become a small but powerful part of my routine." },
+      { name: 'Abigail Richardson', title: 'Love the convenience', body: 'Love the convenience — no powders, no mixing. Just grab and go.' },
+      { name: 'Zoe Wood', title: 'Subtle but real changes', body: "The changes aren't dramatic but definitely real. Better digestion and steady energy." }
+    ].map(r => Object.assign(r, { initial: r.name[0], badge: 'limitlessx.com review', isPlaceholder: false }));
+    const ph = [1, 2].map(i => ({ name: 'Customer name', initial: '?', title: 'Imported review ' + i, body: 'Placeholder until verified reviews + UGC are imported from the review app.', badge: 'PLACEHOLDER', isPlaceholder: true, slotId: 'ugc-' + i }));
+    const revBg = ['#F7F1E3', '#EFD84A', '#CCFF3D'];
+    const reviews = [ph[0], realReviews[0], realReviews[1], ph[1], realReviews[2]].map((r, i) => Object.assign({}, r, { cardStyle: { flex: '0 0 min(78vw, 300px)', scrollSnapAlign: 'start', minHeight: r.isPlaceholder ? '520px' : '420px', background: r.isPlaceholder ? this.INK : revBg[i % 3], color: r.isPlaceholder ? '#fff' : this.INK, borderRadius: '28px', padding: '18px', display: 'flex', flexDirection: 'column', gap: '10px' } }));
+    const reviewFilters = ['Most helpful', 'Newest', 'With photos', 'Energy', 'Digestion', 'Taste', 'Convenience'].map(l => ({ label: l, pick: () => this.setState({ filter: l }), style: { flex: 'none', border: '1.5px solid ' + (s.filter === l ? this.INK : '#DAD2BC'), background: s.filter === l ? this.INK : '#fff', color: s.filter === l ? this.LIME : this.INK, borderRadius: '999px', minHeight: '44px', padding: '0 16px', cursor: 'pointer', font: '600 13px/1 Poppins, sans-serif' } }));
+
+    const faqData = [
+      ['What makes Limitless Superfood Gummies different from powders or pills?', 'Most superfood powders taste earthy and require mixing, while capsules are hard to stick with. Our gummies combine organic greens, reds, and gut-supporting enzymes in a delicious gummy with 0g sugar — so it\u2019s easy to stay consistent.'],
+      ['When will I start noticing results?', 'Many people feel improved digestion and steady energy within the first week. For benefits like skin vitality, immune support, and overall wellness, consistent use over 4\u20136 weeks delivers the best results.*'],
+      ['Do the gummies contain any sugar?', 'No — each serving has 0g sugar and only 16 calories, making them a clean choice for daily nutrition.'],
+      ['How many gummies are in a pouch?', 'Each pouch contains 60 gummies — 30 servings of 2 gummies.'],
+      ['Are they safe to take every day?', 'Our gummies are made with organic, plant-based ingredients in a GMP-certified, third-party tested facility and are designed for daily use. Consult your healthcare professional if you are pregnant, nursing, taking medication or have a medical condition.'],
+      ['How does Subscribe & Save work?', 'You save 15% on every order and your pouches ship every ' + cadence + '. You can skip, pause or cancel anytime from your account before your next billing date.'],
+      ['What if I don\u2019t notice a difference?', 'We stand behind our products with a 60-day satisfaction guarantee. If you don\u2019t feel more energized, balanced, and supported, simply return your order for a full refund.']
+    ];
+    const faqs = faqData.map(([q, a], i) => { const open = s.faq === i; return { q, a, open, sign: open ? '−' : '+', toggle: () => this.setState({ faq: open ? -1 : i }), wrapStyle: { background: open ? this.FOREST : '#fff', color: open ? '#fff' : this.INK, borderRadius: '22px', transition: 'background .2s' } }; });
+
+    const QS = [
+      { key: 'goal', title: 'What is your primary goal?', options: ['More daily nutrition', 'Gut & digestive support', 'Energy & performance', 'Weight management', 'Overall wellness'] },
+      { key: 'consistency', title: 'How consistent are you with taking greens?', options: ['Every day', 'Sometimes', 'Almost never'] },
+      { key: 'priority', title: 'What matters most?', options: ['Taste', 'Convenience', 'Ingredients', 'Value', 'Results'] }
+    ];
+    const qs = s.quizStep, qd = QS[qs - 1];
+    const question = qd ? { title: qd.title, options: qd.options.map(o => ({ label: o, pick: () => { this.setState({ answers: Object.assign({}, s.answers, { [qd.key]: o }), quizStep: qs + 1 }); }, style: { textAlign: 'left', minHeight: '58px', padding: '0 18px', borderRadius: '16px', cursor: 'pointer', border: '2px solid ' + (s.answers[qd.key] === o ? this.INK : '#E4DCC6'), background: s.answers[qd.key] === o ? this.LIME : '#fff', color: this.INK, font: '600 15px/1.2 Poppins, sans-serif' } })) } : { title: '', options: [] };
+    const emailOk = /.+@.+\..+/.test(s.email);
+
+    let maxSavePct = 0;
+    [1, 3, 6].forEach(q => { maxSavePct = Math.max(maxSavePct, this.calc('sub', q).savePct); });
+    const best = { retail: this.money(b.retail), bundlePct: b.bundlePct, bundleOff: this.money(b.bundleOff), subOff: this.money(b.subOff), total: this.money(b.total), savePct: b.savePct };
+    const startPrice = this.money(this.calc('sub', 1).total);
+
+    const G1 = 'assets/gummy-single.png', G2 = 'assets/gummy-single-2.png';
+    const heroFloat = this.group([
+      this.floater(G1, { left: '2%', top: '46%', width: '17%' }, 6, 0, -18),
+      this.floater(G2, { right: '6%', top: '30%', width: '14%' }, 7, 1.2, 22),
+      this.floater(G1, { left: '62%', top: '-2%', width: '10%' }, 5.5, .6, 40)
+    ]);
+    const darkFloat = this.group([
+      this.floater(G2, { right: '4%', top: '14%', width: '16%' }, 6.5, .3, 18),
+      this.floater(G1, { right: '10%', bottom: '8%', width: '20%' }, 7.5, 1, -12)
+    ]);
+    const ingFloat = this.group([
+      this.floater(G1, { left: '30%', top: '10%', width: 'min(12vw,90px)' }, 6, 0, -20),
+      this.floater(G2, { right: '28%', top: '62%', width: 'min(13vw,100px)' }, 7, .8, 16),
+      this.floater(G1, { left: '32%', bottom: '4%', width: 'min(10vw,76px)' }, 5.5, 1.4, 34)
+    ]);
+    const finalFloat = this.group([
+      this.floater(G1, { left: '0', top: '20%', width: '20%' }, 6, 0, -16),
+      this.floater(G2, { right: '6%', top: '8%', width: '16%' }, 7, .9, 20)
+    ]);
+    const proofTicker = this.ticker(['★★★★★ 5.0 from 210 reviews', 'GMP-certified, third-party tested facility', 'Made in USA', '0g sugar · 16 calories', 'Non-GMO · Gluten free', '60-day guarantee']);
+
+    return {
+      cta, cadence, tshirtValue, hatValue, maxSavePct, startPrice, pouchRef: this.pouchRef,
+      heroFloat, darkFloat, ingFloat, finalFloat, proofTicker,
+      isHeroProduct: hero === 'product', isHeroBenefit: hero === 'benefit', isHeroOffer: hero === 'offer',
+      isSub, isOnce: !isSub,
+      subCardStyle: this.planCard(isSub, 'sub'), onceCardStyle: this.planCard(!isSub, 'once'), subDotStyle: this.dot(isSub, true), onceDotStyle: this.dot(!isSub, false),
+      pickSub: () => { if (!isSub) this.setPlan('sub'); }, pickOnce: () => { if (isSub) this.setPlan('once'); },
+      pickSubOnly: () => this.setPlan('sub'), pickOnceOnly: () => this.setPlan('once'),
+      tabSubStyle: tab(isSub), tabOnceStyle: tab(!isSub),
+      subOpts: mk('sub', [1, 3, 6], true), onceOpts: mk('once', [1, 2, 3, 6], false),
+      price: { total: this.money(p.total), retail: this.money(p.retail), save: this.money(p.save), savePct: p.savePct, hasSavings: p.save > 0.004, perDay: this.money(p.perDay), perks },
+      meter, member, haul,
+      cartHref: 'Post-Purchase Flow.dc.html?plan=' + plan + '&qty=' + qty + '#cart',
+      onAddToCart: () => { this.track('AddToCart', { plan, qty, value: +p.total.toFixed(2) }); },
+      tiers, reviews, reviewFilters, faqs,
+      joinRoutine: () => { this.setState({ plan: 'sub', qty: mq }); this.track('SelectSubscription', { qty: mq }); this.scrollToOffer(); },
+      showSticky: s.scrolled && s.w < 900 && !s.quizOpen,
+      quizOpen: s.quizOpen, quizStep: qs,
+      openQuiz: () => { this.setState({ quizOpen: true, quizStep: 0 }); this.track('QuizStart'); },
+      closeQuiz: () => this.setState({ quizOpen: false }),
+      quizNext: () => this.setState({ quizStep: 1 }),
+      quizBarStyle: { width: Math.min(100, qs / 5 * 100) + '%', height: '100%', background: this.INK, transition: 'width .25s' },
+      qIntro: qs === 0, qQuestion: qs >= 1 && qs <= 3, qEmail: qs === 4, qReveal: qs === 5,
+      question, email: s.email, phone: s.phone, sms: s.sms,
+      onEmail: (e) => this.setState({ email: e.target.value }), onPhone: (e) => this.setState({ phone: e.target.value }), onSms: (e) => this.setState({ sms: e.target.checked }),
+      submitStyle: { width: '100%', border: 0, background: emailOk ? this.INK : '#A7ADA6', color: emailOk ? this.LIME : '#fff', borderRadius: '999px', minHeight: '60px', fontFamily: "'Bebas Neue Pro', sans-serif", fontWeight: 700, fontSize: '26px', letterSpacing: '.04em', cursor: emailOk ? 'pointer' : 'not-allowed' },
+      submitEmail: () => { if (!emailOk) return; this.track('QuizComplete', s.answers); this.track('Lead'); this.track('EmailCaptured', { sms_optin: s.sms }); this.setState({ quizStep: 5 }); },
+      revealHeadline: 'Up to ' + maxSavePct + '% off + free shipping + free gifts',
+      best, giftValues: tshirtValue + ' + ' + hatValue,
+      claimOffer: () => { this.setState({ plan: 'sub', qty: 6, quizOpen: false }); this.track('ViewOffer', { plan: 'sub', qty: 6 }); this.scrollToOffer(); }
+    };
+  }
+}
+</script>
+</body>
+</html>

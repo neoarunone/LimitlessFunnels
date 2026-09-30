@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Super Greens — Cart, Upsells &amp; Thank You</title>
+<meta name="design_doc_mode" content="canvas">
+<style>
+@font-face{font-family:"Bebas Neue Pro";src:url("./assets/fonts/BebasNeuePro-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Poppins";src:url("./assets/fonts/Poppins-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Poppins";src:url("./assets/fonts/Poppins-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Poppins";src:url("./assets/fonts/Poppins-SemiBold.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Poppins";src:url("./assets/fonts/Poppins-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+body{margin:0;background:#E9E8E2;color:#111418;font-family:Poppins,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#1D56C0}
+a:hover{color:#0D5C33}
+button,select{font-family:inherit}
+</style>
+</helmet>
+
+<section style="padding:48px;display:flex;flex-direction:column;gap:28px;min-width:2700px">
+  <div style="display:flex;flex-direction:column;gap:10px;max-width:1100px">
+    <span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.16em;color:#0D5C33">SUPER GREENS FUNNEL · STEP 2 OF 2</span>
+    <h1 style="margin:0;font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:64px;line-height:.9;text-transform:uppercase">Cart → Checkout → One-click upsells → Thank you</h1>
+    <p style="margin:0;font:400 15px/1.55 Poppins,sans-serif;color:#3F444C">Pick what the customer bought. The cart updates, and any upsell the conditional logic skips is greyed out. All $XX values are placeholders set in <code>funnel-config.json</code>. <a href="Landing Page.dc.html">← Back to landing page</a></p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+      <sc-for list="{{ scenarios }}" as="sc" hint-placeholder-count="5">
+        <button onClick="{{ sc.pick }}" style="{{ sc.style }}">{{ sc.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;font:600 13px/1 Poppins,sans-serif">
+    <sc-for list="{{ path }}" as="st" hint-placeholder-count="7">
+      <span style="{{ st.style }}">{{ st.label }}</span><span style="color:#8A8F97">→</span>
+    </sc-for>
+  </div>
+
+  <div style="display:flex;gap:36px;align-items:flex-start">
+
+    <!-- CART -->
+    <div id="cart" data-screen-label="01 Cart" style="display:flex;flex-direction:column;gap:12px">
+      <span style="font:700 13px/1 Poppins,sans-serif;letter-spacing:.1em">01 · CART DRAWER</span>
+      <div style="width:390px;height:844px;background:#fff;border-radius:36px;box-shadow:0 20px 50px rgba(0,0,0,.14);overflow:hidden;display:flex;flex-direction:column">
+        <div style="padding:20px 18px 14px;border-bottom:1px solid #EFEEE8;display:flex;justify-content:space-between;align-items:center"><span style="font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:30px;line-height:1">Your cart</span><span style="font:500 20px/1 Poppins,sans-serif">✕</span></div>
+        <div style="background:#0D5C33;color:#fff;padding:12px 18px;text-align:center;font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:24px;letter-spacing:.03em">You're saving {{ c.saveTotal }} today</div>
+        <div style="flex:1;overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <sc-for list="{{ c.progress }}" as="pg" hint-placeholder-count="3">
+              <div style="{{ pg.style }}"><span>{{ pg.icon }}</span><span>{{ pg.text }}</span></div>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center;border:1px solid #EFEEE8;border-radius:14px;padding:12px">
+            <img src="assets/pouch-apple-cinnamon.png" alt="" style="width:64px;height:80px;object-fit:contain;flex:none">
+            <div style="flex:1;display:flex;flex-direction:column;gap:4px">
+              <span style="font:700 14px/1.25 Poppins,sans-serif">Super Greens Gummies</span>
+              <span style="font:500 12px/1.2 Poppins,sans-serif;color:#4A4F57">Apple Cinnamon · {{ c.qtyLabel }}</span>
+              <span style="font:600 12px/1.2 Poppins,sans-serif;color:#0D5C33">{{ c.planLabel }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px"><span style="font:700 15px/1 Poppins,sans-serif">{{ c.total }}</span><s style="font:500 12px/1 Poppins,sans-serif;color:#6B7079">{{ c.retail }}</s></div>
+          </div>
+          <sc-if value="{{ c.tshirt }}">
+            <div style="display:flex;gap:12px;align-items:center;border:1px dashed #0D5C33;background:#F3F8F4;border-radius:14px;padding:12px">
+              <div style="width:64px;height:64px;border-radius:10px;background:#111418;color:#E4D146;display:flex;align-items:center;justify-content:center;font:700 11px/1 Poppins,sans-serif;flex:none">TEE</div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+                <span style="font:700 13px/1.2 Poppins,sans-serif">Free Limitless X T-Shirt</span>
+                <select style="min-height:36px;border:1px solid #DAD8CE;border-radius:8px;padding:0 8px;font:500 13px/1 Poppins,sans-serif"><option>Select size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
+              </div>
+              <span style="font:700 12px/1.2 Poppins,sans-serif;color:#0D5C33;text-align:right">{{ tshirtVal }}<br>FREE</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ c.hat }}">
+            <div style="display:flex;gap:12px;align-items:center;border:1px dashed #0D5C33;background:#F3F8F4;border-radius:14px;padding:12px">
+              <div style="width:64px;height:64px;border-radius:10px;background:#111418;color:#E4D146;display:flex;align-items:center;justify-content:center;font:700 11px/1 Poppins,sans-serif;flex:none">HAT</div>
+              <span style="flex:1;font:700 13px/1.2 Poppins,sans-serif">Free Limitless X Hat</span>
+              <span style="font:700 12px/1.2 Poppins,sans-serif;color:#0D5C33;text-align:right">{{ hatVal }}<br>FREE</span>
+            </div>
+          </sc-if>
+          <div style="background:#F5F4EE;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;font:500 13px/1.2 Poppins,sans-serif">
+            <div style="display:flex;justify-content:space-between"><span>Retail value</span><span>{{ c.retail }}</span></div>
+            <div style="display:flex;justify-content:space-between"><span>Bundle discount</span><span>−{{ c.bundleOff }}</span></div>
+            <div style="display:flex;justify-content:space-between"><span>Subscription savings</span><span>−{{ c.subOff }}</span></div>
+            <div style="display:flex;justify-content:space-between"><span>Free gifts</span><span>{{ c.giftText }}</span></div>
+            <div style="display:flex;justify-content:space-between"><span>Shipping</span><span>{{ c.ship }}</span></div>
+            <div style="display:flex;justify-content:space-between;border-top:1px solid #DAD8CE;padding-top:8px;font-weight:700;color:#B8321F"><span>Total savings</span><span>{{ c.saveTotal }}</span></div>
+          </div>
+          <sc-if value="{{ c.isSub }}"><p style="margin:0;font:400 11px/1.5 Poppins,sans-serif;color:#4A4F57">Subscription: {{ c.total }} charged every {{ cadence }} until cancelled. Skip, pause or cancel anytime in your account.</p></sc-if>
+        </div>
+        <div style="padding:14px 18px 22px;border-top:1px solid #EFEEE8;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;justify-content:space-between;font:700 16px/1 Poppins,sans-serif"><span>Subtotal</span><span>{{ c.total }}</span></div>
+          <button data-track="InitiateCheckout" style="border:0;border-radius:12px;min-height:56px;background:#0D5C33;color:#fff;font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:24px;letter-spacing:.04em">Secure checkout</button>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px"><span style="border-radius:8px;background:#5A31F4;color:#fff;min-height:40px;display:flex;align-items:center;justify-content:center;font:700 12px/1 Poppins,sans-serif">Shop Pay</span><span style="border-radius:8px;background:#000;color:#fff;min-height:40px;display:flex;align-items:center;justify-content:center;font:700 12px/1 Poppins,sans-serif">Apple Pay</span><span style="border-radius:8px;border:1px solid #DAD8CE;min-height:40px;display:flex;align-items:center;justify-content:center;font:700 12px/1 Poppins,sans-serif">G Pay</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPSELL 1 -->
+    <div data-screen-label="02 Upsell 1 Stock Up" style="{{ u1.wrap }}">
+      <span style="font:700 13px/1 Poppins,sans-serif;letter-spacing:.1em">02 · UPSELL #1 — STOCK UP &amp; SAVE <span style="color:#B8321F">{{ u1.note }}</span></span>
+      <div style="width:390px;height:844px;background:#fff;border-radius:36px;box-shadow:0 20px 50px rgba(0,0,0,.14);overflow:hidden;display:flex;flex-direction:column">
+        <div style="background:#111418;color:#fff;padding:14px 18px;font:600 12px/1.4 Poppins,sans-serif;text-align:center">✓ Order confirmed · One more thing before you go</div>
+        <div style="flex:1;padding:22px 20px;display:flex;flex-direction:column;gap:14px;overflow-y:auto">
+          <span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.14em;color:#0D5C33">EXCLUSIVE ONE-TIME OFFER</span>
+          <h2 style="margin:0;font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:46px;line-height:.9;text-transform:uppercase">You already started your Limitless routine.</h2>
+          <p style="margin:0;font:400 14.5px/1.55 Poppins,sans-serif;color:#3F444C">Add {{ u1.addQty }} more pouches at a special post-purchase price. Consistency over 4–6 weeks is where the routine pays off.*</p>
+          <div style="background:#F5F4EE;border-radius:18px;padding:18px;display:flex;align-items:center;gap:14px">
+            <div style="display:flex;flex:none"><img src="assets/pouch-apple-cinnamon.png" alt="" style="height:110px;width:auto"><img src="assets/pouch-apple-cinnamon.png" alt="" style="height:110px;width:auto;margin-left:-40px"></div>
+            <div style="display:flex;flex-direction:column;gap:4px"><span style="font:700 15px/1.2 Poppins,sans-serif">+{{ u1.addQty }} Super Greens pouches</span><span style="font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:34px;line-height:1">$XX.XX</span><span style="font:500 12px/1.2 Poppins,sans-serif;color:#4A4F57">vs {{ u1.retail }} regular · price set in config</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;font:500 13px/1.3 Poppins,sans-serif"><span>✓ Ships with your current order</span><span>✓ No need to re-enter payment</span><span>✓ Covered by the 60-day guarantee</span></div>
+        </div>
+        <div style="padding:14px 20px 24px;display:flex;flex-direction:column;gap:8px">
+          <button data-track="UpsellAccepted" style="border:0;border-radius:12px;min-height:58px;background:#0D5C33;color:#fff;font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:24px;letter-spacing:.04em">Yes — add to my order</button>
+          <button data-track="UpsellDeclined" style="border:0;background:none;min-height:44px;font:600 14px/1 Poppins,sans-serif;color:#3F444C;text-decoration:underline">No thanks</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPSELL 2 -->
+    <div data-screen-label="03 Upsell 2 Daily Stack" style="display:flex;flex-direction:column;gap:12px">
+      <span style="font:700 13px/1 Poppins,sans-serif;letter-spacing:.1em">03 · UPSELL #2 — COMPLETE YOUR DAILY STACK</span>
+      <div style="width:390px;height:844px;background:#fff;border-radius:36px;box-shadow:0 20px 50px rgba(0,0,0,.14);overflow:hidden;display:flex;flex-direction:column">
+        <div style="background:#111418;color:#fff;padding:14px 18px;font:600 12px/1.4 Poppins,sans-serif;text-align:center">Offer 2 of {{ offerCount }}</div>
+        <div style="flex:1;padding:22px 20px;display:flex;flex-direction:column;gap:14px;overflow-y:auto">
+          <h2 style="margin:0;font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:46px;line-height:.9;text-transform:uppercase">Complete your daily stack.</h2>
+          <p style="margin:0;font:400 14.5px/1.55 Poppins,sans-serif;color:#3F444C">Super Greens covers your daily nutrition. NZT-48 is the Limitless X flagship formula built for focus and mental clarity.* Take both in the morning and your whole routine is handled.</p>
+          <div style="background:#111418;border-radius:18px;padding:18px;display:flex;align-items:center;gap:10px;justify-content:center">
+            <img src="assets/pouch-apple-cinnamon.png" alt="" style="height:130px;width:auto">
+            <span style="color:#E4D146;font:700 28px/1 Poppins,sans-serif">+</span>
+            <img src="assets/nzt48.png" alt="NZT-48" style="height:150px;width:auto;object-fit:contain">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font:500 12.5px/1.35 Poppins,sans-serif">
+            <div style="background:#F3F8F4;border-radius:12px;padding:12px"><strong style="display:block;margin-bottom:4px">Super Greens</strong>Daily nutrition, gut &amp; digestion support*</div>
+            <div style="background:#F5F4EE;border-radius:12px;padding:12px"><strong style="display:block;margin-bottom:4px">NZT-48</strong>Focus &amp; mental clarity support*</div>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:10px"><span style="font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:38px;line-height:1">$XX.XX</span><span style="font:500 13px/1 Poppins,sans-serif;color:#4A4F57">post-purchase price · set in config</span></div>
+        </div>
+        <div style="padding:14px 20px 24px;display:flex;flex-direction:column;gap:8px">
+          <button data-track="UpsellAccepted" style="border:0;border-radius:12px;min-height:58px;background:#0D5C33;color:#fff;font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:24px;letter-spacing:.04em">Yes — add NZT-48</button>
+          <button data-track="UpsellDeclined" style="border:0;background:none;min-height:44px;font:600 14px/1 Poppins,sans-serif;color:#3F444C;text-decoration:underline">No thanks</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPSELL 3 -->
+    <div data-screen-label="04 Upsell 3 Performance" style="display:flex;flex-direction:column;gap:12px">
+      <span style="font:700 13px/1 Poppins,sans-serif;letter-spacing:.1em">04 · UPSELL #3 — PERFORMANCE STACK</span>
+      <div style="width:390px;height:844px;background:#fff;border-radius:36px;box-shadow:0 20px 50px rgba(0,0,0,.14);overflow:hidden;display:flex;flex-direction:column">
+        <div style="background:#111418;color:#fff;padding:14px 18px;font:600 12px/1.4 Poppins,sans-serif;text-align:center">Offer 3 of {{ offerCount }}</div>
+        <div style="flex:1;padding:22px 20px;display:flex;flex-direction:column;gap:14px;overflow-y:auto">
+          <h2 style="margin:0;font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:46px;line-height:.9;text-transform:uppercase">Train like you mean it.</h2>
+          <p style="margin:0;font:400 14.5px/1.55 Poppins,sans-serif;color:#3F444C">Add OneShot, our nootropic pre-workout, for the days you hit the gym. Greens in the morning, OneShot before training.</p>
+          <div style="background:linear-gradient(180deg,#0E2A4A,#111418);border-radius:18px;padding:18px;display:flex;align-items:center;justify-content:center;min-height:210px">
+            <img src="assets/oneshot.png" alt="OneShot pre-workout" style="height:180px;width:auto;object-fit:contain">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;font:500 13px/1.3 Poppins,sans-serif"><span>✓ Ships with your order</span><span>✓ One click, no re-entering payment</span></div>
+          <div style="display:flex;align-items:baseline;gap:10px"><span style="font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:38px;line-height:1">$XX.XX</span><span style="font:500 13px/1 Poppins,sans-serif;color:#4A4F57">post-purchase price · set in config</span></div>
+        </div>
+        <div style="padding:14px 20px 24px;display:flex;flex-direction:column;gap:8px">
+          <button data-track="UpsellAccepted" style="border:0;border-radius:12px;min-height:58px;background:#0D5C33;color:#fff;font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:24px;letter-spacing:.04em">Yes — add OneShot</button>
+          <button data-track="UpsellDeclined" style="border:0;background:none;min-height:44px;font:600 14px/1 Poppins,sans-serif;color:#3F444C;text-decoration:underline">No thanks</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPSELL 4 -->
+    <div data-screen-label="05 Upsell 4 Subscription" style="{{ u4.wrap }}">
+      <span style="font:700 13px/1 Poppins,sans-serif;letter-spacing:.1em">05 · UPSELL #4 — LOCK IN SAVINGS <span style="color:#B8321F">{{ u4.note }}</span></span>
+      <div style="width:390px;height:844px;background:#0D5C33;color:#fff;border-radius:36px;box-shadow:0 20px 50px rgba(0,0,0,.14);overflow:hidden;display:flex;flex-direction:column">
+        <div style="background:#111418;color:#fff;padding:14px 18px;font:600 12px/1.4 Poppins,sans-serif;text-align:center">Last offer</div>
+        <div style="flex:1;padding:22px 20px;display:flex;flex-direction:column;gap:14px;overflow-y:auto">
+          <h2 style="margin:0;font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:50px;line-height:.9;text-transform:uppercase">Want to lock in your savings?</h2>
+          <p style="margin:0;font:400 14.5px/1.55 Poppins,sans-serif;color:#DDEBE1">Switch today's order to Subscribe &amp; Save and get 15% off this order and every refill, delivered before you run out.</p>
+          <div style="background:rgba(255,255,255,.1);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px;font:500 14px/1.2 Poppins,sans-serif">
+            <div style="display:flex;justify-content:space-between"><span>Today's order</span><span>{{ u4.now }}</span></div>
+            <div style="display:flex;justify-content:space-between;color:#E4D146;font-weight:700"><span>With Subscribe &amp; Save</span><span>{{ u4.sub }}</span></div>
+            <div style="display:flex;justify-content:space-between"><span>You save today</span><span>{{ u4.save }}</span></div>
+          </div>
+          <p data-compliance="subscription-disclosure" style="margin:0;font:400 11.5px/1.5 Poppins,sans-serif;color:#DDEBE1">By tapping "Yes", you agree to be charged {{ u4.sub }} every {{ cadence }} until you cancel. Skip, pause or cancel anytime from your account.</p>
+        </div>
+        <div style="padding:14px 20px 24px;display:flex;flex-direction:column;gap:8px">
+          <button data-track="SubscriptionStarted" style="border:0;border-radius:12px;min-height:58px;background:#E4D146;color:#111418;font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:24px;letter-spacing:.04em">Yes — subscribe &amp; save 15%</button>
+          <button data-track="UpsellDeclined" style="border:0;background:none;min-height:44px;font:600 14px/1 Poppins,sans-serif;color:#fff;text-decoration:underline">No thanks, keep one-time</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- THANK YOU -->
+    <div data-screen-label="06 Thank You" style="display:flex;flex-direction:column;gap:12px">
+      <span style="font:700 13px/1 Poppins,sans-serif;letter-spacing:.1em">06 · THANK-YOU PAGE</span>
+      <div style="width:390px;height:844px;background:#fff;border-radius:36px;box-shadow:0 20px 50px rgba(0,0,0,.14);overflow:hidden;overflow-y:auto;display:flex;flex-direction:column">
+        <div style="background:#E4D146;padding:28px 20px;display:flex;flex-direction:column;gap:8px">
+          <span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.14em">ORDER #XXXX CONFIRMED</span>
+          <h2 style="margin:0;font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:56px;line-height:.88;text-transform:uppercase">Welcome to Limitless.</h2>
+          <span style="font:500 13.5px/1.45 Poppins,sans-serif">Confirmation sent to your email. Tracking follows when your order ships.</span>
+        </div>
+        <div style="padding:20px;display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.14em;color:#0D5C33">HOW TO USE</span>
+            <div style="display:flex;gap:10px;align-items:center;background:#F5F4EE;border-radius:14px;padding:12px"><span style="font-family:'Bebas Neue Pro',Poppins,sans-serif;font-weight:700;font-size:36px;line-height:1;color:#0D5C33">2</span><span style="font:500 13.5px/1.4 Poppins,sans-serif">gummies daily — morning, afternoon, or whenever works. Same time each day is easiest.</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.14em;color:#0D5C33">WHAT TO EXPECT*</span>
+            <div style="display:flex;gap:10px;font:500 13px/1.4 Poppins,sans-serif"><strong style="flex:none;width:70px">Week 1</strong><span>Many people notice improved digestion and steady energy.</span></div>
+            <div style="display:flex;gap:10px;font:500 13px/1.4 Poppins,sans-serif"><strong style="flex:none;width:70px">Weeks 4–6</strong><span>Consistent use supports skin vitality, immunity and overall wellness.</span></div>
+          </div>
+          <sc-if value="{{ c.isSub }}">
+            <div style="border:1px solid #E3E1D8;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px"><span style="font:700 14px/1.2 Poppins,sans-serif">Your Limitless Routine is active</span><span style="font:400 13px/1.45 Poppins,sans-serif;color:#3F444C">Next delivery in {{ cadence }}. Skip, pause or cancel anytime.</span><a href="#" style="font:600 13px/1 Poppins,sans-serif">Manage subscription →</a></div>
+          </sc-if>
+          <div style="background:#111418;color:#fff;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px">
+            <span style="font:700 15px/1.2 Poppins,sans-serif">Give $XX, get $XX</span>
+            <span style="font:400 13px/1.45 Poppins,sans-serif;color:#C9CCD1">Referral program placeholder: confirm reward structure before launch.</span>
+            <span style="border-radius:10px;background:#E4D146;color:#111418;min-height:44px;display:flex;align-items:center;justify-content:center;font:700 13px/1 Poppins,sans-serif">Share my link</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font:700 14px/1.2 Poppins,sans-serif">Show us your Limitless routine</span>
+            <span style="font:400 13px/1.45 Poppins,sans-serif;color:#3F444C">Tag @limitlessx with your pouch and you could be featured.</span>
+            <div style="display:flex;gap:8px;font:600 12px/1 Poppins,sans-serif"><span style="border:1px solid #DAD8CE;border-radius:999px;padding:10px 14px">Instagram</span><span style="border:1px solid #DAD8CE;border-radius:999px;padding:10px 14px">TikTok</span><span style="border:1px solid #DAD8CE;border-radius:999px;padding:10px 14px">YouTube</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:.14em;color:#0D5C33">PAIRS WELL WITH</span>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <div style="background:#F5F4EE;border-radius:14px;padding:12px;display:flex;flex-direction:column;align-items:center;gap:6px"><img src="assets/nzt48.png" alt="" style="height:80px;width:auto;object-fit:contain"><span style="font:600 12.5px/1.2 Poppins,sans-serif">NZT-48</span></div>
+              <div style="background:#F5F4EE;border-radius:14px;padding:12px;display:flex;flex-direction:column;align-items:center;gap:6px"><img src="assets/oneshot.png" alt="" style="height:80px;width:auto;object-fit:contain"><span style="font:600 12.5px/1.2 Poppins,sans-serif">OneShot</span></div>
+            </div>
+          </div>
+          <p style="margin:0;font:400 10.5px/1.5 Poppins,sans-serif;color:#4A4F57">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = (() => {
+    try { const q = new URLSearchParams(location.search); const plan = q.get('plan') === 'once' ? 'once' : (q.get('plan') === 'sub' ? 'sub' : 'sub'); const qty = [1, 2, 3, 6].includes(+q.get('qty')) ? +q.get('qty') : 3; return { plan, qty }; } catch (e) { return { plan: 'sub', qty: 3 }; }
+  })();
+  PRICE = 49.95; SUB = 15; FREE = 70;
+  DISC = { 1: 0, 2: 5, 3: 10, 4: 15, 5: 17, 6: 20 };
+  m(n) { return '$' + n.toFixed(2); }
+  calc(plan, qty) {
+    const retail = this.PRICE * qty, bundleOff = retail * (this.DISC[qty] || 0) / 100;
+    const subOff = plan === 'sub' ? (retail - bundleOff) * this.SUB / 100 : 0;
+    const total = retail - bundleOff - subOff;
+    return { retail, bundleOff, subOff, total, save: retail - total, freeShip: total >= this.FREE, tshirt: qty >= 6, hat: qty >= 6 && plan === 'sub' };
+  }
+  renderVals() {
+    const { plan, qty } = this.state, isSub = plan === 'sub';
+    const c = this.calc(plan, qty);
+    const tshirtVal = '$XX VALUE', hatVal = '$XX VALUE';
+    const progress = [
+      c.freeShip ? { on: true, text: 'FREE SHIPPING UNLOCKED' } : { on: false, text: this.m(this.FREE - c.total) + ' away from FREE SHIPPING' },
+      c.tshirt ? { on: true, text: 'FREE T-SHIRT UNLOCKED' } : { on: false, text: (6 - qty) + ' more pouch' + (6 - qty === 1 ? '' : 'es') + ' to unlock your FREE T-SHIRT' },
+      c.hat ? { on: true, text: 'FREE HAT UNLOCKED' } : { on: false, text: isSub ? (qty < 6 ? 'Subscribe to 6 pouches for a FREE HAT' : '') : 'Subscribe to 6 pouches for a FREE HAT' }
+    ].filter(p => p.text).map(p => ({ icon: p.on ? '✓' : '○', text: p.text, style: { display: 'flex', gap: '8px', alignItems: 'center', padding: '9px 12px', borderRadius: '10px', background: p.on ? '#EAF3EC' : '#F5F4EE', color: p.on ? '#0D5C33' : '#3F444C', font: (p.on ? '700' : '500') + ' 12.5px/1.2 Poppins, sans-serif' } }));
+    const gifts = [c.tshirt ? 'T-shirt' : null, c.hat ? 'Hat' : null].filter(Boolean);
+    const skipU1 = qty >= 6, skipU4 = isSub;
+    const wrap = (skip) => ({ display: 'flex', flexDirection: 'column', gap: '12px', opacity: skip ? 0.35 : 1, filter: skip ? 'grayscale(1)' : 'none' });
+    const s4 = this.calc('sub', qty);
+    const scen = [['once', 1], ['once', 3], ['sub', 3], ['once', 6], ['sub', 6]];
+    const path = [
+      { label: 'Cart', on: true }, { label: 'Checkout', on: true },
+      { label: 'Upsell 1', on: !skipU1 }, { label: 'Upsell 2', on: true }, { label: 'Upsell 3', on: true },
+      { label: 'Upsell 4', on: !skipU4 }, { label: 'Thank you', on: true }
+    ].map(p => ({ label: p.on ? p.label : p.label + ' (skipped)', style: { padding: '8px 12px', borderRadius: '999px', background: p.on ? '#111418' : 'transparent', color: p.on ? '#fff' : '#8A8F97', border: p.on ? '0' : '1px dashed #B9B6AA', textDecoration: p.on ? 'none' : 'line-through' } }));
+    return {
+      cadence: '30 days', tshirtVal, hatVal,
+      offerCount: String(2 + (skipU1 ? 0 : 1) + (skipU4 ? 0 : 1)),
+      scenarios: scen.map(([p, q]) => ({ label: q + ' pouch' + (q > 1 ? 'es' : '') + ' · ' + (p === 'sub' ? 'Subscribe' : 'One-time'), pick: () => this.setState({ plan: p, qty: q }), style: { border: '2px solid ' + (plan === p && qty === q ? '#0D5C33' : '#CFCCBF'), background: plan === p && qty === q ? '#0D5C33' : '#fff', color: plan === p && qty === q ? '#fff' : '#111418', borderRadius: '999px', minHeight: '42px', padding: '0 16px', cursor: 'pointer', font: '600 13px/1 Poppins, sans-serif' } })),
+      path,
+      c: { isSub, qtyLabel: qty + ' pouch' + (qty > 1 ? 'es' : ''), planLabel: isSub ? 'Subscribe & Save · every 30 days' : 'One-time purchase', total: this.m(c.total), retail: this.m(c.retail), bundleOff: this.m(c.bundleOff), subOff: this.m(c.subOff), ship: c.freeShip ? 'FREE' : 'Calculated at checkout', giftText: gifts.length ? gifts.join(' + ') + ' ($XX)' : '—', saveTotal: this.m(c.save), tshirt: c.tshirt, hat: c.hat, progress },
+      u1: { wrap: wrap(skipU1), note: skipU1 ? '· SKIPPED (bought 6)' : '', addQty: qty === 1 ? 2 : 3, retail: this.m(this.PRICE * (qty === 1 ? 2 : 3)) },
+      u4: { wrap: wrap(skipU4), note: skipU4 ? '· SKIPPED (already subscribed)' : '', now: this.m(c.total), sub: this.m(s4.total), save: this.m(c.total - s4.total) }
+    };
+  }
+}
+</script>
+</body>
+</html>

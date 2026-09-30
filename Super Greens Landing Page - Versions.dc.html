@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Super Greens — Version compare</title>
+<style>
+@font-face{font-family:"Poppins";src:url("./assets/fonts/Poppins-SemiBold.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Poppins";src:url("./assets/fonts/Poppins-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+html,body{margin:0;height:100%;overflow:hidden;background:#0C1A11}
+*{box-sizing:border-box}
+a{color:#F4DC2A}
+a:hover{color:#A6D62E}
+</style>
+</helmet>
+<div data-screen-label="Version compare" style="position:fixed;inset:0;display:flex;flex-direction:column;background:#0C1A11;font-family:Poppins,sans-serif">
+  <div style="flex:none;height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 14px;background:#0C1A11;color:#fff;border-bottom:1px solid rgba(255,255,255,.14)">
+    <div style="display:flex;align-items:center;gap:12px;min-width:0">
+      <span style="font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#F4DC2A;white-space:nowrap">Super Greens</span>
+      <div role="tablist" style="display:flex;gap:4px;background:rgba(255,255,255,.08);border-radius:999px;padding:4px">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+          <button onClick="{{ t.pick }}" role="tab" style="{{ t.style }}"><span style="opacity:.6;margin-right:6px">{{ t.n }}</span>{{ t.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;font-weight:600;font-size:12px;color:#C9D6CD;white-space:nowrap">
+      <span style="display:none">.</span>
+      <span>Keys 1 · 2 · 3 — keeps your section</span>
+      <a href="{{ openHref }}" target="_blank" style="text-decoration:none;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:8px 14px;color:#fff" style-hover="background:rgba(255,255,255,.12)">Open in tab ↗</a>
+    </div>
+  </div>
+  <div style="position:relative;flex:1;min-height:0">
+    <iframe title="V1 Retro" src="Super Greens Landing Page - Retro.dc.html?embed=1" style="{{ f1 }}"></iframe>
+    <iframe title="V2 Clean" src="Super Greens Landing Page - V2 Clean.dc.html?embed=1" style="{{ f2 }}"></iframe>
+    <iframe title="V3 Legacy" src="Super Greens Landing Page - Working Copy.dc.html?embed=1" style="{{ f3 }}"></iframe>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ver: 0 };
+  FILES = ['Super Greens Landing Page - Retro.dc.html', 'Super Greens Landing Page - V2 Clean.dc.html', 'Super Greens Landing Page - Working Copy.dc.html'];
+  componentDidMount() {
+    let v = 0;
+    try { v = +(localStorage.getItem('sg_ver') || 0); } catch (e) {}
+    const h = (location.hash || '').match(/v([123])/i); if (h) v = +h[1] - 1;
+    if (v >= 0 && v < 3) this.setState({ ver: v });
+    this._key = (e) => { if (/input|textarea/i.test((e.target || {}).tagName || '')) return; if (e.key === '1' || e.key === '2' || e.key === '3') this.go(+e.key - 1); };
+    window.addEventListener('keydown', this._key);
+    this._fk = () => { try { [...document.querySelectorAll('iframe')].forEach(f => { const d = f.contentWindow; if (d && !d.__lxk) { d.__lxk = 1; d.addEventListener('keydown', this._key); } }); } catch (e) {} };
+    this._t = setInterval(this._fk, 1200);
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this._key); clearInterval(this._t); }
+  frames() { return [...document.querySelectorAll('iframe')]; }
+  curSection(f) {
+    try {
+      const d = f.contentDocument, w = f.contentWindow, H = w.innerHeight;
+      const secs = [...d.querySelectorAll('[data-section]')].filter(s => s.getAttribute('data-section') !== 'sticky-cta');
+      let hit = null, off = 0;
+      secs.forEach(s => { const r = s.getBoundingClientRect(); if (r.top <= H * .35) { hit = s; off = -r.top; } });
+      return hit ? { id: hit.getAttribute('data-section'), off } : null;
+    } catch (e) { return null; }
+  }
+  go(n) {
+    const fr = this.frames(), from = fr[this.state.ver], to = fr[n];
+    const cur = from ? this.curSection(from) : null;
+    this.setState({ ver: n });
+    try { localStorage.setItem('sg_ver', String(n)); history.replaceState(null, '', '#v' + (n + 1)); } catch (e) {}
+    if (cur && to) {
+      const run = (tries) => {
+        try {
+          const d = to.contentDocument, w = to.contentWindow, el = d.querySelector('[data-section="' + cur.id + '"]');
+          if (el) { const y = el.getBoundingClientRect().top + w.scrollY; w.scrollTo(0, Math.max(0, y + Math.min(cur.off, el.offsetHeight * .5))); }
+          else if (tries < 12) setTimeout(() => run(tries + 1), 250);
+        } catch (e) {}
+      };
+      setTimeout(() => run(0), 60);
+    }
+  }
+  renderVals() {
+    const v = this.state.ver, labels = ['Retro · 3D', 'Clean', 'Legacy'];
+    const tabs = labels.map((label, i) => ({ n: 'V' + (i + 1), label, pick: () => this.go(i), style: { border: 0, cursor: 'pointer', borderRadius: '999px', padding: '0 16px', minHeight: '38px', font: '600 13px/1 Poppins, sans-serif', background: v === i ? '#F4DC2A' : 'transparent', color: v === i ? '#0C1A11' : '#fff' } }));
+    const fs = (i) => ({ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0, background: '#fff', visibility: v === i ? 'visible' : 'hidden', pointerEvents: v === i ? 'auto' : 'none' });
+    return { tabs, f1: fs(0), f2: fs(1), f3: fs(2), openHref: this.FILES[v] };
+  }
+}
+</script>
+</body>
+</html>
