@@ -15,30 +15,29 @@
   }
 
   function build() {
-    if (document.getElementById('sg-version-switch')) return;
+    var old = document.getElementById('sg-version-switch'); if (old) old.remove();
+    var mobile = window.innerWidth < 900;
     var wrap = document.createElement('div');
     wrap.id = 'sg-version-switch';
     wrap.setAttribute('role', 'tablist');
-    wrap.style.cssText = 'position:fixed;right:16px;bottom:' + (window.innerWidth < 900 ? '84px' : '16px') + ';z-index:2147483000;display:flex;gap:4px;padding:5px;border-radius:999px;background:#0C1A11;box-shadow:0 10px 30px rgba(0,0,0,.35);font-family:Poppins,Arial,sans-serif';
+    wrap.style.cssText = mobile
+      ? 'position:relative;z-index:50;display:flex;justify-content:center;align-items:center;gap:6px;padding:8px 12px;background:#0C1A11;font-family:Poppins,Arial,sans-serif'
+      : 'position:fixed;right:16px;bottom:16px;z-index:2147483000;display:flex;gap:4px;padding:5px;border-radius:999px;background:#0C1A11;box-shadow:0 10px 30px rgba(0,0,0,.35);font-family:Poppins,Arial,sans-serif';
     ['V1', 'V2', 'V3'].forEach(function (label, i) {
       var b = document.createElement('button');
       b.type = 'button';
-      b.textContent = label;
+      b.textContent = label + (mobile ? ' · ' + ['Retro', 'Clean', 'Legacy'][i] : '');
       b.title = ['Retro 3D', 'Clean', 'Legacy'][i];
       var on = i === cur;
-      b.style.cssText = 'border:0;cursor:pointer;min-width:46px;height:38px;padding:0 14px;border-radius:999px;font:700 13px/1 Poppins,Arial,sans-serif;letter-spacing:.04em;background:' + (on ? '#F4DC2A' : 'transparent') + ';color:' + (on ? '#0C1A11' : '#fff');
-      if (!on) {
-        b.onmouseenter = function () { b.style.background = 'rgba(255,255,255,.14)'; };
-        b.onmouseleave = function () { b.style.background = 'transparent'; };
-        b.onclick = function () {
-          var id = sectionNow();
-          location.href = encodeURI(FILES[i]) + (id ? '#sg=' + id : '');
-        };
-      }
+      b.style.cssText = 'border:0;cursor:pointer;min-width:' + (mobile ? '0' : '46px') + ';flex:' + (mobile ? '1 1 0' : 'none') + ';height:' + (mobile ? '40px' : '38px') + ';padding:0 ' + (mobile ? '8px' : '14px') + ';border-radius:999px;font:700 ' + (mobile ? '12px' : '13px') + '/1 Poppins,Arial,sans-serif;letter-spacing:.03em;white-space:nowrap;background:' + (on ? '#F4DC2A' : 'rgba(255,255,255,.1)') + ';color:' + (on ? '#0C1A11' : '#fff');
+      if (!on) b.onclick = function () {
+        var id = sectionNow();
+        location.href = encodeURI(FILES[i]) + (id ? '#sg=' + id : '');
+      };
       wrap.appendChild(b);
     });
-    document.body.appendChild(wrap);
-    window.addEventListener('resize', function () { wrap.style.bottom = window.innerWidth < 900 ? '84px' : '16px'; });
+    if (mobile) document.body.insertBefore(wrap, document.body.firstChild); else document.body.appendChild(wrap);
+    if (!window.__sgRs) { window.__sgRs = true; var w0 = window.innerWidth < 900; window.addEventListener('resize', function () { var m = window.innerWidth < 900; if (m !== w0) { w0 = m; build(); } }); }
   }
 
   function restore() {
