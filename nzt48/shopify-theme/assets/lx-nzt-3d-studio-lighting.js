@@ -1,4 +1,4 @@
-import * as THREE from './lx-nzt-3d-vendor-three.module.min.js';
+import * as THREE from './lx-nzt-3d-vendor-three.module.min.js?v=4d8e72afd9';
 
 /** HDR studio softboxes. Share this exact rig with the bottle and capsules. */
 export function setupNZTStudio(renderer, scene) {

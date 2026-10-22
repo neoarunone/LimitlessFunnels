@@ -2,10 +2,10 @@
 // over a full-screen amber smoke shader whose light follows the bottle.
 // Anchor attributes: data-ry (yaw deg), data-tilt (roll deg), data-open (0-1 cap), data-pills (0-1),
 // data-fit (bottle height / slot height), data-scrub (extra yaw deg across the slot's parent), data-out="right".
-import * as THREE from './lx-nzt-3d-vendor-three.module.min.js';
-import { setupNZTStudio } from './lx-nzt-3d-studio-lighting.js?v=v2-20261017d';
-import { loadNZT } from './lx-nzt-3d-nzt-model.js?v=v2-20261017d';
-import { setupGoldStudio } from './lx-nzt-3d-gold-studio.js?v=v2-20261017d';
+import * as THREE from './lx-nzt-3d-vendor-three.module.min.js?v=4d8e72afd9';
+import { setupNZTStudio } from './lx-nzt-3d-studio-lighting.js?v=3dacc74879';
+import { loadNZT } from './lx-nzt-3d-nzt-model.js?v=e44116716b';
+import { setupGoldStudio } from './lx-nzt-3d-gold-studio.js?v=4b50cbe4dd';
 
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const lerp = (a, b, t) => a + (b - a) * t;

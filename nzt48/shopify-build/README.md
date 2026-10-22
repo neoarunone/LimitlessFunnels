@@ -30,6 +30,10 @@ This is a staging build (the designs' own runtime, unchanged). A production buil
 and wire real cart/checkout like the Super Greens build.
 
 ## Staging log
+**2026-10-22**
+- Staging now runs Jas's approved master copy (commit 031ab06: one copy across V1/V2/V3 + presentation fixes).
+- Build fix: every asset reference is stamped with a hash of that file (`?v=…`), because Shopify's CDN caches each asset URL for a year. Without it, the Oct 22 push still served the Oct 17 files.
+
 **2026-10-17 (latest push)**
 - V3: hero plays the brand film clean (white cut in Light, dark cut in Dark; landscape on desktop, portrait on phones) with the offer in a frosted bar (title + rating, from-price, Build your supply).
 - V3: Dark/Light theme (light = cream & brand blue; prism block stays navy), endless GSAP carousel (drag, fling, arrows), 3D capsule tags you can drag to spin, interactive prism (light follows the cursor on desktop).

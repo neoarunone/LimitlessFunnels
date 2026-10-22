@@ -64,8 +64,8 @@ import {
 	VectorKeyframeTrack,
 	SRGBColorSpace,
 	InstancedBufferAttribute
-} from './lx-nzt-3d-vendor-three.module.min.js';
-import { toTrianglesDrawMode } from './lx-nzt-3d-vendor-addons-utils-BufferGeometryUtils.js';
+} from './lx-nzt-3d-vendor-three.module.min.js?v=4d8e72afd9';
+import { toTrianglesDrawMode } from './lx-nzt-3d-vendor-addons-utils-BufferGeometryUtils.js?v=597aff1368';
 
 class GLTFLoader extends Loader {
 

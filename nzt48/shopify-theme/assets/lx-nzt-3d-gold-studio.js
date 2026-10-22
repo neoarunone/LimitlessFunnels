@@ -1,4 +1,4 @@
-import * as THREE from './lx-nzt-3d-vendor-three.module.min.js';
+import * as THREE from './lx-nzt-3d-vendor-three.module.min.js?v=4d8e72afd9';
 
 // A reflection environment belongs to the website scene, never to the GLB.
 // Its neutral fill keeps the gold visible on every side of a rotating capsule.

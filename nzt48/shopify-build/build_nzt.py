@@ -124,12 +124,26 @@ addEventListener('click', function (e) {
         open(os.path.join(OUT, 'sections', f'lx-{view}.liquid'), 'w').write(sec)
         json.dump({'layout': 'lx-nzt', 'sections': {'main': {'type': f'lx-{view}', 'settings': {}}}, 'order': ['main']},
                   open(os.path.join(OUT, 'templates', f'page.{view}.json'), 'w'), indent=2)
-    # 4. sanity: every flat name referenced in sections/assets exists
+    # 4. cache-busting: Shopify's CDN caches each asset URL for a year, so stamp every static reference with a
+    #    hash of that file's contents (changed files get a new URL, unchanged ones stay cached)
+    import hashlib
+    adir = os.path.join(OUT, 'assets')
+    digest = {f: hashlib.md5(open(os.path.join(adir, f), 'rb').read()).hexdigest()[:10] for f in os.listdir(adir) if not f.startswith('._')}
+    ref_re = re.compile(r"(lx-nzt-[\w\-.%]+\.(?:js|svg|mp4|webm|glb|webp|png|jpg|ttf|woff2?))(\?v=[\w\-.]+)?")
+    stamp = lambda m: m.group(1) + ('?v=' + digest[m.group(1)] if m.group(1) in digest else (m.group(2) or ''))
+    for _ in range(2):  # twice: a module's own hash changes once its imports are stamped
+        for d in ('sections', 'assets', 'layout'):
+            for f in os.listdir(os.path.join(OUT, d)):
+                if f.startswith('._') or not f.endswith(('.liquid', '.js')): continue
+                fp = os.path.join(OUT, d, f); t = open(fp).read(); n2 = ref_re.sub(stamp, t)
+                if n2 != t: open(fp, 'w').write(n2)
+        digest = {f: hashlib.md5(open(os.path.join(adir, f), 'rb').read()).hexdigest()[:10] for f in os.listdir(adir) if not f.startswith('._')}
+    # 5. sanity: every flat name referenced in sections/assets exists
     names = set(os.listdir(os.path.join(OUT, 'assets')))
     missing = set()
     for d in ('sections', 'assets'):
         for f in os.listdir(os.path.join(OUT, d)):
-            if not f.endswith(('.liquid', '.js')): continue
+            if f.startswith('._') or not f.endswith(('.liquid', '.js')): continue
             for ref in re.findall(r"lx-nzt-[\w\-.%]+\.(?:webp|png|jpg|svg|mp4|webm|glb|js|ttf|woff2?)", open(os.path.join(OUT, d, f), errors='ignore').read()):
                 if ref not in names: missing.add(ref)
     print(f'{n} assets, {len(PAGES)} pages ->', os.path.relpath(OUT))

@@ -1,6 +1,6 @@
-import * as THREE from './lx-nzt-3d-vendor-three.module.min.js';
-import { GLTFLoader } from './lx-nzt-3d-vendor-addons-loaders-GLTFLoader.js';
-import { applyNZTStudioMaterials } from './lx-nzt-3d-studio-lighting.js?v=v2-20261017d';
+import * as THREE from './lx-nzt-3d-vendor-three.module.min.js?v=4d8e72afd9';
+import { GLTFLoader } from './lx-nzt-3d-vendor-addons-loaders-GLTFLoader.js?v=f1bd088855';
+import { applyNZTStudioMaterials } from './lx-nzt-3d-studio-lighting.js?v=3dacc74879';
 
 /** Static model loader. No AnimationMixer, embedded clips, or running timeline.
  * All positions are meters; animate the returned groups with your own code.
